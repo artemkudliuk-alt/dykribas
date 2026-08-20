@@ -242,6 +242,7 @@
     const isToHero = nextStep === 1;
 
     let safetyTimer = null;
+    let transitionFinished = false;
 
     const cleanupListeners = () => {
       clearTimeout(safetyTimer);
@@ -249,14 +250,10 @@
       transitionVideo.removeEventListener('error', onError);
     };
 
-    const onError = () => {
-      console.warn(`Transition video failed for ${videoSrc}, performing instant fallback.`);
-      cleanupListeners();
-      onEnded();
-    };
-
-    // When transition video completes -> restore UI & reveal new screen content
+    // When transition completes -> restore UI & reveal new screen content
     const onEnded = () => {
+      if (transitionFinished) return;
+      transitionFinished = true;
       cleanupListeners();
       transitionVideo.pause();
 
@@ -264,24 +261,21 @@
       if (isToHero) {
         playHeroLoop();
         heroLayer.classList.add('active');
-        transitionLayer.classList.remove('active');
         imageLayer.classList.remove('active');
+        transitionLayer.classList.remove('active');
 
         currentScreen = 1;
         document.body.classList.remove('is-transitioning');
         updateUI(currentScreen);
         isTransitioning = false;
 
-        // Preload next forward transition
-        transitionVideo.src = getTransitionVideoSrc(1, 2);
-        transitionVideo.load();
-
         if (targetScreen !== currentScreen) {
           goToScreen(targetScreen);
         }
       } 
-      // Case B: Moving into Screens 2 - 7 -> Switch to static 4K image
+      // Case B: Moving into Screens 2 - 7 -> Switch to static image
       else {
+        screenImg.src = getScreenImage(nextStep);
         imageLayer.classList.add('active');
         transitionLayer.classList.remove('active');
 
@@ -296,8 +290,33 @@
       }
     };
 
+    const onError = () => {
+      console.warn(`Transition video error for ${videoSrc}, performing instant fallback.`);
+      onEnded();
+    };
+
     transitionVideo.addEventListener('ended', onEnded);
     transitionVideo.addEventListener('error', onError);
+
+    // Pre-set destination image in background
+    if (!isToHero) {
+      screenImg.src = getScreenImage(nextStep);
+    }
+
+    // Ensure transition video element has mandatory attributes for mobile WebKit & Blink
+    transitionVideo.muted = true;
+    transitionVideo.defaultMuted = true;
+    transitionVideo.playsInline = true;
+    transitionVideo.setAttribute('playsinline', '');
+    transitionVideo.setAttribute('webkit-playsinline', '');
+    transitionVideo.setAttribute('muted', '');
+
+    // Instantly activate transition layer so browser decodes it at top z-index
+    transitionLayer.classList.add('active');
+    if (isFromHero) {
+      pauseHeroLoop();
+      heroLayer.classList.remove('active');
+    }
 
     // Ensure transition video src is correct and loaded
     let isSrcChanged = false;
@@ -315,16 +334,7 @@
       
       const playPromise = transitionVideo.play();
       if (playPromise !== undefined) {
-        playPromise.then(() => {
-          transitionLayer.classList.add('active');
-          if (isFromHero) {
-            pauseHeroLoop();
-            heroLayer.classList.remove('active');
-          }
-          if (!isToHero) {
-            screenImg.src = getScreenImage(nextStep);
-          }
-        }).catch((err) => {
+        playPromise.catch((err) => {
           console.warn('Transition play catch:', err);
           onEnded();
         });
@@ -338,13 +348,13 @@
       transitionVideo.addEventListener('canplay', startTransitionPlay, { once: true });
     }
 
-    // Safety timeout: never hang more than 4.5 seconds under any circumstance
+    // Safety timeout: max 3.2 seconds so transitions never hang
     safetyTimer = setTimeout(() => {
-      if (isTransitioning) {
+      if (!transitionFinished) {
         console.warn('Safety timeout reached for transition, restoring screen.');
         onEnded();
       }
-    }, 4500);
+    }, 3200);
   }
 
   // --- Instant Crossfade Navigation (For sidebar indicator / direct clicks) ---
