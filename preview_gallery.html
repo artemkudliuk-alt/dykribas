@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ribas Duke — 21 фото для 7 экранов</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0c0d10;
+            --bg-card: #15171e;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --text-main: #e6e8ed;
+            --text-muted: #959aa8;
+            --border: rgba(212, 175, 55, 0.2);
+            --border-hover: rgba(212, 175, 55, 0.6);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hotel-tag {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .screen-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .screen-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .screen-title {
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            color: var(--gold-light);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .screen-badge {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid var(--border);
+        }
+
+        .screen-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 24px;
+        }
+
+        .photo-card {
+            background: #1c1e27;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+        }
+
+        .photo-card.favorite {
+            border: 1.5px solid var(--gold);
+        }
+
+        .img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-card:hover .img-wrapper img {
+            transform: scale(1.04);
+        }
+
+        .fav-ribbon {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--gold);
+            color: #0c0d10;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card-num {
+            font-size: 12px;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .card-action {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .btn-view {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--gold-light);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .btn-view:hover {
+            background: var(--gold);
+            color: #0c0d10;
+        }
+
+        .file-name {
+            font-size: 11px;
+            color: #687082;
+            font-family: monospace;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 180px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="hotel-tag">Ribas Duke Boutique Hotel 5★</div>
+            <h1>Галерея отбора: 21 фото для 7 экранов</h1>
+            <p class="subtitle">Кликните «Открыть оригинал» или нажмите на карточку, чтобы посмотреть фото в полном качестве перед генерацией видео.</p>
+        </header>
+
+        <!-- ЭКРАН 1 -->
+        <section class="screen-section">
+            <div class="screen-header">
+                <div class="screen-title">
+                    <span>🏛️</span>
+                    <span>ЭКРАН 1: Фасад и Приветствие (Welcome & Exterior)</span>
+                </div>
+                <div class="screen-badge">Hero Loop</div>
+            </div>
+            <div class="screen-desc">Исторический фасад 1905 года, парадный вход с козырьком-ракушкой, вывеска DUKE HOTEL, терраса.</div>
+            <div class="cards-grid">
+                <div class="photo-card favorite">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_1_photo_1_facade_front_day.jpg" alt="Вариант 1.1">
+                        <div class="fav-ribbon">⭐ Фаворит 1.1</div>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 1.1</div>
+                            <div class="card-title">Фронтальный парадный фасад</div>
+                            <div class="card-text">Идеальная симметрия, парадный вход-ракушка, четкая вывеска DUKE HOTEL и уличная терраса.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_1_photo_1...jpg</span>
+                            <a href="selected_21_photos/screen_1_photo_1_facade_front_day.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_1_photo_2_facade_classic_street.jpg" alt="Вариант 1.2">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 1.2</div>
+                            <div class="card-title">Классический фасад с брусчаткой</div>
+                            <div class="card-text">Перспектива переулка Чайковского, старинные кованые фонари и архитектура центра Одессы.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_1_photo_2...jpg</span>
+                            <a href="selected_21_photos/screen_1_photo_2_facade_classic_street.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_1_photo_3_facade_entrance_terrace.jpg" alt="Вариант 1.3">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 1.3</div>
+                            <div class="card-title">Парадный козырек и терраса</div>
+                            <div class="card-text">Приближенный ракурс входной группы с акцентом на летнюю террасу ресторана.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_1_photo_3...jpg</span>
+                            <a href="selected_21_photos/screen_1_photo_3_facade_entrance_terrace.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 2 -->
+        <section class="screen-section">
+            <div class="screen-header">
+                <div class="screen-title">
+                    <span>🍽️</span>
+                    <span>ЭКРАН 2: Ресторан LenMar & Бар (Food & Beverage)</span>
+                </div>
+                <div class="screen-badge">Hero Loop</div>
+            </div>
+            <div class="screen-desc">Высокая гастрономия, завтраки, авторские коктейли, исторический зал с картой Одессы 1917 г.</div>
+            <div class="cards-grid">
+                <div class="photo-card favorite">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_2_photo_1_lenmar_grand_hall.jpg" alt="Вариант 2.1">
+                        <div class="fav-ribbon">⭐ Фаворит 2.1</div>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 2.1</div>
+                            <div class="card-title">Гранд-зал ресторана LenMar</div>
+                            <div class="card-text">Шахматный мраморный пол, хрустальные люстры, сервированные столы и карта Одессы 1917 г.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_2_photo_1...jpg</span>
+                            <a href="selected_21_photos/screen_2_photo_1_lenmar_grand_hall.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_2_photo_2_lenmar_warm_evening.jpg" alt="Вариант 2.2">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 2.2</div>
+                            <div class="card-title">Вечерний банкет и мягкий свет</div>
+                            <div class="card-text">Теплая романтичная атмосфера, блеск винных бокалов, уютное ресторанное освещение.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_2_photo_2...jpg</span>
+                            <a href="selected_21_photos/screen_2_photo_2_lenmar_warm_evening.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_2_photo_3_lenmar_dish_wine.jpg" alt="Вариант 2.3">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 2.3</div>
+                            <div class="card-title">Изысканная подача блюда и вино</div>
+                            <div class="card-text">Акцент на высокой гастрономии, эстетике ресторанного блюда и меню рум-сервиса.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_2_photo_3...jpg</span>
+                            <a href="selected_21_photos/screen_2_photo_3_lenmar_dish_wine.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 3 -->
+        <section class="screen-section">
+            <div class="screen-header">
+                <div class="screen-title">
+                    <span>🧖‍♀️</span>
+                    <span>ЭКРАН 3: SPA & Wellness (Бассейн, Сауна, Хаммам)</span>
+                </div>
+                <div class="screen-badge">Hero Loop</div>
+            </div>
+            <div class="screen-desc">Кристальная бирюзовая вода, релакс, финская сауна, приватный спа-отдых.</div>
+            <div class="cards-grid">
+                <div class="photo-card favorite">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_3_photo_1_spa_pool_waterfall.jpg" alt="Вариант 3.1">
+                        <div class="fav-ribbon">⭐ Фаворит 3.1</div>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 3.1</div>
+                            <div class="card-title">Бассейн с водопадом и гербом</div>
+                            <div class="card-text">Бирюзовая вода, падающий водопад, мозаика герба Duke на дне и теплая подсветка.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_3_photo_1...jpg</span>
+                            <a href="selected_21_photos/screen_3_photo_1_spa_pool_waterfall.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_3_photo_2_spa_sauna_wood.jpg" alt="Вариант 3.2">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 3.2</div>
+                            <div class="card-title">Финская деревянная сауна</div>
+                            <div class="card-text">Многоярусная отделка из светлого дерева, мягкий медовый свет, атмосфера тепла и детокса.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_3_photo_2...jpg</span>
+                            <a href="selected_21_photos/screen_3_photo_2_spa_sauna_wood.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_3_photo_3_spa_lounge_beds.jpg" alt="Вариант 3.3">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 3.3</div>
+                            <div class="card-title">Зона релакса с шезлонгами</div>
+                            <div class="card-text">Деревянные шезлонги с полотенцами у кромки воды для спокойного отдыха.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_3_photo_3...jpg</span>
+                            <a href="selected_21_photos/screen_3_photo_3_spa_lounge_beds.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 4 -->
+        <section class="screen-section">
+            <div class="screen-header">
+                <div class="screen-title">
+                    <span>💼</span>
+                    <span>ЭКРАН 4: Конференц-сервис & События (Events & Halls)</span>
+                </div>
+                <div class="screen-badge">Hero Loop</div>
+            </div>
+            <div class="screen-desc">Деловые форумы, переговоры, банкеты, статусность и техническое оснащение.</div>
+            <div class="cards-grid">
+                <div class="photo-card favorite">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_4_photo_1_english_hall_luxury.jpg" alt="Вариант 4.1">
+                        <div class="fav-ribbon">⭐ Фаворит 4.1</div>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 4.1</div>
+                            <div class="card-title">Английский зал с изумрудным бархатом</div>
+                            <div class="card-text">Симметрия, изумрудные бархатные кресла с золотом, каскадные люстры, панели темного дерева.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_4_photo_1...jpg</span>
+                            <a href="selected_21_photos/screen_4_photo_1_english_hall_luxury.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_4_photo_2_boardroom_executive.jpg" alt="Вариант 4.2">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 4.2</div>
+                            <div class="card-title">Executive Boardroom для переговоров</div>
+                            <div class="card-text">Премиальный стол с микрофонами, кожаные кресла и брендированный экран DUKE.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_4_photo_2...jpg</span>
+                            <a href="selected_21_photos/screen_4_photo_2_boardroom_executive.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_4_photo_3_marine_hall_wide.jpg" alt="Вариант 4.3">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 4.3</div>
+                            <div class="card-title">Морской конференц-зал</div>
+                            <div class="card-text">Просторный светлый зал для масштабных презентаций, конференций и приемов.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_4_photo_3...jpg</span>
+                            <a href="selected_21_photos/screen_4_photo_3_marine_hall_wide.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 5 -->
+        <section class="screen-section">
+            <div class="screen-header">
+                <div class="screen-title">
+                    <span>🛏️</span>
+                    <span>ЭКРАН 5: Номера & Меню Подушек (Rooms & Pillow Menu)</span>
+                </div>
+                <div class="screen-badge">Hero Loop</div>
+            </div>
+            <div class="screen-desc">Безупречный сон, меню подушек, премиальное белье, французский балкон.</div>
+            <div class="cards-grid">
+                <div class="photo-card favorite">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_5_photo_1_suite_302_king_bed.jpg" alt="Вариант 5.1">
+                        <div class="fav-ribbon">⭐ Фаворит 5.1</div>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 5.1</div>
+                            <div class="card-title">Люкс 302: кровать King-Size и 4 подушки</div>
+                            <div class="card-text">Прямая отсылка к «Меню подушек», резное белое изголовье, светильники и балконное окно.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_5_photo_1...jpg</span>
+                            <a href="selected_21_photos/screen_5_photo_1_suite_302_king_bed.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_5_photo_2_suite_classic_boudoir.jpg" alt="Вариант 5.2">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 5.2</div>
+                            <div class="card-title">Классический двухкомнатный люкс</div>
+                            <div class="card-text">Будуарный столик, теплая вечерняя подсветка, простор пятизвездочного номера.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_5_photo_2...jpg</span>
+                            <a href="selected_21_photos/screen_5_photo_2_suite_classic_boudoir.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_5_photo_3_junior_suite_301.jpg" alt="Вариант 5.3">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 5.3</div>
+                            <div class="card-title">Полулюкс 301 с уютной спальней</div>
+                            <div class="card-text">Элегантный лаконичный номер с акцентом на уютный текстиль и комфортный отдых.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_5_photo_3...jpg</span>
+                            <a href="selected_21_photos/screen_5_photo_3_junior_suite_301.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 6 -->
+        <section class="screen-section">
+            <div class="screen-header">
+                <div class="screen-title">
+                    <span>🎭</span>
+                    <span>ЭКРАН 6: Досуг, Локация & Балкон (Odessa & Opera View)</span>
+                </div>
+                <div class="screen-badge">Hero Loop</div>
+            </div>
+            <div class="screen-desc">2 минуты до Оперного театра, чашка кофе на балконе, pet-friendly сервис.</div>
+            <div class="cards-grid">
+                <div class="photo-card favorite">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_6_photo_1_balcony_odessa_morning.jpg" alt="Вариант 6.1">
+                        <div class="fav-ribbon">⭐ Фаворит 6.1</div>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 6.1</div>
+                            <div class="card-title">Утренний кофе на балконе Duke</div>
+                            <div class="card-text">Кованый винтажный балкон, чашка кофе, вид на архитектуру исторической Одессы.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_6_photo_1...jpg</span>
+                            <a href="selected_21_photos/screen_6_photo_1_balcony_odessa_morning.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_6_photo_2_balcony_street_architecture.jpg" alt="Вариант 6.2">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 6.2</div>
+                            <div class="card-title">Перспектива улицы с балкона</div>
+                            <div class="card-text">Архитектурная перспектива солнечного переулка Чайковского и старинных фасадов.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_6_photo_2...jpg</span>
+                            <a href="selected_21_photos/screen_6_photo_2_balcony_street_architecture.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_6_photo_3_leisure_pet_friendly.jpg" alt="Вариант 6.3">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 6.3</div>
+                            <div class="card-title">Pet-Friendly сервис отеля</div>
+                            <div class="card-text">Милый пушистый четвероногий гость в номере Duke — забота и домашний уют.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_6_photo_3...jpg</span>
+                            <a href="selected_21_photos/screen_6_photo_3_leisure_pet_friendly.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 7 -->
+        <section class="screen-section">
+            <div class="screen-header">
+                <div class="screen-title">
+                    <span>🛎️</span>
+                    <span>ЭКРАН 7: Лобби, Рецепция & «Свободные Руки» (Lobby & Services)</span>
+                </div>
+                <div class="screen-badge">Hero Loop</div>
+            </div>
+            <div class="screen-desc">Мраморная стойка рецепции, герб отеля, спиральная лестница, консьерж-сервис 24/7.</div>
+            <div class="cards-grid">
+                <div class="photo-card favorite">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_7_photo_1_reception_desk_marble.jpg" alt="Вариант 7.1">
+                        <div class="fav-ribbon">⭐ Фаворит 7.1</div>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 7.1</div>
+                            <div class="card-title">Мраморная стойка рецепции</div>
+                            <div class="card-text">Монументальный белый мрамор, высеченный герб Duke, подсветка, 3D-пол и люстра.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_7_photo_1...jpg</span>
+                            <a href="selected_21_photos/screen_7_photo_1_reception_desk_marble.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_7_photo_2_spiral_marble_staircase.jpg" alt="Вариант 7.2">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 7.2</div>
+                            <div class="card-title">Парадная винтовая лестница</div>
+                            <div class="card-text">Спиральная мраморная лестница с зеркальным потолком и коваными перилами.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_7_photo_2...jpg</span>
+                            <a href="selected_21_photos/screen_7_photo_2_spiral_marble_staircase.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card">
+                    <div class="img-wrapper">
+                        <img src="selected_21_photos/screen_7_photo_3_lobby_corridor_wood_map.jpg" alt="Вариант 7.3">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="card-num">Вариант 7.3</div>
+                            <div class="card-title">Лобби с резной картой 1800 г.</div>
+                            <div class="card-text">Резное деревянное панно с историческим планом Одессы 1800 г. и зона отдыха.</div>
+                        </div>
+                        <div class="card-action">
+                            <span class="file-name">screen_7_photo_3...jpg</span>
+                            <a href="selected_21_photos/screen_7_photo_3_lobby_corridor_wood_map.jpg" target="_blank" class="btn-view">Открыть оригинал</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

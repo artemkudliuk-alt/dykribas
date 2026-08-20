@@ -1,0 +1,12 @@
+# Dependencies and tools
+node_modules/
+upscale_tools/
+.gemini/
+.idea/
+.vscode/
+
+# Temp files
+*.tmp
+*.log
+Thumbs.db
+.DS_Store

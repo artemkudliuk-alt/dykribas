@@ -1,0 +1,354 @@
+/* ==========================================================================
+   RIBAS DUKE BOUTIQUE HOTEL — VIDEO EXPERIENCE STYLES
+   ========================================================================== */
+
+:root {
+  --color-gold: #c5a86a;
+  --color-gold-light: #e4ca8c;
+  --color-gold-glow: rgba(197, 168, 106, 0.4);
+  --color-bg-dark: #0a0b0d;
+  --color-text-light: #f5f5f7;
+  --font-cinzel: 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --transition-crossfade: 450ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-bg-dark);
+  font-family: var(--font-sans);
+  color: var(--color-text-light);
+}
+
+/* --- Viewport Main Container --- */
+.viewport-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+}
+
+/* Subtle Cinematic Darkening Overlay (+6% Deeper Contrast for Static Screens) */
+.cinematic-screen-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.24) 45%, rgba(0, 0, 0, 0.38) 100%),
+              linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.10) 40%, rgba(0, 0, 0, 0.32) 100%);
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cinematic-screen-overlay.active {
+  opacity: 1;
+}
+
+/* --- Media Layers --- */
+.media-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.media-layer.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#image-layer {
+  z-index: 3;
+}
+#image-layer.active {
+  z-index: 4;
+}
+
+#transition-layer {
+  z-index: 5;
+}
+#transition-layer.active {
+  z-index: 6;
+}
+
+#hero-layer {
+  z-index: 7;
+}
+#hero-layer.active {
+  z-index: 8;
+}
+
+.media-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* --- Hero Video Seamless Crossfade Items --- */
+.hero-video-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.hero-video-item.active {
+  opacity: 1;
+}
+
+/* --- Cinematic Vignette & Ambient Overlays --- */
+.cinematic-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.55) 100%),
+              linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, transparent 20%, transparent 80%, rgba(0, 0, 0, 0.6) 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* --- App Header & Logo --- */
+.app-header {
+  position: absolute;
+  top: 32px;
+  left: 48px;
+  right: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.brand-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-title {
+  font-family: var(--font-cinzel);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.brand-stars {
+  font-size: 11px;
+  color: var(--color-gold);
+  letter-spacing: 0.35em;
+  text-shadow: 0 0 10px var(--color-gold-glow);
+}
+
+.screen-indicator {
+  font-family: var(--font-cinzel);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(10, 11, 13, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 8px 18px;
+  border-radius: 30px;
+  border: 1px solid rgba(197, 168, 106, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+#current-screen-num {
+  color: var(--color-gold-light);
+  font-size: 18px;
+}
+
+.screen-divider {
+  margin: 0 4px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.total-screen-num {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* --- Luxury Sidebar Navigation --- */
+.sidebar-nav {
+  position: absolute;
+  right: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.nav-track {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-end;
+  background: rgba(10, 11, 13, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 20px 14px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.nav-dot {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px;
+  outline: none;
+  transition: transform 0.25s ease;
+}
+
+.nav-dot:hover {
+  transform: translateX(-4px);
+}
+
+.dot-num {
+  font-family: var(--font-cinzel);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.3s ease;
+}
+
+.dot-ring {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dot-label {
+  position: absolute;
+  right: 100%;
+  margin-right: 14px;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #fff;
+  background: rgba(10, 11, 13, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(197, 168, 106, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.nav-dot:hover .dot-label {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* Active Navigation Dot State */
+.nav-dot.active .dot-ring {
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-gold);
+  box-shadow: 0 0 14px var(--color-gold-glow), 0 0 4px var(--color-gold-light);
+  transform: scale(1.25);
+}
+
+.nav-dot.active .dot-num {
+  color: var(--color-gold-light);
+  font-weight: 700;
+}
+
+/* --- Scroll Hint at Bottom --- */
+.scroll-hint {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 20;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.mouse-icon {
+  width: 20px;
+  height: 32px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.wheel {
+  width: 3px;
+  height: 6px;
+  background-color: var(--color-gold);
+  border-radius: 2px;
+  animation: scrollWheel 1.8s infinite ease-in-out;
+}
+
+.hint-text {
+  font-family: var(--font-cinzel);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes scrollWheel {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(8px); opacity: 0.2; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Hide scroll hint on lower screens if needed */
+.scroll-hint.hidden {
+  opacity: 0;
+  visibility: hidden;
+}

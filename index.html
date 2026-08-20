@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ribas Duke Boutique Hotel — Digital Guest Guide</title>
+  <meta name="description" content="Інтерактивний цифровий гід для гостей 5-зіркового бутик-готелю Ribas Duke в Одесі.">
+  <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Commissioner:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=El+Messiri:wght@400;500;600;700&family=Forum&family=Golos+Text:wght@400;500;600&family=Jost:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&family=Mulish:wght@300;400;500;600&family=Onest:wght@300;400;500;600&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Prata&family=Raleway:wght@300;400;500;600&family=Spectral:ital,wght@0,300;0,400;0,500;1,300&family=Tenor+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=15">
+  <link rel="stylesheet" href="css/design-system.css?v=15">
+</head>
+<body>
+
+  <!-- DUAL-STAGE CINEMATIC PRELOADER SYSTEM -->
+  <div id="duke-preloader-root" class="duke-preloader-root" aria-hidden="true">
+    
+    <!-- PHASE 1: Black Stage with Percentage Counter (Preloader for Preloader) -->
+    <div id="preloader-counter-stage" class="preloader-counter-stage">
+      <div class="preloader-counter-box">
+        <span class="preloader-counter-num" id="preloader-counter-val">0</span>
+        <span class="preloader-counter-unit">%</span>
+      </div>
+      <div class="preloader-counter-bar-track">
+        <div class="preloader-counter-bar-fill" id="preloader-bar-fill"></div>
+      </div>
+    </div>
+
+    <!-- PHASE 2: Fullscreen 5s Video Preloader + Center Logo 2s Slow Fade-in -->
+    <div id="preloader-video-stage" class="preloader-video-stage">
+      <video id="preloader-video-player" class="preloader-video-player" playsinline muted autoplay preload="auto"></video>
+      <div class="preloader-video-dimmer"></div>
+
+      <!-- Center Logo (Slow 2s Cinematic Fade-In) -->
+      <div class="preloader-logo-wrap" id="preloader-logo-wrap">
+        <img src="logo_new.png" alt="Ribas Duke Hotel" class="preloader-center-logo">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Top Clean Minimalist Header -->
+  <header class="site-header">
+    
+    <!-- Top-Left: Logo Image (Click reloads the page to Screen 1) -->
+    <a href="index.html" onclick="window.location.href = 'index.html'; return false;" class="header-logo" aria-label="Ribas Duke Hotel - На головну">
+      <img src="logo_new.png" alt="Ribas Duke" class="header-logo-img">
+    </a>
+
+    <!-- Top-Center: Floating Capsule Action Pills with Contextual Popovers -->
+    <nav class="header-nav-capsule" aria-label="Швидкі дії" onmouseleave="window.scheduleClosePopover()">
+      <button class="nav-pill-btn" data-popover="wifi" onmouseenter="window.openPopover(this, 'wifi')" onclick="window.openPopover(this, 'wifi')">
+        <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+        <span data-i18n="nav_wifi">Wi-Fi</span>
+      </button>
+
+      <button class="nav-pill-btn" data-popover="reception" onmouseenter="window.openPopover(this, 'reception')" onclick="window.openPopover(this, 'reception')">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span data-i18n="nav_reception">Рецепція</span>
+      </button>
+
+      <button class="nav-pill-btn" data-popover="chat" onmouseenter="window.openPopover(this, 'chat')" onclick="window.openPopover(this, 'chat')">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span data-i18n="nav_chat">Написати нам</span>
+      </button>
+
+      <button class="nav-pill-btn" data-popover="menu" onmouseenter="window.openPopover(this, 'menu')" onclick="window.openPopover(this, 'menu')">
+        <svg viewBox="0 0 24 24"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>
+        <span data-i18n="nav_menu">Меню</span>
+      </button>
+    </nav>
+
+    <!-- Top-Right: Language Switcher (Instant Translation) & Mobile Burger -->
+    <div class="header-right">
+      <div class="lang-switch header-lang-desktop">
+        <button class="lang-link active" data-lang="ua" onclick="window.setLanguage('ua')">UA</button>
+        <button class="lang-link" data-lang="en" onclick="window.setLanguage('en')">EN</button>
+        <button class="lang-link" data-lang="ru" onclick="window.setLanguage('ru')">RU</button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-burger-btn" id="mobile-burger-trigger" onclick="window.toggleMobileMenu()" aria-label="Відкрити меню" aria-expanded="false">
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Right Vertical Progress Indicators (Clean Minimalist Animated Dashes) -->
+  <aside class="sidebar-indicator" aria-label="Прогрес навігації">
+    <button class="indicator-item active" data-screen="1" onclick="window.fadeToScreenEngine ? window.fadeToScreenEngine(1) : window.goToScreenEngine(1)" aria-label="Екран 1">
+      <span class="indicator-line"></span>
+    </button>
+    <button class="indicator-item" data-screen="2" onclick="window.fadeToScreenEngine ? window.fadeToScreenEngine(2) : window.goToScreenEngine(2)" aria-label="Екран 2">
+      <span class="indicator-line"></span>
+    </button>
+    <button class="indicator-item" data-screen="3" onclick="window.fadeToScreenEngine ? window.fadeToScreenEngine(3) : window.goToScreenEngine(3)" aria-label="Екран 3">
+      <span class="indicator-line"></span>
+    </button>
+    <button class="indicator-item" data-screen="4" onclick="window.fadeToScreenEngine ? window.fadeToScreenEngine(4) : window.goToScreenEngine(4)" aria-label="Екран 4">
+      <span class="indicator-line"></span>
+    </button>
+    <button class="indicator-item" data-screen="5" onclick="window.fadeToScreenEngine ? window.fadeToScreenEngine(5) : window.goToScreenEngine(5)" aria-label="Екран 5">
+      <span class="indicator-line"></span>
+    </button>
+    <button class="indicator-item" data-screen="6" onclick="window.fadeToScreenEngine ? window.fadeToScreenEngine(6) : window.goToScreenEngine(6)" aria-label="Екран 6">
+      <span class="indicator-line"></span>
+    </button>
+    <button class="indicator-item" data-screen="7" onclick="window.fadeToScreenEngine ? window.fadeToScreenEngine(7) : window.goToScreenEngine(7)" aria-label="Екран 7">
+      <span class="indicator-line"></span>
+    </button>
+  </aside>
+
+  <!-- Left Floating Pillow Menu Widget (Karpaty Style) -->
+  <div class="floating-right-widget">
+    <button class="btn-floating-pillow" onclick="window.openPillowModal()" aria-label="Меню подушок">
+      <svg viewBox="0 0 24 24"><path d="M2 4v16h20V4H2zm18 14H4V6h16v12z"/></svg>
+      <span class="pillow-btn-text" data-i18n="pillow_widget">Меню подушок</span>
+    </button>
+  </div>
+
+  <!-- Bottom Scroll Indicator -->
+  <div id="bottom-scroll-hint" class="bottom-scroll-hint">
+    <div class="scroll-mouse-icon"></div>
+    <span class="scroll-hint-label" data-i18n="scroll_hint">СКРОЛЬТЕ ВНИЗ</span>
+  </div>
+
+  <!-- Quick Return to Top / Main Screen Floating Button (Bottom-Right) -->
+  <button id="btn-scroll-top" class="btn-scroll-top" onclick="window.scrollToMainScreen()" aria-label="Повернутися на головний екран" title="На головний екран">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Main Viewport Video Container -->
+  <main id="app" class="viewport-container" aria-label="Ribas Duke Experience">
+    
+    <!-- 1. Hero Video Seamless Loop Layer (Screen 1) -->
+    <div id="hero-layer" class="media-layer active">
+      <video id="hero-video-1" class="hero-video-item active" autoplay muted playsinline preload="auto" poster="Photo_screens/1 - Hero.webp">
+        <source src="Photo_screens/Hero_new.mp4" type="video/mp4">
+      </video>
+      <video id="hero-video-2" class="hero-video-item" muted playsinline preload="auto" poster="Photo_screens/1 - Hero.webp">
+        <source src="Photo_screens/Hero_new.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- 2. Transition Video Player Layer (Forward & Reverse Fly-throughs) -->
+    <div id="transition-layer" class="media-layer">
+      <video id="transition-video" class="media-element" muted playsinline preload="auto"></video>
+    </div>
+
+    <!-- 3. Static Screen Images Layer (Screens 2 - 7) -->
+    <div id="image-layer" class="media-layer">
+      <img id="screen-img" class="media-element" src="Photo_screens/1 - Hero.webp" alt="Ribas Duke Screen">
+    </div>
+
+    <!-- Subtle Cinematic Darkening Overlay -->
+    <div class="cinematic-screen-overlay"></div>
+
+    <!-- Screen Content Overlays Container -->
+    <div id="screens-content-layer" class="screens-content-layer">
+      
+      <!-- SCREEN 1: Hero / Welcome (Clean Open Typography) -->
+      <section class="screen-content active" data-screen="1">
+        <div class="cinematic-hero-wrap">
+          <h1 class="cinematic-title" data-i18n="hero_title">
+            Ласкаво просимо до Одеси
+          </h1>
+          <div class="title-gold-divider"></div>
+          <p class="cinematic-subtitle" data-i18n="hero_desc">
+            Ribas Duke — ваш 5-зірковий простір затишку та вишуканості поруч із видатним Оперним театром. Ми подбали про найменші деталі, щоб ваше перебування у місті біля моря було бездоганним.
+          </p>
+        </div>
+      </section>
+
+      <!-- SCREEN 2: Restaurant LenMar (Reference Layout: Left Narrative + Right Services Card) -->
+      <section class="screen-content" data-screen="2" data-align="center">
+        <div class="restaurant-screen-layout">
+          
+          <!-- LEFT / CENTER-LEFT ZONE: Atmospheric Narrative & Clean Schedule (No chunky dark box) -->
+          <div class="restaurant-narrative-zone">
+            
+            <!-- Top: Title -->
+            <div class="narrative-header">
+              <h2 class="restaurant-hero-title" data-i18n="screen2_title">
+                РЕСТОРАН LENMAR:<br>ГАСТРОНОМІЧНІ АКЦЕНТИ ОДЕСИ
+              </h2>
+            </div>
+
+            <!-- Bottom: Description & Clean Minimalist 2x2 Schedule -->
+            <div class="narrative-footer">
+              <p class="restaurant-desc-clean" data-i18n="screen2_desc">
+                Вишукана європейська та авторська одеська кухня в елегантній атмосфері. Свіжі морепродукти, локальні делікатеси та вишукана винна карта для ваших сніданків, ділових обідів і романтичних вечерь.
+              </p>
+
+              <!-- Clean 2x2 Schedule with minimalist SVG icons (No heavy opaque boxes) -->
+              <div class="schedule-clean-minimal">
+                <div class="schedule-item-minimal">
+                  <span class="schedule-ico"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg></span>
+                  <div class="schedule-text">
+                    <span class="sched-name" data-i18n="screen2_breakfast_title">Сніданки, шведський стіл</span>
+                    <span class="sched-time" data-i18n="screen2_breakfast_time">08:00–11:00</span>
+                  </div>
+                </div>
+                <div class="schedule-item-minimal">
+                  <span class="schedule-ico"><svg viewBox="0 0 24 24"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg></span>
+                  <div class="schedule-text">
+                    <span class="sched-name" data-i18n="screen2_restaurant_title">Ресторан à la carte</span>
+                    <span class="sched-time" data-i18n="screen2_restaurant_time">12:00–23:00</span>
+                  </div>
+                </div>
+                <div class="schedule-item-minimal">
+                  <span class="schedule-ico"><svg viewBox="0 0 24 24"><path d="M8 22h8m-4-7v7m-7-15l7 8 7-8H4z"/></svg></span>
+                  <div class="schedule-text">
+                    <span class="sched-name" data-i18n="screen2_bar_title">Лобі-бар</span>
+                    <span class="sched-time" data-i18n="screen2_bar_time">Цілодобово</span>
+                  </div>
+                </div>
+                <div class="schedule-item-minimal">
+                  <span class="schedule-ico"><svg viewBox="0 0 24 24"><path d="M2 4v16h20V4H2zm18 14H4V6h16v12z"/></svg></span>
+                  <div class="schedule-text">
+                    <span class="sched-name" data-i18n="screen2_roomservice_title">Room Service (в номер)</span>
+                    <span class="sched-time" data-i18n="screen2_roomservice_time">08:00–23:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile Only Action Buttons (Compact 2-Button Row) -->
+            <div class="restaurant-mobile-actions">
+              <button onclick="window.openRestaurantWebMenuModal()" class="btn-card-gold">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <span data-i18n="screen2_btn_menu_short">Меню ресторану</span>
+              </button>
+              <button onclick="window.openMinibarModal()" class="btn-card-glass">
+                <span data-i18n="screen2_btn_minibar_short">Міні-бар</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- RIGHT ZONE: Floating Glass Services Card (Identical Structure to Reference) -->
+          <div class="restaurant-services-card">
+            
+            <!-- Card Header -->
+            <div class="services-card-header">
+              <span class="services-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+              </span>
+              <span class="services-card-title" data-i18n="screen2_services_title">ПОСЛУГИ РЕСТОРАНУ</span>
+            </div>
+
+            <!-- Card Visual Photo Slider -->
+            <div class="services-slider-frame" id="restaurant-showcase" onmouseenter="window.pauseRestaurantSlider()" onmouseleave="window.resumeRestaurantSlider()">
+              <div class="showcase-viewport">
+                <div class="showcase-slide active" data-index="0">
+                  <img src="images/restaurant/1_signature_dishes.png" alt="Авторські страви" loading="lazy">
+                  <div class="showcase-tag-badge" data-i18n="slider_signature">Авторські страви</div>
+                </div>
+                <div class="showcase-slide" data-index="1">
+                  <img src="images/restaurant/2_breakfasts.png" alt="Сніданки" loading="lazy">
+                  <div class="showcase-tag-badge" data-i18n="slider_breakfast">Сніданки</div>
+                </div>
+                <div class="showcase-slide" data-index="2">
+                  <img src="images/restaurant/3_restaurant_interior.png" alt="Інтер’єр ресторану" loading="lazy">
+                  <div class="showcase-tag-badge" data-i18n="slider_interior">Інтер’єр ресторану</div>
+                </div>
+                <div class="showcase-slide" data-index="3">
+                  <img src="images/restaurant/4_lobby_bar.png" alt="Лобі-бар" loading="lazy">
+                  <div class="showcase-tag-badge" data-i18n="slider_bar">Лобі-бар</div>
+                </div>
+              </div>
+
+              <!-- Nav Arrows & Dots -->
+              <button class="showcase-btn prev" onclick="window.prevRestaurantSlide()" aria-label="Попереднє фото">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button class="showcase-btn next" onclick="window.nextRestaurantSlide()" aria-label="Наступне фото">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+
+              <div class="showcase-indicators" id="restaurant-slider-dots">
+                <span class="showcase-dot active" onclick="window.setRestaurantSlide(0)"></span>
+                <span class="showcase-dot" onclick="window.setRestaurantSlide(1)"></span>
+                <span class="showcase-dot" onclick="window.setRestaurantSlide(2)"></span>
+                <span class="showcase-dot" onclick="window.setRestaurantSlide(3)"></span>
+              </div>
+            </div>
+
+            <!-- Card Action Buttons (Exact 3-Tier Grid from Reference) -->
+            <div class="services-actions-grid">
+              <!-- Tier 1: 2 buttons side by side (Gold Accent Menu + Minibar) -->
+              <div class="actions-row-duo">
+                <button onclick="window.openRestaurantWebMenuModal()" class="btn-service-accent">
+                  <span data-i18n="screen2_btn_menu_short">МЕНЮ РЕСТОРАНУ</span>
+                </button>
+                <button onclick="window.openMinibarModal()" class="btn-service-gold-subtle">
+                  <span data-i18n="screen2_btn_minibar_short">МІНІ-БАР</span>
+                </button>
+              </div>
+
+              <!-- Tier 2: Full width Order to room button -->
+              <a href="tel:+380487053775" class="btn-service-row">
+                <span data-i18n="screen2_btn_roomservice_short">ЗАМОВИТИ В НОМЕР</span>
+              </a>
+
+              <!-- Tier 3: Full width Reserve table button -->
+              <a href="tel:+380487053775" class="btn-service-row">
+                <span data-i18n="screen2_btn_reserve_short">ЗАБРОНЮВАТИ СТОЛИК</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SCREEN 3: SPA & Wellness (Left-aligned Title + Info Zone) -->
+      <section class="screen-content" data-screen="3" data-align="custom">
+        <div class="spa-screen-layout">
+          
+          <!-- LEFT ZONE: Title on top, then description, schedule & actions -->
+          <div class="spa-left-zone">
+            <!-- Title now on the left, big and proud -->
+            <h2 class="spa-hero-title-left" data-i18n="screen3_title">
+              ЗОНА ГАРМОНІЇ<br>ТА ВІДНОВЛЕННЯ
+            </h2>
+
+            <p class="spa-desc-clean" data-i18n="screen3_desc">
+              Відновіть сили та життєвий тонус після насиченого дня в Одесі. Наш СПА-комплекс пропонує критий басейн, зону відпочинку, а також фінську сауну та традиційний хамам.
+            </p>
+
+            <!-- Useful Info Items (Clean Minimalist Schedule with strict gold SVG icons) -->
+            <div class="spa-schedule-clean">
+              <div class="schedule-item-minimal">
+                <span class="schedule-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div class="schedule-text">
+                  <span class="sched-name" data-i18n="screen3_pool_title">СПА-центр та басейн</span>
+                  <span class="sched-time" data-i18n="screen3_pool_time">Працюють цілодобово 24/7</span>
+                </div>
+              </div>
+              <div class="schedule-item-minimal">
+                <span class="schedule-ico"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+                <div class="schedule-text">
+                  <span class="sched-name" data-i18n="screen3_robe_title">Дрес-код та комфорт</span>
+                  <span class="sched-time" data-i18n="screen3_robe_desc">Можна спуститися з номера безпосередньо в халаті та капцях</span>
+                </div>
+              </div>
+              <div class="schedule-item-minimal">
+                <span class="schedule-ico"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><polygon points="12 6 13.5 9.5 17 10 14.5 12.5 15 16 12 14 9 16 9.5 12.5 7 10 10.5 9.5 12 6"/></svg></span>
+                <div class="schedule-text">
+                  <span class="sched-name" data-i18n="screen3_massage_title">Масажні кабінети та сауна</span>
+                  <span class="sched-time" data-i18n="screen3_massage_desc">Індивідуальні години за попереднім записом на рецепції (101)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="restaurant-actions-clean">
+              <button onclick="window.openSpaPdfModal()" class="btn-card-gold">
+                <span data-i18n="screen3_btn_menu">Переглянути SPA-меню та вартість процедур</span>
+              </button>
+              <a href="tel:+380487053775" class="btn-card-glass">
+                <span data-i18n="screen3_btn_book">Записатися на СПА (101)</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SCREEN 4: Conference & Events (4-Card Horizontal Luxury Layout) -->
+      <section class="screen-content" data-screen="4" data-align="custom">
+        <div class="conference-screen-layout">
+          
+          <div class="conference-right-zone">
+            <!-- Title in 2 lines -->
+            <h2 class="conference-hero-title" data-i18n="screen4_title">
+              ПРОСТІР ДЛЯ УСПІШНИХ ПОДІЙ<br>ТА БІЗНЕС-ЗУСТРІЧЕЙ
+            </h2>
+
+            <!-- Main Narrative Description -->
+            <div class="conference-desc-clean">
+              <p data-i18n="screen4_desc_p1">Готель Ribas Duke запрошує провести ваші найважливіші події на найвищому рівні.</p>
+              <p data-i18n="screen4_desc_p2">До ваших послуг — вишуканий банкетний зал для масштабних конференцій та сучасні кімнати для переговорів, оснащені преміальним мультимедійним обладнанням.</p>
+              <p data-i18n="screen4_desc_p3">Створюйте бездоганне враження під час презентацій, ділових зустрічей чи закритих урочистостей у самому серці Одеси.</p>
+            </div>
+
+            <!-- 4 Glass Feature Cards in a Single Row -->
+            <div class="conference-cards-grid">
+              <!-- Card 1: Shelter Safety -->
+              <div class="conf-glass-card">
+                <span class="conf-card-ico">
+                  <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </span>
+                <p class="conf-card-desc" data-i18n="screen4_safe_note">
+                  Завдяки наявності спеціально облаштованого залу в укритті, ваші заходи пройдуть безпечно та без жодних перерв за будь-яких обставин.
+                </p>
+              </div>
+
+              <!-- Card 2: Conference Halls -->
+              <div class="conf-glass-card">
+                <span class="conf-card-ico">
+                  <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </span>
+                <h4 class="conf-card-title" data-i18n="screen4_conf_title">Конференц-зали</h4>
+                <p class="conf-card-desc" data-i18n="screen4_conf_desc">
+                  Гнучка розсадка (до 50–80 осіб), професійний звук та проекційне обладнання.
+                </p>
+              </div>
+
+              <!-- Card 3: Coffee Breaks -->
+              <div class="conf-glass-card">
+                <span class="conf-card-ico">
+                  <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+                </span>
+                <h4 class="conf-card-title" data-i18n="screen4_coffeebreak_title">Кава-брейки та фуршети</h4>
+                <p class="conf-card-desc" data-i18n="screen4_coffeebreak_desc">
+                  Індивідуальне меню від шеф-кухаря ресторану.
+                </p>
+              </div>
+
+              <!-- Card 4: Event Manager -->
+              <div class="conf-glass-card">
+                <span class="conf-card-ico">
+                  <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </span>
+                <h4 class="conf-card-title" data-i18n="screen4_manager_title">Персональний менеджер події</h4>
+                <p class="conf-card-desc" data-i18n="screen4_manager_desc">
+                  Повний супровід від організації до завершення заходу.
+                </p>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="restaurant-actions-clean conference-actions-row">
+              <button onclick="window.openConferencePdfModal()" class="btn-card-gold">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                <span data-i18n="screen4_btn_pdf">Завантажити презентацію конференц-можливостей</span>
+              </button>
+              <button onclick="window.openEventInquiryModal()" class="btn-card-glass">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span data-i18n="screen4_btn_inquiry">Надіслати запит на розрахунок події</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SCREEN 5: Odesa Leisure & Culture (Left Zone Balanced Layout) -->
+      <section class="screen-content" data-screen="5" data-align="custom">
+        <div class="leisure-screen-layout">
+          
+          <div class="leisure-left-zone">
+            <!-- Title in 2 lines -->
+            <h2 class="leisure-hero-title" data-i18n="screen5_title">
+              ВІДКРИЙТЕ ДЛЯ СЕБЕ ОДЕСУ<br>РАЗОМ ІЗ RIBAS DUKE
+            </h2>
+
+            <!-- Main Narrative Description -->
+            <p class="leisure-desc-clean" data-i18n="screen5_desc">
+              Найвидатніші пам'ятки архітектури, театри та атмосферні вулиці знаходяться буквально за декілька кроків від нашого готелю.
+            </p>
+
+            <!-- 4 Leisure & Sights Items with Gold Icons -->
+            <div class="leisure-schedule-clean">
+              <div class="schedule-item-minimal">
+                <span class="schedule-ico">
+                  <svg viewBox="0 0 24 24"><path d="M3 21h18M4 18h16M6 18V9M10 18V9M14 18V9M18 18V9M3 9l9-6 9 6"/></svg>
+                </span>
+                <div class="schedule-text">
+                  <span class="sched-name" data-i18n="screen5_opera_title">Культурне життя & Оперний театр</span>
+                  <span class="sched-time" data-i18n="screen5_opera_desc">Прямо навпроти готелю. Допоможемо з квитками</span>
+                </div>
+              </div>
+
+              <div class="schedule-item-minimal">
+                <span class="schedule-ico">
+                  <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V10M8 20V10M12 20V10M16 20V10M20 20V10M12 4L2 10h20L12 4z"/></svg>
+                </span>
+                <div class="schedule-text">
+                  <span class="sched-name" data-i18n="screen5_center_title">Історичний центр & Дерибасівська</span>
+                  <span class="sched-time" data-i18n="screen5_center_desc">2 хвилини пішки до Приморського бульвару</span>
+                </div>
+              </div>
+
+              <div class="schedule-item-minimal">
+                <span class="schedule-ico">
+                  <svg viewBox="0 0 24 24"><path d="M2 12c2.5 2.5 5 2.5 7.5 0s5-2.5 7.5 0 5 2.5 5 0M2 17c2.5 2.5 5 2.5 7.5 0s5-2.5 7.5 0 5 2.5 5 0"/></svg>
+                </span>
+                <div class="schedule-text">
+                  <span class="sched-name" data-i18n="screen5_sea_title">Прогулянки до моря та узбережжя</span>
+                  <span class="sched-time" data-i18n="screen5_sea_desc">Морське узбережжя, пляжі та мальовничі одеські парки</span>
+                </div>
+              </div>
+
+              <div class="schedule-item-minimal">
+                <span class="schedule-ico">
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg>
+                </span>
+                <div class="schedule-text">
+                  <span class="sched-name" data-i18n="screen5_tours_title">Індивідуальні екскурсії містом</span>
+                  <span class="sched-time" data-i18n="screen5_tours_desc">Одеські дворики, катакомби та таємниці з гідом</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Leisure Action Buttons -->
+            <div class="restaurant-actions-clean">
+              <button onclick="window.openOdesaMapPdfModal()" class="btn-card-gold">
+                <svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+                <span data-i18n="screen5_btn_map">Туристична карта-маршрут</span>
+              </button>
+              <button onclick="window.openConciergeTourModal()" class="btn-card-glass">
+                <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                <span data-i18n="screen5_btn_tickets">Квитки та екскурсії</span>
+              </button>
+              <button onclick="window.openTransferModal()" class="btn-card-glass">
+                <svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 3c-.1.2-.1.5-.1.8v5.3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+                <span data-i18n="screen5_btn_transfer">Замовити трансфер</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SCREEN 6: Useful Info & Concierge Services (Centered Balanced Layout) -->
+      <section class="screen-content" data-screen="6" data-align="custom">
+        <div class="reception-screen-layout">
+          
+          <div class="reception-center-zone">
+            <!-- Title in 2 lines -->
+            <h2 class="reception-hero-title" data-i18n="screen6_title">
+              УСЕ ДЛЯ ВАШОГО<br>БЕЗДОГАННОГО ПЕРЕБУВАННЯ
+            </h2>
+
+            <!-- Check-in / Check-out Subtitle (Clean & Frameless) -->
+            <p class="reception-desc-clean" data-i18n="screen6_checkin_title">
+              Заїзд: з 14:00 • Виїзд: до 12:00
+            </p>
+
+            <!-- 4 Hotel Services in 2x2 Clean Grid -->
+            <div class="reception-services-grid">
+              <div class="schedule-item-minimal">
+                <span class="schedule-ico">
+                  <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+                </span>
+                <div class="schedule-text">
+                  <span class="sched-name" data-i18n="screen6_wifi_title">Wi-Fi в номері та готелі</span>
+                  <span class="sched-time" data-i18n="screen6_wifi_desc">Мережа: hotel-duke • Пароль: 06062014</span>
+                </div>
+              </div>
+
+              <div class="schedule-item-minimal">
+                <span class="schedule-ico">
+                  <svg viewBox="0 0 24 24"><path d="M6 20h12a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2zM9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>
+                </span>
+                <div class="schedule-text">
+                  <span class="sched-name" data-i18n="screen6_luggage_title">Багажна кімната та відправка багажу</span>
+                  <span class="sched-time" data-i18n="screen6_luggage_desc">Безкоштовне зберігання або експрес-доставка Новою Поштою</span>
+                </div>
+              </div>
+
+              <div class="schedule-item-minimal">
+                <span class="schedule-ico">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
+                </span>
+                <div class="schedule-text">
+                  <span class="sched-name" data-i18n="screen6_parking_title">Паркінг для гостей</span>
+                  <span class="sched-time" data-i18n="screen6_parking_desc">Зручні послуги паркування авто поруч із готелем</span>
+                </div>
+              </div>
+
+              <div class="schedule-item-minimal">
+                <span class="schedule-ico">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </span>
+                <div class="schedule-text">
+                  <span class="sched-name" data-i18n="screen6_safe_title">Інструкція до сейфа</span>
+                  <span class="sched-time" data-i18n="screen6_safe_desc">Електронний сейф у вашій шафі • Допомога рецепції 24/7</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons Row -->
+            <div class="restaurant-actions-clean reception-actions-row">
+              <button onclick="window.copyWifiPassword(this)" class="btn-card-gold">
+                <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+                <span data-i18n="screen6_btn_wifi">Скопіювати пароль Wi-Fi</span>
+              </button>
+              <button onclick="window.openSafeInstructionsPdfModal()" class="btn-card-glass">
+                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span data-i18n="screen6_btn_safe">Інструкція до сейфа</span>
+              </button>
+              <a href="tel:+380487053775" class="btn-card-glass">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span data-i18n="screen6_btn_reception">Викликати рецепцію (101)</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SCREEN 7: Footer & Farewell Contacts (Centered Zone) -->
+      <section class="screen-content" data-screen="7" data-align="center">
+        <div class="footer-content-wrap">
+          <h2 class="footer-title" data-i18n="screen7_title">
+            ДЯКУЄМО, ЩО ОБРАЛИ НАС
+          </h2>
+          
+          <p class="footer-desc" data-i18n="screen7_farewell">
+            Бажаємо вам неповторного та натхненного відпочинку в Одесі!<br>З повагою та турботою, команда Ribas Duke.
+          </p>
+
+          <!-- Contact Details Cards (Clean Minimalist) -->
+          <div class="footer-contacts-clean">
+            <div class="schedule-item-minimal">
+              <span class="schedule-ico">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <div class="schedule-text">
+                <span class="sched-name" data-i18n="screen7_address_label">Адреса</span>
+                <span class="sched-time" data-i18n="screen7_address_val">Україна, м. Одеса, пров. Театральний, 10</span>
+              </div>
+            </div>
+
+            <div class="schedule-item-minimal">
+              <span class="schedule-ico">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <div class="schedule-text">
+                <span class="sched-name" data-i18n="screen7_phone_label">Телефони</span>
+                <span class="sched-time" data-i18n="screen7_phone_val">+38 (048) 705-37-75 • +38 (048) 705-37-73</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links Row with Official Brand Colors -->
+          <div class="footer-social-row">
+            <a href="https://www.instagram.com/ribashotels/" target="_blank" rel="noopener" class="footer-social-link instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <span>Instagram</span>
+            </a>
+            <a href="https://www.facebook.com/ribashotels/" target="_blank" rel="noopener" class="footer-social-link facebook">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              <span>Facebook</span>
+            </a>
+            <a href="https://t.me/ribashotels" target="_blank" rel="noopener" class="footer-social-link telegram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+              <span>Telegram</span>
+            </a>
+          </div>
+
+          <!-- Footer Actions Row (Call + Interactive Map Pop-up) -->
+          <div class="restaurant-actions-clean" style="justify-content: center;">
+            <a href="tel:+380487053775" class="btn-card-gold">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span data-i18n="screen7_btn_call">Зателефонувати в готель</span>
+            </a>
+            <button onclick="window.openGoogleMapModal()" class="btn-card-glass">
+              <svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+              <span data-i18n="screen7_btn_route">Маршрут на карті</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- FULLSCREEN ZERO-SCROLL MOBILE BURGER MENU OVERLAY -->
+  <div id="mobile-menu-overlay" class="mobile-menu-overlay" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      
+      <!-- Close Button Top Right -->
+      <button class="mobile-menu-close-btn" onclick="window.closeMobileMenu()" aria-label="Закрити меню">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <!-- Top Center Brand Header in Menu -->
+      <div class="mobile-menu-brand-center">
+        <img src="logo_new.png" alt="Ribas Duke" class="mobile-menu-logo-center-img">
+        
+        <!-- Language Switcher Centered Directly Under Logo -->
+        <div class="mobile-menu-lang-switch">
+          <button class="lang-link active" data-lang="ua" onclick="window.setLanguage('ua')">UA</button>
+          <button class="lang-link" data-lang="en" onclick="window.setLanguage('en')">EN</button>
+          <button class="lang-link" data-lang="ru" onclick="window.setLanguage('ru')">RU</button>
+        </div>
+      </div>
+
+      <!-- Quick Hospitality Action Tiles (2x2 Grid) -->
+      <div class="mobile-menu-quick-grid">
+        <button class="mob-quick-tile mob-wifi-tile" id="mob-wifi-tile-btn" onclick="window.copyWifiPassword(this)">
+          <div class="mob-tile-icon">
+            <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+          </div>
+          <div class="mob-tile-info">
+            <span class="mob-tile-label" id="mob-wifi-label" data-i18n="nav_wifi">Wi-Fi</span>
+            <span class="mob-tile-val" id="mob-wifi-val">hotel-duke</span>
+          </div>
+        </button>
+
+        <a href="tel:+380487053777" class="mob-quick-tile">
+          <div class="mob-tile-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="mob-tile-info">
+            <span class="mob-tile-label" data-i18n="nav_reception">Рецепція</span>
+            <span class="mob-tile-val">100 / 101</span>
+          </div>
+        </a>
+
+        <a href="https://t.me/ribashotels" target="_blank" rel="noopener" class="mob-quick-tile">
+          <div class="mob-tile-icon telegram">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="mob-tile-info">
+            <span class="mob-tile-label" data-i18n="nav_chat">Чат готелю</span>
+            <span class="mob-tile-val">Telegram / WA</span>
+          </div>
+        </a>
+
+        <button class="mob-quick-tile" onclick="window.closeMobileMenu(); window.openPillowModal();">
+          <div class="mob-tile-icon pillow">
+            <svg viewBox="0 0 24 24"><path d="M2 4v16h20V4H2zm18 14H4V6h16v12z"/></svg>
+          </div>
+          <div class="mob-tile-info">
+            <span class="mob-tile-label" data-i18n="pillow_widget">Меню подушок</span>
+            <span class="mob-tile-val">6 видів</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Navigation Links to 7 Screens (compact layout) -->
+      <nav class="mobile-menu-screens-nav" aria-label="Розділи готелю">
+        <button class="mob-screen-nav-item" onclick="window.navMobileScreen(1)">
+          <span class="mob-nav-num">01</span>
+          <span class="mob-nav-title" data-i18n="mob_screen_1">Фасад • Головна</span>
+          <span class="mob-nav-arrow">→</span>
+        </button>
+        <button class="mob-screen-nav-item" onclick="window.navMobileScreen(2)">
+          <span class="mob-nav-num">02</span>
+          <span class="mob-nav-title" data-i18n="mob_screen_2">Ресторан LenMar</span>
+          <span class="mob-nav-arrow">→</span>
+        </button>
+        <button class="mob-screen-nav-item" onclick="window.navMobileScreen(3)">
+          <span class="mob-nav-num">03</span>
+          <span class="mob-nav-title" data-i18n="mob_screen_3">SPA & Басейн</span>
+          <span class="mob-nav-arrow">→</span>
+        </button>
+        <button class="mob-screen-nav-item" onclick="window.navMobileScreen(4)">
+          <span class="mob-nav-num">04</span>
+          <span class="mob-nav-title" data-i18n="mob_screen_4">Конференц-зал</span>
+          <span class="mob-nav-arrow">→</span>
+        </button>
+        <button class="mob-screen-nav-item" onclick="window.navMobileScreen(5)">
+          <span class="mob-nav-num">05</span>
+          <span class="mob-nav-title" data-i18n="mob_screen_5">Балкон & Одеса</span>
+          <span class="mob-nav-arrow">→</span>
+        </button>
+        <button class="mob-screen-nav-item" onclick="window.navMobileScreen(6)">
+          <span class="mob-nav-num">06</span>
+          <span class="mob-nav-title" data-i18n="mob_screen_6">Рецепція & Сервіси</span>
+          <span class="mob-nav-arrow">→</span>
+        </button>
+        <button class="mob-screen-nav-item" onclick="window.navMobileScreen(7)">
+          <span class="mob-nav-num">07</span>
+          <span class="mob-nav-title" data-i18n="mob_screen_7">Контакти & Локація</span>
+          <span class="mob-nav-arrow">→</span>
+        </button>
+      </nav>
+
+      <!-- Bottom Area: 2 Lines (Double Phone Line + Brand Socials) -->
+      <div class="mobile-menu-bottom-box">
+        <a href="tel:+380487053775" class="mob-menu-btn-call-double">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div class="mob-call-text-col">
+            <span class="mob-phone-line">+38 (048) 705-37-75</span>
+            <span class="mob-phone-line">+38 (048) 705-37-73</span>
+          </div>
+        </a>
+        
+        <div class="mob-menu-socials-brand">
+          <a href="https://www.instagram.com/ribashotels/" target="_blank" rel="noopener" class="mob-social-btn instagram" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/ribashotels/" target="_blank" rel="noopener" class="mob-social-btn facebook" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://t.me/ribashotels" target="_blank" rel="noopener" class="mob-social-btn telegram" aria-label="Telegram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/i18n.js?v=15"></script>
+  <script src="js/preloader.js?v=15"></script>
+  <script src="js/screen-manager.js?v=15"></script>
+  <script src="js/engine.js?v=15"></script>
+</body>
+</html>
