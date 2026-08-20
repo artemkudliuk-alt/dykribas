@@ -142,31 +142,49 @@
     if (heroVideo2) heroVideo2.pause();
   }
 
-  // --- Preload All Video Files ---
-  const preloadedVideos = {};
+  // --- Smart Dynamic Adjacent Preload Engine ---
+  const preloadedUrls = new Set();
+  function preloadResource(url, type) {
+    if (!url || preloadedUrls.has(url)) return;
+    preloadedUrls.add(url);
+
+    if (type === 'video') {
+      const v = document.createElement('video');
+      v.preload = 'auto';
+      v.muted = true;
+      v.playsInline = true;
+      v.src = url;
+    } else {
+      const img = new Image();
+      img.src = url;
+    }
+  }
+
+  function preloadAdjacent(screenIndex) {
+    // Forward step
+    if (screenIndex < TOTAL_SCREENS) {
+      preloadResource(getTransitionVideoSrc(screenIndex, screenIndex + 1), 'video');
+      preloadResource(getScreenImage(screenIndex + 1), 'image');
+    }
+    // Backward step
+    if (screenIndex > 1) {
+      preloadResource(getTransitionVideoSrc(screenIndex, screenIndex - 1), 'video');
+      preloadResource(getScreenImage(screenIndex - 1), 'image');
+    }
+  }
+
   function preloadTransitions() {
     if (transitionVideo) {
       transitionVideo.src = getTransitionVideoSrc(1, 2);
-      transitionVideo.preload = 'metadata';
+      transitionVideo.preload = 'auto';
     }
-
-    for (let i = 1; i < TOTAL_SCREENS; i++) {
-      const forwardSrc = getTransitionVideoSrc(i, i + 1);
-      const reverseSrc = getTransitionVideoSrc(i + 1, i);
-
-      [forwardSrc, reverseSrc].forEach((src) => {
-        const v = document.createElement('video');
-        v.preload = 'none';
-        v.muted = true;
-        v.playsInline = true;
-        v.src = src;
-        preloadedVideos[src] = v;
-      });
-    }
+    preloadAdjacent(1);
   }
 
   // --- Update UI Indicators ---
   function updateUI(screenIndex) {
+    preloadAdjacent(screenIndex);
+
     if (currentScreenNum) {
       currentScreenNum.textContent = String(screenIndex).padStart(2, '0');
     }
@@ -281,41 +299,23 @@
     transitionVideo.addEventListener('ended', onEnded);
     transitionVideo.addEventListener('error', onError);
 
-    // Ensure transition video src is correct
+    // Ensure transition video src is correct and loaded
+    let isSrcChanged = false;
     if (transitionVideo.src.indexOf(videoSrc) === -1) {
       transitionVideo.src = videoSrc;
+      transitionVideo.load();
+      isSrcChanged = true;
+    } else {
+      transitionVideo.currentTime = 0;
     }
-    transitionVideo.currentTime = 0;
 
-    // As soon as video starts playing, update the background image to the destination screen
-    const onPlaying = () => {
-      transitionVideo.removeEventListener('playing', onPlaying);
-      transitionLayer.classList.add('active');
-      if (isFromHero) {
-        pauseHeroLoop();
-        heroLayer.classList.remove('active');
-      }
-      if (!isToHero) {
-        screenImg.src = getScreenImage(nextStep);
-      }
-    };
-    transitionVideo.addEventListener('playing', onPlaying);
-
-    const playPromise = transitionVideo.play();
-    if (playPromise !== undefined) {
-      playPromise.then(() => {
-        transitionLayer.classList.add('active');
-        if (isFromHero) {
-          pauseHeroLoop();
-          heroLayer.classList.remove('active');
-        }
-        if (!isToHero) {
-          screenImg.src = getScreenImage(nextStep);
-        }
-      }).catch((err) => {
-        console.warn('Direct play error, waiting for buffer:', err);
-        transitionVideo.addEventListener('canplaythrough', function onCanPlayOnce() {
-          transitionVideo.removeEventListener('canplaythrough', onCanPlayOnce);
+    const startTransitionPlay = () => {
+      transitionVideo.removeEventListener('loadeddata', startTransitionPlay);
+      transitionVideo.removeEventListener('canplay', startTransitionPlay);
+      
+      const playPromise = transitionVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
           transitionLayer.classList.add('active');
           if (isFromHero) {
             pauseHeroLoop();
@@ -324,9 +324,18 @@
           if (!isToHero) {
             screenImg.src = getScreenImage(nextStep);
           }
-          transitionVideo.play().catch(() => onEnded());
+        }).catch((err) => {
+          console.warn('Transition play catch:', err);
+          onEnded();
         });
-      });
+      }
+    };
+
+    if (!isSrcChanged && transitionVideo.readyState >= 2) {
+      startTransitionPlay();
+    } else {
+      transitionVideo.addEventListener('loadeddata', startTransitionPlay, { once: true });
+      transitionVideo.addEventListener('canplay', startTransitionPlay, { once: true });
     }
 
     // Safety timeout: never hang more than 4.5 seconds under any circumstance
