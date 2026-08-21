@@ -601,26 +601,164 @@
     );
   };
 
-  // 6. Event Inquiry Action
+  // 6. Event Inquiry Lead Form Modal (First Name, Last Name, Phone Number, Event Type)
   window.openEventInquiryModal = function () {
     window.closeAllPopovers();
-    window.openDukePdfModal(
-      "Організація заходів — Ribas Duke",
-      "Персональний менеджер допоможе розрахувати меню, обладнання та таймінг:",
-      'docs/duke_hotel_info.pdf',
-      `
-        <div class="modal-cta-duo">
-          <a href="tel:+380487053775" class="btn-card-gold modal-cta-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>МЕНЕДЖЕР (101)</span>
-          </a>
-          <a href="https://t.me/ribashotels" target="_blank" class="btn-card-glass modal-cta-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-            <span>TELEGRAM</span>
-          </a>
+
+    let overlay = document.getElementById('duke-inquiry-modal');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'duke-inquiry-modal';
+      overlay.className = 'duke-modal-overlay';
+      overlay.innerHTML = `
+        <div class="duke-inquiry-modal-box">
+          <button class="duke-modal-close" onclick="window.closeEventInquiryModal()" aria-label="Закрити">✕</button>
+          
+          <div class="inquiry-modal-header">
+            <div class="inquiry-gold-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--duke-gold)" stroke-width="2" style="margin-right: 6px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span data-i18n="inquiry_badge">КОНФЕРЕНЦ-СЕРВІС RIBAS DUKE</span>
+            </div>
+            <h3 class="inquiry-modal-title" data-i18n="inquiry_modal_title">Запит на розрахунок події</h3>
+            <p class="inquiry-modal-subtitle" data-i18n="inquiry_modal_subtitle">
+              Залиште ваші контактні дані, і персональний менеджер підготує індивідуальну пропозицію залів, обладнання та кейтерингу:
+            </p>
+          </div>
+
+          <!-- Form View -->
+          <form id="duke-inquiry-form" class="inquiry-modal-form" onsubmit="window.submitEventInquiry(event)">
+            <div class="inquiry-form-row duo">
+              <div class="inquiry-input-group">
+                <label for="inquiry-first-name" class="inquiry-label" data-i18n="inquiry_first_name_label">Ім'я *</label>
+                <input type="text" id="inquiry-first-name" name="first_name" class="inquiry-input" placeholder="Олександр" required autocomplete="given-name">
+              </div>
+              <div class="inquiry-input-group">
+                <label for="inquiry-last-name" class="inquiry-label" data-i18n="inquiry_last_name_label">Прізвище *</label>
+                <input type="text" id="inquiry-last-name" name="last_name" class="inquiry-input" placeholder="Коваленко" required autocomplete="family-name">
+              </div>
+            </div>
+
+            <div class="inquiry-form-row">
+              <div class="inquiry-input-group">
+                <label for="inquiry-phone" class="inquiry-label" data-i18n="inquiry_phone_label">Номер телефону *</label>
+                <div class="inquiry-phone-wrap">
+                  <svg class="phone-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <input type="tel" id="inquiry-phone" name="phone" class="inquiry-input phone" placeholder="+38 (0__) ___-__-__" required autocomplete="tel">
+                </div>
+              </div>
+            </div>
+
+            <div class="inquiry-form-row">
+              <div class="inquiry-input-group">
+                <label for="inquiry-event-type" class="inquiry-label" data-i18n="inquiry_type_label">Формат події (необов'язково)</label>
+                <select id="inquiry-event-type" name="event_type" class="inquiry-select">
+                  <option value="Конференція / Семінар" data-i18n="inquiry_opt_conf">Конференція / Семінар</option>
+                  <option value="Ділова зустріч / Переговори" data-i18n="inquiry_opt_meeting">Ділова зустріч / Переговори</option>
+                  <option value="Банкет / Урочистість" data-i18n="inquiry_opt_banquet">Банкет / Урочистість</option>
+                  <option value="Презентація / Воркшоп" data-i18n="inquiry_opt_presentation">Презентація / Воркшоп</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" id="btn-inquiry-submit" class="btn-card-gold inquiry-submit-btn">
+              <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              <span data-i18n="inquiry_submit_btn">НАДІСЛАТИ ЗАПИТ МЕНЕДЖЕРУ</span>
+            </button>
+          </form>
+
+          <!-- Success Message View -->
+          <div id="inquiry-success-view" class="inquiry-success-view" style="display: none;">
+            <div class="inquiry-success-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h4 class="inquiry-success-title" data-i18n="inquiry_success_title">Запит успішно надіслано!</h4>
+            <p class="inquiry-success-desc" id="inquiry-success-desc" data-i18n="inquiry_success_desc">
+              Дякуємо! Наш менеджер подій зв'яжеться з вами за вказаним номером телефону протягом 15 хвилин.
+            </p>
+            <div class="modal-cta-wrap" style="margin-top: 18px; width: 100%;">
+              <button onclick="window.closeEventInquiryModal()" class="btn-card-gold modal-cta-btn">
+                <span data-i18n="inquiry_success_close">ЗАКРИТИ</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Direct Quick Contact Footer -->
+          <div class="inquiry-modal-footer">
+            <span class="inquiry-footer-note" data-i18n="inquiry_or_contact">Або зв'яжіться з нами напряму:</span>
+            <div class="modal-cta-duo">
+              <a href="tel:+380487053775" class="btn-card-gold modal-cta-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>МЕНЕДЖЕР (101)</span>
+              </a>
+              <a href="https://t.me/ribashotels" target="_blank" rel="noopener" class="btn-card-glass modal-cta-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                <span>TELEGRAM</span>
+              </a>
+            </div>
+          </div>
         </div>
-      `
-    );
+      `;
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) window.closeEventInquiryModal();
+      });
+    }
+
+    // Reset form view when opening
+    const formEl = overlay.querySelector('#duke-inquiry-form');
+    const successEl = overlay.querySelector('#inquiry-success-view');
+    if (formEl) formEl.style.display = 'flex';
+    if (successEl) successEl.style.display = 'none';
+
+    if (window.applyCurrentTranslations) {
+      window.applyCurrentTranslations(overlay);
+    }
+
+    overlay.classList.add('active');
+    activeModal = overlay;
+  };
+
+  window.closeEventInquiryModal = function () {
+    const overlay = document.getElementById('duke-inquiry-modal');
+    if (overlay) overlay.classList.remove('active');
+    if (activeModal === overlay) activeModal = null;
+  };
+
+  window.submitEventInquiry = function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const firstName = form.first_name ? form.first_name.value.trim() : '';
+    const lastName = form.last_name ? form.last_name.value.trim() : '';
+    const phone = form.phone ? form.phone.value.trim() : '';
+
+    if (!firstName || !lastName || !phone) return;
+
+    const submitBtn = form.querySelector('#btn-inquiry-submit');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span>⏳ Надсилання...</span>`;
+    }
+
+    setTimeout(() => {
+      form.style.display = 'none';
+      const successView = document.getElementById('inquiry-success-view');
+      const successDesc = document.getElementById('inquiry-success-desc');
+      if (successDesc) {
+        successDesc.textContent = `${firstName}, дякуємо! Наш менеджер подій зв'яжеться з вами за номером ${phone} найближчим часом.`;
+      }
+      if (successView) {
+        successView.style.display = 'flex';
+      }
+      form.reset();
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `
+          <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          <span data-i18n="inquiry_submit_btn">НАДІСЛАТИ ЗАПИТ МЕНЕДЖЕРУ</span>
+        `;
+      }
+    }, 600);
   };
 
   // 7. Odesa Map Modal

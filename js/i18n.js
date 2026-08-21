@@ -96,6 +96,24 @@
       screen4_btn_pdf: "Завантажити презентацію конференц-можливостей",
       screen4_btn_inquiry: "Надіслати запит на розрахунок події",
       
+      // Inquiry Lead Form Modal
+      inquiry_badge: "КОНФЕРЕНЦ-СЕРВІС RIBAS DUKE",
+      inquiry_modal_title: "Запит на розрахунок події",
+      inquiry_modal_subtitle: "Залиште ваші контактні дані, і персональний менеджер підготує індивідуальну пропозицію залів, обладнання та кейтерингу:",
+      inquiry_first_name_label: "Ім'я *",
+      inquiry_last_name_label: "Прізвище *",
+      inquiry_phone_label: "Номер телефону *",
+      inquiry_type_label: "Формат події (необов'язково)",
+      inquiry_opt_conf: "Конференція / Семінар",
+      inquiry_opt_meeting: "Ділова зустріч / Переговори",
+      inquiry_opt_banquet: "Банкет / Урочистість",
+      inquiry_opt_presentation: "Презентація / Воркшоп",
+      inquiry_submit_btn: "НАДІСЛАТИ ЗАПИТ МЕНЕДЖЕРУ",
+      inquiry_success_title: "Запит успішно надіслано!",
+      inquiry_success_desc: "Дякуємо! Наш менеджер подій зв'яжеться з вами за вказаним номером телефону протягом 15 хвилин.",
+      inquiry_success_close: "ЗАКРИТИ",
+      inquiry_or_contact: "Або зв'яжіться з нами напряму:",
+      
       // Screen 5: Odesa Leisure & Culture
       screen5_tagline: "КУЛЬТУРА ТА ДОЗВІЛЛЯ",
       screen5_title: "ВІДКРИЙТЕ ДЛЯ СЕБЕ ОДЕСУ<br>РАЗОМ ІЗ RIBAS DUKE",
@@ -294,6 +312,24 @@
       screen4_btn_pdf: "Download Conference Presentation",
       screen4_btn_inquiry: "Request Event Cost Estimate",
       
+      // Inquiry Lead Form Modal
+      inquiry_badge: "CONFERENCE SERVICE RIBAS DUKE",
+      inquiry_modal_title: "Event Planning Inquiry",
+      inquiry_modal_subtitle: "Leave your contact details, and our dedicated event manager will prepare a custom proposal with hall layouts and catering:",
+      inquiry_first_name_label: "First Name *",
+      inquiry_last_name_label: "Last Name *",
+      inquiry_phone_label: "Phone Number *",
+      inquiry_type_label: "Event Format (optional)",
+      inquiry_opt_conf: "Conference / Seminar",
+      inquiry_opt_meeting: "Business Meeting / Negotiations",
+      inquiry_opt_banquet: "Banquet / Gala Dinner",
+      inquiry_opt_presentation: "Presentation / Workshop",
+      inquiry_submit_btn: "SEND INQUIRY TO MANAGER",
+      inquiry_success_title: "Inquiry Sent Successfully!",
+      inquiry_success_desc: "Thank you! Our event manager will contact you at the provided phone number within 15 minutes.",
+      inquiry_success_close: "CLOSE",
+      inquiry_or_contact: "Or contact us directly:",
+      
       // Screen 5: Odesa Leisure & Culture
       screen5_tagline: "CULTURE & LEISURE",
       screen5_title: "DISCOVER ODESA<br>WITH RIBAS DUKE",
@@ -491,6 +527,24 @@
       screen4_manager_desc: "Полное сопровождение от организации до завершения мероприятия",
       screen4_btn_pdf: "Скачать презентацию конференц-возможностей",
       screen4_btn_inquiry: "Отправить запрос на расчет мероприятия",
+      
+      // Inquiry Lead Form Modal
+      inquiry_badge: "КОНФЕРЕНЦ-СЕРВИС RIBAS DUKE",
+      inquiry_modal_title: "Запрос на расчет мероприятия",
+      inquiry_modal_subtitle: "Оставьте ваши контактные данные, и персональный менеджер подготовит индивидуальное предложение залов, оборудования и кейтеринга:",
+      inquiry_first_name_label: "Имя *",
+      inquiry_last_name_label: "Фамилия *",
+      inquiry_phone_label: "Номер телефона *",
+      inquiry_type_label: "Формат мероприятия (необязательно)",
+      inquiry_opt_conf: "Конференция / Семинар",
+      inquiry_opt_meeting: "Деловая встреча / Переговоры",
+      inquiry_opt_banquet: "Банкет / Торжество",
+      inquiry_opt_presentation: "Презентация / Воркшоп",
+      inquiry_submit_btn: "ОТПРАВИТЬ ЗАПРОС МЕНЕДЖЕРУ",
+      inquiry_success_title: "Запрос успешно отправлен!",
+      inquiry_success_desc: "Спасибо! Наш менеджер мероприятий свяжется с вами по указанному номеру телефона в течение 15 минут.",
+      inquiry_success_close: "ЗАКРЫТЬ",
+      inquiry_or_contact: "Или свяжитесь с нами напрямую:",
       
       // Screen 5: Odesa Leisure & Culture
       screen5_tagline: "КУЛЬТУРА И ДОСУГ",
