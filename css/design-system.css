@@ -38,6 +38,12 @@
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+*, *::before, *::after {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+}
+
 /* Master UI Visibility Transitions */
 .site-header,
 .sidebar-indicator,
@@ -382,11 +388,9 @@ body.is-transitioning .cinematic-screen-overlay {
 .footer-title {
   opacity: 0;
   transform: translateY(var(--stagger-distance));
-  filter: blur(var(--stagger-blur));
   transition: opacity var(--stagger-dur) var(--stagger-ease) 0.08s,
-              transform var(--stagger-dur) var(--stagger-ease) 0.08s,
-              filter var(--stagger-dur) var(--stagger-ease) 0.08s;
-  will-change: transform, opacity, filter;
+              transform var(--stagger-dur) var(--stagger-ease) 0.08s;
+  will-change: transform, opacity;
 }
 
 .screen-content.active .cinematic-title,
@@ -398,7 +402,6 @@ body.is-transitioning .cinematic-screen-overlay {
 .screen-content.active .footer-title {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0);
 }
 
 /* --- TIER 2: Gold Dividers & Subtitles / Descriptions --- */
@@ -412,11 +415,9 @@ body.is-transitioning .cinematic-screen-overlay {
 .footer-desc {
   opacity: 0;
   transform: translateY(calc(var(--stagger-distance) * 0.75));
-  filter: blur(calc(var(--stagger-blur) * 0.75));
   transition: opacity var(--stagger-dur) var(--stagger-ease) 0.16s,
-              transform var(--stagger-dur) var(--stagger-ease) 0.16s,
-              filter var(--stagger-dur) var(--stagger-ease) 0.16s;
-  will-change: transform, opacity, filter;
+              transform var(--stagger-dur) var(--stagger-ease) 0.16s;
+  will-change: transform, opacity;
 }
 
 .screen-content.active .title-gold-divider,
@@ -429,7 +430,6 @@ body.is-transitioning .cinematic-screen-overlay {
 .screen-content.active .footer-desc {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0);
 }
 
 /* --- TIER 3: Schedule Items & Feature Cards (Staggered Grid / List) --- */
@@ -596,7 +596,7 @@ body.is-transitioning .cinematic-screen-overlay {
   text-transform: uppercase;
   line-height: 1.12;
   color: #ffffff;
-  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.98), 0 0 50px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
   margin-bottom: 20px;
   text-align: center;
 }
@@ -622,7 +622,7 @@ body.is-transitioning .cinematic-screen-overlay {
   font-size: clamp(14px, 1.0vw, 16px);
   line-height: 1.62;
   color: rgba(255, 255, 255, 0.94);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
   max-width: 720px;
   margin: 0 auto;
   text-align: center;
@@ -678,7 +678,7 @@ body.is-transitioning .cinematic-screen-overlay {
   line-height: 1.12;
   color: #ffffff;
   margin-bottom: 0;
-  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.98), 0 0 50px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
   text-align: left;
 }
 
@@ -699,7 +699,7 @@ body.is-transitioning .cinematic-screen-overlay {
   line-height: 1.62;
   color: rgba(255, 255, 255, 0.94);
   max-width: 580px;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
   text-align: left;
   margin: 0;
 }
@@ -786,7 +786,7 @@ body.is-transitioning .cinematic-screen-overlay {
   line-height: 1.12;
   color: #ffffff;
   margin: 0 0 4px;
-  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.98), 0 0 50px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
   text-align: left;
   white-space: nowrap;
 }
@@ -799,7 +799,7 @@ body.is-transitioning .cinematic-screen-overlay {
   line-height: 1.62;
   color: rgba(255, 255, 255, 0.94);
   max-width: 580px;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
   text-align: left;
   margin: 0;
 }
@@ -897,7 +897,7 @@ body.is-transitioning .cinematic-screen-overlay {
   line-height: 1.12;
   color: #ffffff;
   margin: 0;
-  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.98), 0 0 50px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
   text-align: left;
   white-space: normal;
   max-width: 100%;
@@ -918,7 +918,7 @@ body.is-transitioning .cinematic-screen-overlay {
   font-size: clamp(14px, 1.0vw, 16px);
   line-height: 1.62;
   color: rgba(255, 255, 255, 0.94);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
   margin: 0;
 }
 
@@ -1062,7 +1062,7 @@ body.is-transitioning .cinematic-screen-overlay {
   line-height: 1.12;
   color: #ffffff;
   margin: 0;
-  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.98), 0 0 50px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
   text-align: left;
   white-space: nowrap;
 }
@@ -1075,7 +1075,7 @@ body.is-transitioning .cinematic-screen-overlay {
   line-height: 1.62;
   color: rgba(255, 255, 255, 0.94);
   max-width: 660px;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
   text-align: left;
   margin: 0;
 }
@@ -1157,7 +1157,7 @@ body.is-transitioning .cinematic-screen-overlay {
   line-height: 1.12;
   color: #ffffff;
   margin: 0;
-  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.98), 0 0 50px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
   text-align: center;
   white-space: nowrap;
 }
@@ -1251,7 +1251,7 @@ body.is-transitioning .cinematic-screen-overlay {
   line-height: 1.12;
   color: #ffffff;
   margin: 0;
-  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.98), 0 0 50px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
   text-align: center;
   white-space: nowrap;
 }
@@ -1264,7 +1264,7 @@ body.is-transitioning .cinematic-screen-overlay {
   line-height: 1.62;
   color: rgba(255, 255, 255, 0.94);
   max-width: 780px;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
   text-align: center;
   margin: 0;
 }
@@ -3981,12 +3981,11 @@ body.is-transitioning .font-switcher-bar {
   /* 1. Mobile Background Photo Darkening & Contrast for Crystal Clear Text Readability */
   #screen-img,
   .bg-image-layer img {
-    filter: brightness(0.78) contrast(1.05) !important;
+    filter: brightness(0.82) contrast(1.02) !important;
   }
 
   .cinematic-screen-overlay {
-    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.65) 100%),
-                linear-gradient(180deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.60) 100%) !important;
+    background: rgba(8, 9, 13, 0.44) !important;
     opacity: 1 !important;
   }
 
@@ -3997,7 +3996,7 @@ body.is-transitioning .font-switcher-bar {
   .reception-hero-title,
   .footer-title,
   .cinematic-title {
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.98), 0 0 40px rgba(0, 0, 0, 0.9) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75) !important;
   }
 
   .restaurant-desc-clean,
@@ -4010,7 +4009,7 @@ body.is-transitioning .font-switcher-bar {
   .leisure-desc-clean p,
   .footer-desc,
   .footer-desc p {
-    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.98), 0 0 24px rgba(0, 0, 0, 0.85) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65) !important;
   }
 
   /* 2. Universal Layout & Header */
