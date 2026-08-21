@@ -93,8 +93,8 @@
       screen4_coffeebreak_desc: "Індивідуальне меню від шеф-кухаря ресторану",
       screen4_manager_title: "Персональний менеджер події",
       screen4_manager_desc: "Повний супровід від організації до завершення заходу",
-      screen4_btn_pdf: "Завантажити презентацію конференц-можливостей",
-      screen4_btn_inquiry: "Надіслати запит на розрахунок події",
+      screen4_btn_pdf: "Конференц-можливості",
+      screen4_btn_inquiry: "Запит на розрахунок події",
       
       // Inquiry Lead Form Modal
       inquiry_badge: "КОНФЕРЕНЦ-СЕРВІС RIBAS DUKE",
@@ -337,8 +337,8 @@
       screen4_coffeebreak_desc: "Custom gourmet catering menus crafted by our executive chef",
       screen4_manager_title: "Dedicated Event Manager",
       screen4_manager_desc: "Full end-to-end organizational support from planning to execution",
-      screen4_btn_pdf: "Download Conference Presentation",
-      screen4_btn_inquiry: "Request Event Cost Estimate",
+      screen4_btn_pdf: "Conference Facilities",
+      screen4_btn_inquiry: "Event Cost Estimate",
       
       // Inquiry Lead Form Modal
       inquiry_badge: "CONFERENCE SERVICE RIBAS DUKE",
@@ -581,8 +581,8 @@
       screen4_coffeebreak_desc: "Индивидуальное меню от шеф-повара ресторана",
       screen4_manager_title: "Персональный менеджер события",
       screen4_manager_desc: "Полное сопровождение от организации до завершения мероприятия",
-      screen4_btn_pdf: "Скачать презентацию конференц-возможностей",
-      screen4_btn_inquiry: "Отправить запрос на расчет мероприятия",
+      screen4_btn_pdf: "Конференц-возможности",
+      screen4_btn_inquiry: "Запрос на расчет события",
       
       // Inquiry Lead Form Modal
       inquiry_badge: "КОНФЕРЕНЦ-СЕРВИС RIBAS DUKE",
