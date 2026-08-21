@@ -232,22 +232,36 @@
     const direction = targetScreen > fromScreen ? 1 : -1;
     const nextStep = fromScreen + direction;
 
-    // 1. Instantly hide ALL UI (logo, menu, buttons, indicators, overlay, text)
-    document.body.classList.add('is-transitioning');
-    if (window.hideAllScreenContent) window.hideAllScreenContent();
-
     // Video path for this step (resolves to mob_video on mobile devices)
     const videoSrc = getTransitionVideoSrc(fromScreen, nextStep);
     const isFromHero = fromScreen === 1;
     const isToHero = nextStep === 1;
 
     let safetyTimer = null;
+    let uiHideTimer = null;
     let transitionFinished = false;
 
     const cleanupListeners = () => {
       clearTimeout(safetyTimer);
+      clearTimeout(uiHideTimer);
       transitionVideo.removeEventListener('ended', onEnded);
       transitionVideo.removeEventListener('error', onError);
+      transitionVideo.removeEventListener('playing', onPlaying);
+    };
+
+    // Delay UI & overlay fade-out by ~500ms after video starts playing
+    const triggerDelayedUiHide = () => {
+      if (uiHideTimer || transitionFinished) return;
+      uiHideTimer = setTimeout(() => {
+        if (!transitionFinished) {
+          document.body.classList.add('is-transitioning');
+          if (window.hideAllScreenContent) window.hideAllScreenContent();
+        }
+      }, 500);
+    };
+
+    const onPlaying = () => {
+      triggerDelayedUiHide();
     };
 
     // When transition completes -> restore UI & reveal new screen content
@@ -297,6 +311,7 @@
 
     transitionVideo.addEventListener('ended', onEnded);
     transitionVideo.addEventListener('error', onError);
+    transitionVideo.addEventListener('playing', onPlaying, { once: true });
 
     // Pre-set destination image in background
     if (!isToHero) {
@@ -334,10 +349,14 @@
       
       const playPromise = transitionVideo.play();
       if (playPromise !== undefined) {
-        playPromise.catch((err) => {
+        playPromise.then(() => {
+          triggerDelayedUiHide();
+        }).catch((err) => {
           console.warn('Transition play catch:', err);
           onEnded();
         });
+      } else {
+        triggerDelayedUiHide();
       }
     };
 
