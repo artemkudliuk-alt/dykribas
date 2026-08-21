@@ -15,6 +15,8 @@
       allScreens.forEach((el) => {
         const idx = parseInt(el.getAttribute('data-screen'), 10);
         if (idx === screenIndex) {
+          el.classList.remove('active');
+          void el.offsetWidth; // Force reflow to guarantee stagger animations replay cleanly
           el.classList.add('active');
         } else {
           el.classList.remove('active');

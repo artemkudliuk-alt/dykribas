@@ -321,6 +321,17 @@ body.is-transitioning .cinematic-screen-overlay {
 /* ==========================================================================
    4. Screen 1 Center Content (Cinematic Clean Typography - Perfectly Centered)
    ========================================================================== */
+/* ==========================================================================
+   MOTION TOKENS & CASCADING REVEAL SYSTEM (transitions-dev)
+   ========================================================================== */
+:root {
+  --stagger-dur: 520ms;
+  --stagger-distance: 14px;
+  --stagger-blur: 3px;
+  --stagger-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.3, 0.64, 1);
+}
+
 .screens-content-layer {
   position: absolute;
   top: 0;
@@ -348,8 +359,9 @@ body.is-transitioning .cinematic-screen-overlay {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(16px);
-  transition: opacity 0.28s var(--ease-smooth), transform 0.32s var(--ease-smooth), visibility 0.28s;
+  transform: translateY(14px);
+  transition: opacity 0.32s var(--ease-smooth), transform 0.35s var(--ease-smooth), visibility 0.32s;
+  will-change: transform, opacity;
 }
 
 .screen-content.active {
@@ -357,7 +369,214 @@ body.is-transitioning .cinematic-screen-overlay {
   visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
-  transition: opacity 0.55s var(--ease-luxury) 0.12s, transform 0.65s var(--ease-luxury) 0.12s, visibility 0.55s;
+  transition: opacity 0.45s var(--ease-luxury) 0.05s, transform 0.55s var(--ease-luxury) 0.05s, visibility 0.45s;
+}
+
+/* --- TIER 1: Main Screen Headlines / Titles --- */
+.cinematic-title,
+.restaurant-hero-title,
+.spa-hero-title-left,
+.conference-hero-title,
+.leisure-hero-title,
+.reception-hero-title,
+.footer-title {
+  opacity: 0;
+  transform: translateY(var(--stagger-distance));
+  filter: blur(var(--stagger-blur));
+  transition: opacity var(--stagger-dur) var(--stagger-ease) 0.08s,
+              transform var(--stagger-dur) var(--stagger-ease) 0.08s,
+              filter var(--stagger-dur) var(--stagger-ease) 0.08s;
+  will-change: transform, opacity, filter;
+}
+
+.screen-content.active .cinematic-title,
+.screen-content.active .restaurant-hero-title,
+.screen-content.active .spa-hero-title-left,
+.screen-content.active .conference-hero-title,
+.screen-content.active .leisure-hero-title,
+.screen-content.active .reception-hero-title,
+.screen-content.active .footer-title {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* --- TIER 2: Gold Dividers & Subtitles / Descriptions --- */
+.title-gold-divider,
+.cinematic-subtitle,
+.restaurant-desc-clean,
+.spa-desc-clean,
+.conference-desc-clean,
+.leisure-desc-clean,
+.reception-desc-clean,
+.footer-desc {
+  opacity: 0;
+  transform: translateY(calc(var(--stagger-distance) * 0.75));
+  filter: blur(calc(var(--stagger-blur) * 0.75));
+  transition: opacity var(--stagger-dur) var(--stagger-ease) 0.16s,
+              transform var(--stagger-dur) var(--stagger-ease) 0.16s,
+              filter var(--stagger-dur) var(--stagger-ease) 0.16s;
+  will-change: transform, opacity, filter;
+}
+
+.screen-content.active .title-gold-divider,
+.screen-content.active .cinematic-subtitle,
+.screen-content.active .restaurant-desc-clean,
+.screen-content.active .spa-desc-clean,
+.screen-content.active .conference-desc-clean,
+.screen-content.active .leisure-desc-clean,
+.screen-content.active .reception-desc-clean,
+.screen-content.active .footer-desc {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* --- TIER 3: Schedule Items & Feature Cards (Staggered Grid / List) --- */
+.schedule-clean-minimal .schedule-item-minimal,
+.spa-schedule-clean .schedule-item-minimal,
+.conference-cards-grid .conf-glass-card,
+.leisure-schedule-clean .schedule-item-minimal,
+.reception-services-grid .schedule-item-minimal,
+.footer-contacts-clean .schedule-item-minimal,
+.restaurant-services-card {
+  opacity: 0;
+  transform: translateY(var(--stagger-distance)) scale(0.98);
+  transition: opacity 0.45s var(--stagger-ease),
+              transform 0.45s var(--stagger-ease),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+  will-change: transform, opacity;
+}
+
+/* Stagger delay offsets for items 1..4 */
+.screen-content.active .schedule-item-minimal:nth-child(1),
+.screen-content.active .conf-glass-card:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 0.22s;
+}
+
+.screen-content.active .schedule-item-minimal:nth-child(2),
+.screen-content.active .conf-glass-card:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 0.28s;
+}
+
+.screen-content.active .schedule-item-minimal:nth-child(3),
+.screen-content.active .conf-glass-card:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 0.34s;
+}
+
+.screen-content.active .schedule-item-minimal:nth-child(4),
+.screen-content.active .conf-glass-card:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 0.40s;
+}
+
+.screen-content.active .restaurant-services-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 0.24s;
+}
+
+/* --- TIER 4: Action Buttons & Action Clusters --- */
+.restaurant-actions-clean,
+.restaurant-mobile-actions,
+.conference-actions-row,
+.reception-actions-row,
+.footer-social-row,
+.services-actions-grid {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s var(--stagger-ease) 0.38s,
+              transform 0.45s var(--stagger-ease) 0.38s;
+  will-change: transform, opacity;
+}
+
+.screen-content.active .restaurant-actions-clean,
+.screen-content.active .restaurant-mobile-actions,
+.screen-content.active .conference-actions-row,
+.screen-content.active .reception-actions-row,
+.screen-content.active .footer-social-row,
+.screen-content.active .services-actions-grid {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- TIER 5: Tactile Touch / Tap Micro-Feedback --- */
+.btn-card-gold,
+.btn-card-glass,
+.btn-service-accent,
+.btn-service-gold-subtle,
+.btn-service-row,
+.footer-social-link {
+  transition: transform 0.22s var(--ease-spring),
+              background 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease !important;
+}
+
+.btn-card-gold:active,
+.btn-card-glass:active,
+.btn-service-accent:active,
+.btn-service-gold-subtle:active,
+.btn-service-row:active,
+.footer-social-link:active {
+  transform: scale(0.95) !important;
+}
+
+.schedule-item-minimal,
+.conf-glass-card {
+  transition: transform 0.28s var(--ease-luxury),
+              background 0.28s ease,
+              border-color 0.28s ease,
+              box-shadow 0.28s ease !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .schedule-item-minimal:hover,
+  .conf-glass-card:hover {
+    transform: translateY(-2px) scale(1.01) !important;
+    border-color: rgba(197, 168, 106, 0.45) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(197, 168, 106, 0.2) !important;
+  }
+}
+
+/* Reduced Motion Accessibility Guard */
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-title,
+  .restaurant-hero-title,
+  .spa-hero-title-left,
+  .conference-hero-title,
+  .leisure-hero-title,
+  .reception-hero-title,
+  .footer-title,
+  .title-gold-divider,
+  .cinematic-subtitle,
+  .restaurant-desc-clean,
+  .spa-desc-clean,
+  .conference-desc-clean,
+  .leisure-desc-clean,
+  .reception-desc-clean,
+  .footer-desc,
+  .schedule-item-minimal,
+  .conf-glass-card,
+  .restaurant-services-card,
+  .restaurant-actions-clean,
+  .restaurant-mobile-actions,
+  .conference-actions-row,
+  .reception-actions-row,
+  .footer-social-row {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }
 
 /* Main Cinematic Typography (Screen 1) */
@@ -3844,14 +4063,23 @@ body.is-transitioning .font-switcher-bar {
   /* Universal Screen Layout adjustments on Mobile */
   .screen-content {
     padding: 0 !important;
-    display: none;
-    height: 100% !important;
-    min-height: 100dvh !important;
-  }
-  .screen-content.active {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    height: 100% !important;
+    min-height: 100dvh !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(14px) !important;
+    transition: opacity 0.32s var(--ease-smooth), transform 0.35s var(--ease-smooth), visibility 0.32s !important;
+  }
+  .screen-content.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+    transition: opacity 0.45s var(--ease-luxury) 0.05s, transform 0.55s var(--ease-luxury) 0.05s, visibility 0.45s !important;
   }
 
   /* SCREEN 1: Hero / Facade */
