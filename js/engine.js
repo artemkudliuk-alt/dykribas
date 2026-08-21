@@ -261,6 +261,15 @@
     };
 
     const onPlaying = () => {
+      // Transition video is now actively rendering frames on screen!
+      // Safely switch the destination image UNDER the opaque video layer so it is ready on ended
+      if (!isToHero) {
+        screenImg.src = getScreenImage(nextStep);
+      }
+      if (isFromHero) {
+        pauseHeroLoop();
+        heroLayer.classList.remove('active');
+      }
       triggerDelayedUiHide();
     };
 
@@ -291,6 +300,7 @@
       else {
         screenImg.src = getScreenImage(nextStep);
         imageLayer.classList.add('active');
+        heroLayer.classList.remove('active');
         transitionLayer.classList.remove('active');
 
         currentScreen = nextStep;
@@ -313,11 +323,6 @@
     transitionVideo.addEventListener('error', onError);
     transitionVideo.addEventListener('playing', onPlaying, { once: true });
 
-    // Pre-set destination image in background
-    if (!isToHero) {
-      screenImg.src = getScreenImage(nextStep);
-    }
-
     // Ensure transition video element has mandatory attributes for mobile WebKit & Blink
     transitionVideo.muted = true;
     transitionVideo.defaultMuted = true;
@@ -326,12 +331,8 @@
     transitionVideo.setAttribute('webkit-playsinline', '');
     transitionVideo.setAttribute('muted', '');
 
-    // Instantly activate transition layer so browser decodes it at top z-index
+    // Activate transition layer so it is ready on top
     transitionLayer.classList.add('active');
-    if (isFromHero) {
-      pauseHeroLoop();
-      heroLayer.classList.remove('active');
-    }
 
     // Ensure transition video src is correct and loaded
     let isSrcChanged = false;
@@ -350,13 +351,11 @@
       const playPromise = transitionVideo.play();
       if (playPromise !== undefined) {
         playPromise.then(() => {
-          triggerDelayedUiHide();
+          // onPlaying will handle delayed UI hide and destination image update
         }).catch((err) => {
           console.warn('Transition play catch:', err);
           onEnded();
         });
-      } else {
-        triggerDelayedUiHide();
       }
     };
 
