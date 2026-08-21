@@ -130,6 +130,19 @@
       screen5_btn_tickets: "Квитки та екскурсії",
       screen5_btn_transfer: "Замовити трансфер",
       
+      // Transfer Booking Modal
+      transfer_badge: "ТРАНСФЕР & КОНСЬЄРЖ RIBAS DUKE",
+      transfer_modal_title: "Замовлення трансферу",
+      transfer_modal_subtitle: "Вкажіть ваші дані та бажаний маршрут, і служба консьєржа організує комфортну поїздку на авто преміум-класу:",
+      transfer_route_label: "Маршрут трансферу",
+      transfer_opt_airport: "Аеропорт Одеса (ODS)",
+      transfer_opt_station: "Головний Залізничний вокзал",
+      transfer_opt_city: "Поїздка по місту / Узбережжя",
+      transfer_opt_intercity: "Міжміський трансфер",
+      transfer_submit_btn: "ЗАМОВИТИ ТРАНСФЕР",
+      transfer_success_title: "Заявку на трансфер прийнято!",
+      transfer_success_desc: "Дякуємо! Консьєрж-служба зв'яжеться з вами за номером телефону для підтвердження часу подачі авто.",
+      
       // Screen 6: Useful Info & Services
       screen6_tagline: "КОРИСНЕ ПІД ЧАС ПРОЖИВАННЯ",
       screen6_title: "УСЕ ДЛЯ ВАШОГО<br>БЕЗДОГАННОГО ПЕРЕБУВАННЯ",
@@ -346,6 +359,19 @@
       screen5_btn_tickets: "Tickets & Tours",
       screen5_btn_transfer: "Book Transfer",
       
+      // Transfer Booking Modal
+      transfer_badge: "TRANSFER & CONCIERGE RIBAS DUKE",
+      transfer_modal_title: "Book Hotel Transfer",
+      transfer_modal_subtitle: "Specify your details and desired route, and our concierge team will arrange a comfortable ride in a premium vehicle:",
+      transfer_route_label: "Transfer Route",
+      transfer_opt_airport: "Odesa International Airport (ODS)",
+      transfer_opt_station: "Main Railway Station",
+      transfer_opt_city: "City Ride / Coastline Tour",
+      transfer_opt_intercity: "Intercity Transfer",
+      transfer_submit_btn: "BOOK TRANSFER",
+      transfer_success_title: "Transfer Request Received!",
+      transfer_success_desc: "Thank you! Our concierge team will contact you at your phone number to confirm vehicle pickup details.",
+      
       // Screen 6: Useful Info & Services
       screen6_tagline: "USEFUL HOTEL INFORMATION",
       screen6_title: "EVERYTHING FOR YOUR<br>SEAMLESS LUXURY STAY",
@@ -561,6 +587,19 @@
       screen5_btn_map: "Туристическая карта-маршрут",
       screen5_btn_tickets: "Билеты и экскурсии",
       screen5_btn_transfer: "Заказать трансфер",
+      
+      // Transfer Booking Modal
+      transfer_badge: "ТРАНСФЕР & КОНСЬЕРЖ RIBAS DUKE",
+      transfer_modal_title: "Заказ трансфера",
+      transfer_modal_subtitle: "Укажите ваши данные и желаемый маршрут, и служба консьержа организует комфортную поездку на авто премиум-класса:",
+      transfer_route_label: "Маршрут трансфера",
+      transfer_opt_airport: "Аэропорт Одесса (ODS)",
+      transfer_opt_station: "Главный Железнодорожный вокзал",
+      transfer_opt_city: "Поездка по городу / Побережье",
+      transfer_opt_intercity: "Междугородний трансфер",
+      transfer_submit_btn: "ЗАКАЗАТЬ ТРАНСФЕР",
+      transfer_success_title: "Заявка на трансфер принята!",
+      transfer_success_desc: "Спасибо! Служба консьержа свяжется с вами по указанному номеру телефона для подтверждения времени подачи авто.",
       
       // Screen 6: Useful Info & Services
       screen6_tagline: "ПОЛЕЗНОЕ ВО ВРЕМЯ ПРОЖИВАНИЯ",

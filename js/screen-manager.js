@@ -802,26 +802,164 @@
     );
   };
 
-  // 9. Transfer Booking Action
+  // 9. Transfer Booking Lead Form Modal
   window.openTransferModal = function () {
     window.closeAllPopovers();
-    window.openDukePdfModal(
-      "Комфортний трансфер — Ribas Duke",
-      "Індивідуальні поїздки до аеропорту, залізничного вокзалу або по узбережжю Одеси:",
-      'docs/duke_hotel_info.pdf',
-      `
-        <div class="modal-cta-duo">
-          <a href="tel:+380487053775" class="btn-card-gold modal-cta-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>ТРАНСФЕР (101)</span>
-          </a>
-          <a href="https://t.me/ribashotels" target="_blank" class="btn-card-glass modal-cta-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-            <span>TELEGRAM</span>
-          </a>
+
+    let overlay = document.getElementById('duke-transfer-modal');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'duke-transfer-modal';
+      overlay.className = 'duke-modal-overlay';
+      overlay.innerHTML = `
+        <div class="duke-inquiry-modal-box">
+          <button class="duke-modal-close" onclick="window.closeTransferModal()" aria-label="Закрити">✕</button>
+          
+          <div class="inquiry-modal-header">
+            <div class="inquiry-gold-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--duke-gold)" stroke-width="2" style="margin-right: 6px;"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 3c-.1.2-.1.5-.1.8v5.3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+              <span data-i18n="transfer_badge">ТРАНСФЕР & КОНСЬЄРЖ RIBAS DUKE</span>
+            </div>
+            <h3 class="inquiry-modal-title" data-i18n="transfer_modal_title">Замовлення трансферу</h3>
+            <p class="inquiry-modal-subtitle" data-i18n="transfer_modal_subtitle">
+              Вкажіть ваші дані та бажаний маршрут, і служба консьєржа організує комфортну поїздку на авто преміум-класу:
+            </p>
+          </div>
+
+          <!-- Form View -->
+          <form id="duke-transfer-form" class="inquiry-modal-form" onsubmit="window.submitTransferInquiry(event)">
+            <div class="inquiry-form-row duo">
+              <div class="inquiry-input-group">
+                <label for="transfer-first-name" class="inquiry-label" data-i18n="inquiry_first_name_label">Ім'я *</label>
+                <input type="text" id="transfer-first-name" name="first_name" class="inquiry-input" placeholder="Олександр" required autocomplete="given-name">
+              </div>
+              <div class="inquiry-input-group">
+                <label for="transfer-last-name" class="inquiry-label" data-i18n="inquiry_last_name_label">Прізвище *</label>
+                <input type="text" id="transfer-last-name" name="last_name" class="inquiry-input" placeholder="Коваленко" required autocomplete="family-name">
+              </div>
+            </div>
+
+            <div class="inquiry-form-row">
+              <div class="inquiry-input-group">
+                <label for="transfer-phone" class="inquiry-label" data-i18n="inquiry_phone_label">Номер телефону *</label>
+                <div class="inquiry-phone-wrap">
+                  <svg class="phone-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <input type="tel" id="transfer-phone" name="phone" class="inquiry-input phone" placeholder="+38 (0__) ___-__-__" required autocomplete="tel">
+                </div>
+              </div>
+            </div>
+
+            <div class="inquiry-form-row">
+              <div class="inquiry-input-group">
+                <label for="transfer-route" class="inquiry-label" data-i18n="transfer_route_label">Маршрут трансферу</label>
+                <select id="transfer-route" name="route" class="inquiry-select">
+                  <option value="Аеропорт Одеса (ODS)" data-i18n="transfer_opt_airport">Аеропорт Одеса (ODS)</option>
+                  <option value="Головний Залізничний вокзал" data-i18n="transfer_opt_station">Головний Залізничний вокзал</option>
+                  <option value="Поїздка по місту / Узбережжя" data-i18n="transfer_opt_city">Поїздка по місту / Узбережжя</option>
+                  <option value="Міжміський трансфер" data-i18n="transfer_opt_intercity">Міжміський трансфер</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" id="btn-transfer-submit" class="btn-card-gold inquiry-submit-btn">
+              <svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 3c-.1.2-.1.5-.1.8v5.3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+              <span data-i18n="transfer_submit_btn">ЗАМОВИТИ ТРАНСФЕР</span>
+            </button>
+          </form>
+
+          <!-- Success Message View -->
+          <div id="transfer-success-view" class="inquiry-success-view" style="display: none;">
+            <div class="inquiry-success-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h4 class="inquiry-success-title" data-i18n="transfer_success_title">Заявку на трансфер прийнято!</h4>
+            <p class="inquiry-success-desc" id="transfer-success-desc" data-i18n="transfer_success_desc">
+              Дякуємо! Консьєрж-служба зв'яжеться з вами за номером телефону для підтвердження часу подачі авто.
+            </p>
+            <div class="modal-cta-wrap" style="margin-top: 18px; width: 100%;">
+              <button onclick="window.closeTransferModal()" class="btn-card-gold modal-cta-btn">
+                <span data-i18n="inquiry_success_close">ЗАКРИТИ</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Direct Quick Contact Footer -->
+          <div class="inquiry-modal-footer">
+            <span class="inquiry-footer-note" data-i18n="inquiry_or_contact">Або зв'яжіться з нами напряму:</span>
+            <div class="modal-cta-duo">
+              <a href="tel:+380487053775" class="btn-card-gold modal-cta-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>КОНСЬЄРЖ (101)</span>
+              </a>
+              <a href="https://t.me/ribashotels" target="_blank" rel="noopener" class="btn-card-glass modal-cta-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                <span>TELEGRAM</span>
+              </a>
+            </div>
+          </div>
         </div>
-      `
-    );
+      `;
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) window.closeTransferModal();
+      });
+    }
+
+    // Reset form view when opening
+    const formEl = overlay.querySelector('#duke-transfer-form');
+    const successEl = overlay.querySelector('#transfer-success-view');
+    if (formEl) formEl.style.display = 'flex';
+    if (successEl) successEl.style.display = 'none';
+
+    if (window.applyCurrentTranslations) {
+      window.applyCurrentTranslations(overlay);
+    }
+
+    overlay.classList.add('active');
+    activeModal = overlay;
+  };
+
+  window.closeTransferModal = function () {
+    const overlay = document.getElementById('duke-transfer-modal');
+    if (overlay) overlay.classList.remove('active');
+    if (activeModal === overlay) activeModal = null;
+  };
+
+  window.submitTransferInquiry = function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const firstName = form.first_name ? form.first_name.value.trim() : '';
+    const lastName = form.last_name ? form.last_name.value.trim() : '';
+    const phone = form.phone ? form.phone.value.trim() : '';
+
+    if (!firstName || !lastName || !phone) return;
+
+    const submitBtn = form.querySelector('#btn-transfer-submit');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span>⏳ Надсилання...</span>`;
+    }
+
+    setTimeout(() => {
+      form.style.display = 'none';
+      const successView = document.getElementById('transfer-success-view');
+      const successDesc = document.getElementById('transfer-success-desc');
+      if (successDesc) {
+        successDesc.textContent = `${firstName}, дякуємо! Заявку на трансфер прийнято. Консьєрж зв'яжеться з вами за номером ${phone} для підтвердження.`;
+      }
+      if (successView) {
+        successView.style.display = 'flex';
+      }
+      form.reset();
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `
+          <svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 3c-.1.2-.1.5-.1.8v5.3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+          <span data-i18n="transfer_submit_btn">ЗАМОВИТИ ТРАНСФЕР</span>
+        `;
+      }
+    }, 600);
   };
 
   // 10. Safe Instructions Modal
