@@ -126,7 +126,7 @@
 
     // 3. Screen 2 background image
     const img2 = new Image();
-    img2.src = mob ? 'Photo_screens/mob_video/screen2.png' : 'Photo_screens/2 - Restaurant.webp';
+    img2.src = mob ? 'Photo_screens/mob_video/screen2.png?v=54' : 'Photo_screens/2 - Restaurant_new.webp?v=54';
 
     // 4. Prime the Dual Hero Players in engine if already in DOM
     const hv1 = document.getElementById('hero-video-1');
