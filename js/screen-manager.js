@@ -271,7 +271,7 @@
   // Fullscreen Interactive Restaurant Web Menu Modal (Clean with Crown & Close)
   // ==========================================================================
 
-  window.openWebMenuModal = function (url, titleText, iconSvg) {
+  window.openWebMenuModal = function (url, titleText, iconSvg, externalUrl) {
     window.closeAllPopovers();
     let overlay = document.getElementById('duke-webmenu-modal');
     
@@ -279,6 +279,7 @@
     const resolvedIcon = iconSvg || defaultIcon;
     const resolvedTitle = titleText || (window.t ? window.t('menu_title') : 'Меню');
     const resolvedUrl = url || 'https://menu.ps.me/cHxkIpsD2dU';
+    const resolvedExtUrl = externalUrl || resolvedUrl;
 
     if (!overlay) {
       overlay = document.createElement('div');
@@ -292,7 +293,7 @@
               <span class="webmenu-title-text">${resolvedTitle}</span>
             </h3>
             <div style="display: flex; align-items: center; gap: 8px;">
-              <a id="webmenu-external-link" href="${resolvedUrl}" target="_blank" rel="noopener" class="btn-card-gold" style="padding: 6px 14px; font-size: 11.5px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-weight: 600;">
+              <a id="webmenu-external-link" href="${resolvedExtUrl}" target="_blank" rel="noopener" class="btn-card-gold" style="padding: 6px 14px; font-size: 11.5px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-weight: 600;">
                 <span>Відкрити сайт</span>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
@@ -317,7 +318,7 @@
       
       if (iconSpan) iconSpan.innerHTML = resolvedIcon;
       if (textSpan) textSpan.textContent = resolvedTitle;
-      if (extLink) extLink.href = resolvedUrl;
+      if (extLink) extLink.href = resolvedExtUrl;
 
       // Force reset and load new target URL cleanly
       if (iframe) {
@@ -792,12 +793,17 @@
     window.openWebMenuModal('https://www.gpsmycity.com/tours/odessa-introduction-walking-tour-4553.html', title, mapIcon);
   };
 
-  // 8. Tickets & Excursions Action -> Opens today.od.ua in full in-page Web Modal
+  // 8. Tickets & Excursions Action -> Opens today.od.ua in full in-page Web Modal (via HTTPS API proxy on Vercel)
   window.openConciergeTourModal = window.openTodayEventsModal = function () {
     const t = window.t || ((k) => k);
     const ticketIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--duke-gold)" stroke-width="2" style="vertical-align: -2px; margin-right: 8px;"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><circle cx="7" cy="15" r="1"/><circle cx="17" cy="15" r="1"/></svg>`;
-    const title = t('screen5_btn_tickets') || 'Афіша та квитки Одеси (today.od.ua)';
-    window.openWebMenuModal('http://today.od.ua/', title, ticketIcon);
+    const title = t('screen5_btn_tickets') || 'Афіша та квитки (today.od.ua)';
+    
+    // On HTTPS production (Vercel), route through /api/today to safely bypass browser Mixed Content block
+    const isHttpsOrigin = window.location.protocol === 'https:';
+    const embedUrl = isHttpsOrigin ? '/api/today' : 'http://today.od.ua/';
+
+    window.openWebMenuModal(embedUrl, title, ticketIcon, 'http://today.od.ua/');
   };
 
   // 9. Transfer Booking Lead Form Modal
