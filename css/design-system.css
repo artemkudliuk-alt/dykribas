@@ -4028,7 +4028,7 @@ body.is-transitioning .font-switcher-bar {
     padding: 14px 20px !important;
     display: flex !important;
     align-items: center !important;
-    justify-content: space-between !important;
+    justify-content: flex-start !important;
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
@@ -4050,9 +4050,11 @@ body.is-transitioning .font-switcher-bar {
   }
 
   .header-right {
-    margin-left: auto !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
     display: flex !important;
     align-items: center !important;
+    order: -1 !important;
   }
 
   .mobile-burger-btn {
