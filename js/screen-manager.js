@@ -761,23 +761,113 @@
     }, 600);
   };
 
-  // 7. Odesa Map Modal
-  window.openOdesaMapPdfModal = function () {
+  // 7. Odesa Walking Tour GPSMyCity Modal
+  window.openOdesaMapPdfModal = window.openOdesaTourMapModal = function () {
     window.closeAllPopovers();
-    const cta = `
-      <div class="modal-cta-wrap">
-        <a href="tel:+380487053775" class="btn-card-gold modal-cta-btn">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 6px;"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg>
-          <span>ЗАМОВИТИ ЕКСКУРСІЮ (101)</span>
-        </a>
-      </div>
-    `;
-    window.openDukePdfModal(
-      "Авторська карта-маршрут «Центр Одеси»",
-      "Пам'ятки архітектури, легендарні дворики та кращі маршрути від консьєржа Ribas Duke:",
-      'docs/duke_hotel_info.pdf',
-      cta
-    );
+
+    let overlay = document.getElementById('duke-tourmap-modal');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'duke-tourmap-modal';
+      overlay.className = 'duke-modal-overlay';
+      overlay.innerHTML = `
+        <div class="duke-inquiry-modal-box duke-tourmap-modal-box">
+          <button class="duke-modal-close" onclick="window.closeOdesaTourMapModal()" aria-label="Закрити">✕</button>
+          
+          <div class="inquiry-modal-header">
+            <div class="inquiry-gold-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--duke-gold)" stroke-width="2" style="margin-right: 6px;"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+              <span data-i18n="tourmap_badge">GPSMYCITY • ТУРИСТИЧНИЙ МАРШРУТ</span>
+            </div>
+            <h3 class="inquiry-modal-title" data-i18n="tourmap_modal_title">Пішохідна карта «Одеса»</h3>
+            <p class="inquiry-modal-subtitle" data-i18n="tourmap_modal_subtitle">
+              Популярний авторський туристичний маршрут історичним центром Одеси з детальним описом локацій та GPS-навігацією:
+            </p>
+          </div>
+
+          <!-- Tour Highlights Info Card -->
+          <div class="tourmap-route-card">
+            <div class="tourmap-stats-row">
+              <div class="tourmap-stat-item">
+                <span class="stat-num">~2.8 км</span>
+                <span class="stat-lbl" data-i18n="tourmap_distance">Дистанція</span>
+              </div>
+              <div class="tourmap-stat-item">
+                <span class="stat-num">2.5–3 год</span>
+                <span class="stat-lbl" data-i18n="tourmap_duration">Тривалість</span>
+              </div>
+              <div class="tourmap-stat-item">
+                <span class="stat-num">12+</span>
+                <span class="stat-lbl" data-i18n="tourmap_spots">Локацій</span>
+              </div>
+            </div>
+
+            <div class="tourmap-spots-list">
+              <div class="tour-spot-point">
+                <span class="spot-marker">1</span>
+                <span class="spot-name" data-i18n="tour_spot_1">Одеський академічний театр опери та балету</span>
+              </div>
+              <div class="tour-spot-point">
+                <span class="spot-marker">2</span>
+                <span class="spot-name" data-i18n="tour_spot_2">Пам'ятник Дюку де Рішельє & Приморський бульвар</span>
+              </div>
+              <div class="tour-spot-point">
+                <span class="spot-marker">3</span>
+                <span class="spot-name" data-i18n="tour_spot_3">Легендарні Потьомкінські сходи та фунікулер</span>
+              </div>
+              <div class="tour-spot-point">
+                <span class="spot-marker">4</span>
+                <span class="spot-name" data-i18n="tour_spot_4">Вулиця Дерибасівська, Міський сад та Пасаж</span>
+              </div>
+              <div class="tour-spot-point">
+                <span class="spot-marker">5</span>
+                <span class="spot-name" data-i18n="tour_spot_5">Воронцовський палац, Тещин міст та Колонада</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Action Button to open GPSMyCity -->
+          <a href="https://www.gpsmycity.com/tours/odessa-introduction-walking-tour-4553.html" target="_blank" rel="noopener" class="btn-card-gold tourmap-open-btn">
+            <svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+            <span data-i18n="tourmap_open_btn">ВІДКРИТИ МАРШРУТ У GPSMYCITY</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left: 6px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+
+          <!-- Direct Quick Contact Footer -->
+          <div class="inquiry-modal-footer">
+            <span class="inquiry-footer-note" data-i18n="tourmap_concierge_note">Бажаєте приватного гіда? Зв'яжіться з консьєржем:</span>
+            <div class="modal-cta-duo">
+              <a href="tel:+380487053775" class="btn-card-gold modal-cta-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>КОНСЬЄРЖ (101)</span>
+              </a>
+              <a href="https://t.me/ribashotels" target="_blank" rel="noopener" class="btn-card-glass modal-cta-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                <span>TELEGRAM</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) window.closeOdesaTourMapModal();
+      });
+    }
+
+    if (window.applyCurrentTranslations) {
+      window.applyCurrentTranslations(overlay);
+    }
+
+    overlay.classList.add('active');
+    activeModal = overlay;
+  };
+
+  window.closeOdesaTourMapModal = function () {
+    const overlay = document.getElementById('duke-tourmap-modal');
+    if (overlay) overlay.classList.remove('active');
+    if (activeModal === overlay) activeModal = null;
   };
 
   // 8. Tickets & Excursions Action

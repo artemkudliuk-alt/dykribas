@@ -143,6 +143,21 @@
       transfer_success_title: "Заявку на трансфер прийнято!",
       transfer_success_desc: "Дякуємо! Консьєрж-служба зв'яжеться з вами за номером телефону для підтвердження часу подачі авто.",
       
+      // GPSMyCity Tour Map Modal
+      tourmap_badge: "GPSMYCITY • ТУРИСТИЧНИЙ МАРШРУТ",
+      tourmap_modal_title: "Пішохідна карта «Одеса»",
+      tourmap_modal_subtitle: "Популярний авторський туристичний маршрут історичним центром Одеси з детальним описом локацій та GPS-навігацією:",
+      tourmap_distance: "Дистанція",
+      tourmap_duration: "Тривалість",
+      tourmap_spots: "Локацій",
+      tour_spot_1: "Одеський академічний театр опери та балету",
+      tour_spot_2: "Пам'ятник Дюку де Рішельє & Приморський бульвар",
+      tour_spot_3: "Легендарні Потьомкінські сходи та фунікулер",
+      tour_spot_4: "Вулиця Дерибасівська, Міський сад та Пасаж",
+      tour_spot_5: "Воронцовський палац, Тещин міст та Колонада",
+      tourmap_open_btn: "ВІДКРИТИ МАРШРУТ У GPSMYCITY",
+      tourmap_concierge_note: "Бажаєте приватного гіда? Зв'яжіться з консьєржем:",
+      
       // Screen 6: Useful Info & Services
       screen6_tagline: "КОРИСНЕ ПІД ЧАС ПРОЖИВАННЯ",
       screen6_title: "УСЕ ДЛЯ ВАШОГО<br>БЕЗДОГАННОГО ПЕРЕБУВАННЯ",
@@ -372,6 +387,21 @@
       transfer_success_title: "Transfer Request Received!",
       transfer_success_desc: "Thank you! Our concierge team will contact you at your phone number to confirm vehicle pickup details.",
       
+      // GPSMyCity Tour Map Modal
+      tourmap_badge: "GPSMYCITY • WALKING TOUR ROUTE",
+      tourmap_modal_title: "Odesa Walking Tour Map",
+      tourmap_modal_subtitle: "Popular self-guided walking tour through Odesa's historic center with detailed landmark sights and GPS navigation:",
+      tourmap_distance: "Distance",
+      tourmap_duration: "Duration",
+      tourmap_spots: "Sights",
+      tour_spot_1: "Odesa National Academic Opera and Ballet Theater",
+      tour_spot_2: "Monument to Duke de Richelieu & Primorsky Boulevard",
+      tour_spot_3: "Iconic Potemkin Stairs & Funicular",
+      tour_spot_4: "Derybasivska Street, City Garden & Passage",
+      tour_spot_5: "Vorontsov Palace, Mother-in-Law Bridge & Colonnade",
+      tourmap_open_btn: "OPEN ROUTE IN GPSMYCITY",
+      tourmap_concierge_note: "Prefer a private guided tour? Contact concierge:",
+      
       // Screen 6: Useful Info & Services
       screen6_tagline: "USEFUL HOTEL INFORMATION",
       screen6_title: "EVERYTHING FOR YOUR<br>SEAMLESS LUXURY STAY",
@@ -600,6 +630,21 @@
       transfer_submit_btn: "ЗАКАЗАТЬ ТРАНСФЕР",
       transfer_success_title: "Заявка на трансфер принята!",
       transfer_success_desc: "Спасибо! Служба консьержа свяжется с вами по указанному номеру телефона для подтверждения времени подачи авто.",
+      
+      // GPSMyCity Tour Map Modal
+      tourmap_badge: "GPSMYCITY • ТУРИСТИЧЕСКИЙ МАРШРУТ",
+      tourmap_modal_title: "Пешеходная карта «Одесса»",
+      tourmap_modal_subtitle: "Популярный авторский туристический маршрут по историческому центру Одессы с описанием локаций и GPS-навигацией:",
+      tourmap_distance: "Дистанция",
+      tourmap_duration: "Длительность",
+      tourmap_spots: "Локаций",
+      tour_spot_1: "Одесский академический театр оперы и балета",
+      tour_spot_2: "Памятник Дюку де Ришелье & Приморский бульвар",
+      tour_spot_3: "Легендарная Потемкинская лестница и фуникулер",
+      tour_spot_4: "Улица Дерибасовская, Городской сад и Пассаж",
+      tour_spot_5: "Воронцовский дворец, Тещин мост и Колоннада",
+      tourmap_open_btn: "ОТКРЫТЬ МАРШРУТ В GPSMYCITY",
+      tourmap_concierge_note: "Желаете личного гида? Свяжитесь с консьержем:",
       
       // Screen 6: Useful Info & Services
       screen6_tagline: "ПОЛЕЗНОЕ ВО ВРЕМЯ ПРОЖИВАНИЯ",
