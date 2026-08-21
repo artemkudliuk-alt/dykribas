@@ -23,6 +23,15 @@
       screen_6: "06. Рецепція",
       screen_7: "07. Контакти",
 
+      // 1-Word Sidebar Indicator Labels
+      ind_screen_1: "Фасад",
+      ind_screen_2: "Ресторан",
+      ind_screen_3: "SPA",
+      ind_screen_4: "Банкет",
+      ind_screen_5: "Балкон",
+      ind_screen_6: "Рецепція",
+      ind_screen_7: "Контакти",
+
       // Mobile Menu Screen Links
       mob_screen_1: "Фасад • Головна",
       mob_screen_2: "Ресторан LenMar",
@@ -267,6 +276,15 @@
       screen_6: "06. Reception",
       screen_7: "07. Contacts",
 
+      // 1-Word Sidebar Indicator Labels
+      ind_screen_1: "Facade",
+      ind_screen_2: "Restaurant",
+      ind_screen_3: "SPA",
+      ind_screen_4: "Banquet",
+      ind_screen_5: "Balcony",
+      ind_screen_6: "Reception",
+      ind_screen_7: "Contacts",
+
       // Mobile Menu Screen Links
       mob_screen_1: "Facade • Welcome",
       mob_screen_2: "LenMar Restaurant",
@@ -510,6 +528,15 @@
       screen_5: "05. Балкон & Одесса",
       screen_6: "06. Рецепция",
       screen_7: "07. Контакты",
+
+      // 1-Word Sidebar Indicator Labels
+      ind_screen_1: "Фасад",
+      ind_screen_2: "Ресторан",
+      ind_screen_3: "SPA",
+      ind_screen_4: "Банкет",
+      ind_screen_5: "Балкон",
+      ind_screen_6: "Рецепция",
+      ind_screen_7: "Контакты",
 
       // Mobile Menu Screen Links
       mob_screen_1: "Фасад • Главная",

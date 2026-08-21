@@ -27,7 +27,7 @@
   const imageLayer = document.getElementById('image-layer');
   const screenImg = document.getElementById('screen-img');
   const currentScreenNum = document.getElementById('current-screen-num');
-  const navDots = document.querySelectorAll('.nav-dot');
+  const navDots = document.querySelectorAll('.indicator-item, .nav-dot');
   const scrollHint = document.getElementById('scroll-hint');
 
   // --- State ---
