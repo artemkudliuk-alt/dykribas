@@ -785,25 +785,14 @@
     }, 600);
   };
 
-  // 7. Odesa Walking Tour GPSMyCity Modal -> Opens live GPSMyCity map page directly in Web Modal
+  // 7. Odesa Walking Tour GPSMyCity -> Opens GPSMyCity walking tour directly in a new tab
   window.openOdesaMapPdfModal = window.openOdesaTourMapModal = function () {
-    const t = window.t || ((k) => k);
-    const mapIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--duke-gold)" stroke-width="2" style="vertical-align: -2px; margin-right: 8px;"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>`;
-    const title = t('screen5_btn_map') || 'Туристична карта-маршрут (GPSMyCity)';
-    window.openWebMenuModal('https://www.gpsmycity.com/tours/odessa-introduction-walking-tour-4553.html', title, mapIcon);
+    window.open('https://www.gpsmycity.com/tours/odessa-introduction-walking-tour-4553.html', '_blank', 'noopener,noreferrer');
   };
 
-  // 8. Tickets & Excursions Action -> Opens today.od.ua in full in-page Web Modal (via HTTPS API proxy on Vercel)
+  // 8. Tickets & Excursions Action -> Opens today.od.ua directly in a new tab
   window.openConciergeTourModal = window.openTodayEventsModal = function () {
-    const t = window.t || ((k) => k);
-    const ticketIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--duke-gold)" stroke-width="2" style="vertical-align: -2px; margin-right: 8px;"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><circle cx="7" cy="15" r="1"/><circle cx="17" cy="15" r="1"/></svg>`;
-    const title = t('screen5_btn_tickets') || 'Афіша та квитки (today.od.ua)';
-    
-    // On HTTPS production (Vercel), route through /api/today to safely bypass browser Mixed Content block
-    const isHttpsOrigin = window.location.protocol === 'https:';
-    const embedUrl = isHttpsOrigin ? '/api/today' : 'http://today.od.ua/';
-
-    window.openWebMenuModal(embedUrl, title, ticketIcon, 'http://today.od.ua/');
+    window.open('http://today.od.ua/', '_blank', 'noopener,noreferrer');
   };
 
   // 9. Transfer Booking Lead Form Modal
