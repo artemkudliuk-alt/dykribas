@@ -292,8 +292,9 @@
               <span class="webmenu-title-text">${resolvedTitle}</span>
             </h3>
             <div style="display: flex; align-items: center; gap: 8px;">
-              <a id="webmenu-external-link" href="${resolvedUrl}" target="_blank" rel="noopener" class="btn-webmenu-action-ext" title="Відкрити в новій вкладці" style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); color: #fff; text-decoration: none; transition: 0.2s;">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <a id="webmenu-external-link" href="${resolvedUrl}" target="_blank" rel="noopener" class="btn-card-gold" style="padding: 6px 14px; font-size: 11.5px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-weight: 600;">
+                <span>Відкрити сайт</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
               <button class="btn-webmenu-close" onclick="window.closeRestaurantWebMenuModal()" aria-label="Закрити">✕</button>
             </div>
@@ -316,8 +317,15 @@
       
       if (iconSpan) iconSpan.innerHTML = resolvedIcon;
       if (textSpan) textSpan.textContent = resolvedTitle;
-      if (iframe) iframe.src = resolvedUrl;
       if (extLink) extLink.href = resolvedUrl;
+
+      // Force reset and load new target URL cleanly
+      if (iframe) {
+        iframe.src = 'about:blank';
+        setTimeout(() => {
+          iframe.src = resolvedUrl;
+        }, 20);
+      }
     }
 
     overlay.classList.add('active');
@@ -334,6 +342,8 @@
     const overlay = document.getElementById('duke-webmenu-modal');
     if (overlay) {
       overlay.classList.remove('active');
+      const iframe = document.getElementById('restaurant-web-menu-iframe');
+      if (iframe) iframe.src = 'about:blank';
     }
     if (activeModal === overlay) activeModal = null;
   };
