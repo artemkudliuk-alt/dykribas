@@ -2045,15 +2045,16 @@ body.is-transitioning .font-switcher-bar {
 .pdf-pages-scroll {
   width: 100%;
   height: 100%;
-  overflow-y: auto;
+  overflow-y: auto !important;
   padding: 14px 14px 70px 14px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior: contain !important;
+  touch-action: pan-y !important;
 }
 
 .pdf-rendered-page {

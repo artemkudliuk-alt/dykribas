@@ -396,6 +396,7 @@
     if (matchingKey && PDF_PAGE_MAP[matchingKey]) {
       iframe.style.display = 'none';
       pagesContainer.style.display = 'flex';
+      pagesContainer.scrollTop = 0;
       pagesContainer.innerHTML = PDF_PAGE_MAP[matchingKey].map((src, i) => `
         <img src="${src}" alt="${title} - Page ${i + 1}" class="pdf-rendered-page" loading="eager" decoding="async">
       `).join('');
@@ -409,6 +410,9 @@
 
     overlay.classList.add('active');
     activeModal = overlay;
+    
+    // Ensure smooth scrolling inside PDF container
+    pagesContainer.scrollTop = 0;
   };
 
   // 1. Pillow Menu Modal

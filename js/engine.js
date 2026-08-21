@@ -427,8 +427,30 @@
     }
   }
 
+  // Helper to check if any modal is currently open or event occurred inside a modal
+  function isAnyModalActive(target) {
+    if (target && typeof target.closest === 'function') {
+      if (target.closest('.duke-modal-overlay') || 
+          target.closest('.duke-pdf-modal-box') || 
+          target.closest('.pdf-embed-wrapper') || 
+          target.closest('.pdf-pages-scroll') ||
+          target.closest('.duke-inquiry-modal-box') ||
+          target.closest('.duke-webmenu-box') ||
+          target.closest('.duke-spa-modal-box')) {
+        return true;
+      }
+    }
+    const activeModal = document.querySelector('.duke-modal-overlay.active');
+    return !!activeModal;
+  }
+
   // --- Input Handlers (Wheel, Touch, Keyboard) ---
   function onWheel(e) {
+    if (isAnyModalActive(e.target)) {
+      // Allow native natural scrolling inside PDF/Modal without blocking or sliding backgrounds!
+      return;
+    }
+
     e.preventDefault();
     if (isTransitioning) return;
 
@@ -443,16 +465,25 @@
   }
 
   function onTouchStart(e) {
+    if (isAnyModalActive(e.target)) {
+      touchStartY = null;
+      return;
+    }
     if (e.touches && e.touches.length === 1) {
       touchStartY = e.touches[0].clientY;
     }
   }
 
   function onTouchEnd(e) {
-    if (isTransitioning) return;
+    if (touchStartY === null || isTransitioning) return;
+    if (isAnyModalActive(e.target)) {
+      touchStartY = null;
+      return;
+    }
     if (e.changedTouches && e.changedTouches.length === 1) {
       const touchEndY = e.changedTouches[0].clientY;
       const diffY = touchStartY - touchEndY;
+      touchStartY = null;
 
       // Swipe threshold: 45px
       if (Math.abs(diffY) > 45) {
@@ -466,6 +497,16 @@
   }
 
   function onKeyDown(e) {
+    if (isAnyModalActive(e.target)) {
+      if (e.key === 'Escape') {
+        if (window.closeDukeModal) window.closeDukeModal();
+        if (window.closeRestaurantWebMenuModal) window.closeRestaurantWebMenuModal();
+        if (window.closeInquiryModal) window.closeInquiryModal();
+        if (window.closeTransferModal) window.closeTransferModal();
+        if (window.closeSpaModal) window.closeSpaModal();
+      }
+      return;
+    }
     if (isTransitioning) return;
 
     if (['ArrowDown', 'PageDown', 'Space', 'KeyJ'].includes(e.code)) {
