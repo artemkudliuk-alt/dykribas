@@ -289,7 +289,12 @@
               <span class="webmenu-title-icon">${resolvedIcon}</span>
               <span class="webmenu-title-text">${resolvedTitle}</span>
             </h3>
-            <button class="btn-webmenu-close" onclick="window.closeRestaurantWebMenuModal()" aria-label="Закрити">✕</button>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <a id="webmenu-external-link" href="${resolvedUrl}" target="_blank" rel="noopener" class="btn-webmenu-action-ext" title="Відкрити в новій вкладці" style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); color: #fff; text-decoration: none; transition: 0.2s;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <button class="btn-webmenu-close" onclick="window.closeRestaurantWebMenuModal()" aria-label="Закрити">✕</button>
+            </div>
           </div>
           <div class="webmenu-embed-wrapper">
             <iframe id="restaurant-web-menu-iframe" class="webmenu-embed-iframe" src="${resolvedUrl}" frameborder="0" allow="geolocation; camera; microphone"></iframe>
@@ -305,10 +310,12 @@
       const iconSpan = overlay.querySelector('.webmenu-title-icon');
       const textSpan = overlay.querySelector('.webmenu-title-text');
       const iframe = document.getElementById('restaurant-web-menu-iframe');
+      const extLink = document.getElementById('webmenu-external-link');
       
       if (iconSpan) iconSpan.innerHTML = resolvedIcon;
       if (textSpan) textSpan.textContent = resolvedTitle;
       if (iframe) iframe.src = resolvedUrl;
+      if (extLink) extLink.href = resolvedUrl;
     }
 
     overlay.classList.add('active');
@@ -870,26 +877,12 @@
     if (activeModal === overlay) activeModal = null;
   };
 
-  // 8. Tickets & Excursions Action
-  window.openConciergeTourModal = function () {
-    window.closeAllPopovers();
-    window.openDukePdfModal(
-      "Театральні квитки та авторські екскурсії",
-      "Консьєрж-служба допоможе забронювати кращі місця в Опері та організує приватного гіда:",
-      'docs/duke_hotel_info.pdf',
-      `
-        <div class="modal-cta-duo">
-          <a href="tel:+380487053775" class="btn-card-gold modal-cta-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>КОНСЬЄРЖ (101)</span>
-          </a>
-          <a href="https://t.me/ribashotels" target="_blank" class="btn-card-glass modal-cta-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-            <span>TELEGRAM</span>
-          </a>
-        </div>
-      `
-    );
+  // 8. Tickets & Excursions Action -> Opens today.od.ua in full in-page Web Modal
+  window.openConciergeTourModal = window.openTodayEventsModal = function () {
+    const t = window.t || ((k) => k);
+    const ticketIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--duke-gold)" stroke-width="2" style="vertical-align: -2px; margin-right: 8px;"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><circle cx="7" cy="15" r="1"/><circle cx="17" cy="15" r="1"/></svg>`;
+    const title = t('screen5_btn_tickets') || 'Афіша та квитки Одеси (today.od.ua)';
+    window.openWebMenuModal('http://today.od.ua/', title, ticketIcon);
   };
 
   // 9. Transfer Booking Lead Form Modal
