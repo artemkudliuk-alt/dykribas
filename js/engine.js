@@ -10,8 +10,8 @@
   const TOTAL_SCREENS = 7;
   const SCREENS_CONFIG = {
     1: { name: 'Фасад', image: 'Photo_screens/1 - Hero.webp', isHero: true },
-    2: { name: 'Ресторан LenMar', image: 'Photo_screens/2 - Restaurant_new.webp?v=99' },
-    3: { name: 'SPA & Басейн', image: 'Photo_screens/3 - Spa.webp?v=99' },
+    2: { name: 'Ресторан LenMar', image: 'Photo_screens/2 - Restaurant_new.webp?v=101' },
+    3: { name: 'SPA & Басейн', image: 'Photo_screens/3 - Spa.webp?v=101' },
     4: { name: 'Конференц-зал', image: 'Photo_screens/4 - Hall.webp' },
     5: { name: 'Балкон & Одеса', image: 'Photo_screens/5 - Balcony.webp' },
     6: { name: 'Рецепція & Лоббі', image: 'Photo_screens/6 - Lobby.webp' },
