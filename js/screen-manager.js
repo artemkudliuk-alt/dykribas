@@ -181,7 +181,7 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             ${t('reception_internal')}
           </div>
-          <a href="tel:+380487053775" class="btn-popover-accent">
+          <a href="tel:+380931982139" class="btn-popover-accent">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             ${t('reception_call_btn')}
           </a>
@@ -196,11 +196,11 @@
           </div>
           <p class="popover-desc">${t('chat_desc')}</p>
           <div class="popover-chat-btns">
-            <a href="https://t.me/ribashotels" target="_blank" class="btn-popover-messenger tg">
+            <a href="https://t.me/ribashotels" target="_blank" rel="noopener noreferrer" class="btn-popover-messenger tg">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 4px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
               Telegram
             </a>
-            <a href="viber://chat?number=%2B380487053775" class="btn-popover-messenger vb">
+            <a href="viber://chat?number=%2B380931982139" target="_blank" rel="noopener noreferrer" class="btn-popover-messenger vb">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
               Viber
             </a>
@@ -336,7 +336,7 @@
   window.openRestaurantWebMenuModal = function () {
     const t = window.t || ((k) => k);
     const crownIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--duke-gold)" stroke-width="2" style="vertical-align: -2px; margin-right: 8px;"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>`;
-    window.openWebMenuModal('https://menu.ps.me/cHxkIpsD2dU', t('screen2_btn_menu_short') || 'Меню ресторану', crownIcon);
+    window.openWebMenuModal('https://menu.ps.me/cHxkIpsD2dU/category/47', t('screen2_btn_menu_short') || 'Меню ресторану', crownIcon);
   };
 
   window.closeRestaurantWebMenuModal = function () {
@@ -437,15 +437,15 @@
     const t = window.t || ((k) => k);
     const cta = `
       <div class="modal-cta-wrap">
-        <a href="tel:+380487053775" class="btn-card-gold modal-cta-btn">
+        <a href="tel:+380931982139" class="btn-card-gold modal-cta-btn">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span>${t('pillow_order_btn') || 'ЗАМОВИТИ В НОМЕР (101)'}</span>
+          <span>${t('pillow_order_btn') || 'ЗАМОВИТИ В НОМЕР (+380 93 198 21 39)'}</span>
         </a>
       </div>
     `;
     window.openDukePdfModal(
       t('pillow_modal_title') || 'Меню Подушок — Ribas Duke',
-      t('pillow_modal_desc') || 'Ідеальний сон — мистецтво відпочинку. Оберіть подушку та замовте на рецепції (101).',
+      t('pillow_modal_desc') || 'Ідеальний сон — мистецтво відпочинку. Оберіть подушку та замовте на рецепції.',
       'docs/pillow_menu.pdf',
       cta
     );
@@ -460,7 +460,7 @@
   window.openMinibarModal = function () {
     const t = window.t || ((k) => k);
     const wineBottleIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--duke-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 8px;"><path d="M9 2h6v3a1 1 0 0 1-1 1v3a4 4 0 0 0 2 3.46V20a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-7.54A4 4 0 0 0 10 9V6a1 1 0 0 1-1-1V2z"/><line x1="8" y1="2" x2="16" y2="2"/><line x1="8" y1="16" x2="16" y2="16"/></svg>`;
-    window.openWebMenuModal('https://menu.ps.me/cHxkIpsD2dU/category/9', t('screen2_btn_minibar_short') || 'Міні-бар', wineBottleIcon);
+    window.openWebMenuModal('https://menu.ps.me/cHxkIpsD2dU/category/10', t('screen2_btn_minibar_short') || 'Міні-бар', wineBottleIcon);
   };
 
   // 4. SPA Menu & Wellness Modal
@@ -527,7 +527,7 @@
 
               <div class="spa-service-card">
                 <div class="card-icon-title">
-                  <span class="card-ico"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg></span>
+                  <span class="card-ico"><svg viewBox="0 0 24 24"><path d="M6 5v14M18 5v14M2 9v6M22 9v6M6 12h12"/></svg></span>
                   <h5 data-i18n="spa_modal_card4_title">${t('spa_modal_card4_title')}</h5>
                 </div>
                 <p data-i18n="spa_modal_card4_desc">${t('spa_modal_card4_desc')}</p>
@@ -542,26 +542,19 @@
                 <p class="pricing-note-mini" data-i18n="spa_modal_note">${t('spa_modal_note')}</p>
               </div>
 
-              <div class="price-item-card">
-                <div class="price-item-header">
-                  <span class="price-name" data-i18n="spa_modal_plan1_title">${t('spa_modal_plan1_title')}</span>
-                  <span class="price-val" data-i18n="spa_modal_price_hour">${t('spa_modal_price_hour')}</span>
-                </div>
-                <ul class="price-features">
-                  <li data-i18n="spa_modal_plan1_f1">${t('spa_modal_plan1_f1')}</li>
-                  <li data-i18n="spa_modal_plan1_f2">${t('spa_modal_plan1_f2')}</li>
-                </ul>
-              </div>
-
               <div class="price-item-card featured">
                 <div class="price-item-header">
-                  <span class="price-name" data-i18n="spa_modal_plan2_title">${t('spa_modal_plan2_title')}</span>
-                  <span class="price-val gold" data-i18n="spa_modal_price_hour">${t('spa_modal_price_hour')}</span>
+                  <span class="price-name" data-i18n="spa_modal_plan_single_title">${t('spa_modal_plan_single_title')}</span>
+                  <div class="price-val-block">
+                    <span class="price-val gold" data-i18n="spa_modal_price_main">${t('spa_modal_price_main')}</span>
+                    <span class="price-sub-val" data-i18n="spa_modal_price_extra">${t('spa_modal_price_extra')}</span>
+                  </div>
                 </div>
                 <ul class="price-features">
-                  <li data-i18n="spa_modal_plan2_f1">${t('spa_modal_plan2_f1')}</li>
-                  <li data-i18n="spa_modal_plan2_f2">${t('spa_modal_plan2_f2')}</li>
-                  <li data-i18n="spa_modal_plan2_f3">${t('spa_modal_plan2_f3')}</li>
+                  <li data-i18n="spa_modal_plan_f1">${t('spa_modal_plan_f1')}</li>
+                  <li data-i18n="spa_modal_plan_f2">${t('spa_modal_plan_f2')}</li>
+                  <li data-i18n="spa_modal_plan_f3">${t('spa_modal_plan_f3')}</li>
+                  <li class="price-feature-highlight" data-i18n="spa_modal_plan_f4">${t('spa_modal_plan_f4')}</li>
                 </ul>
               </div>
             </div>
@@ -570,9 +563,9 @@
           <!-- Footer CTA Actions -->
           <div class="spa-modal-footer">
             <div class="modal-cta-duo">
-              <a href="tel:+380487053775" class="btn-card-gold modal-cta-btn">
+              <a href="tel:+380931982139" class="btn-card-gold modal-cta-btn">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <span>РЕЦЕПЦІЯ (101)</span>
+                <span>РЕЦЕПЦІЯ</span>
               </a>
               <a href="https://t.me/ribashotels" target="_blank" class="btn-card-glass modal-cta-btn">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
@@ -614,12 +607,12 @@
     window.closeAllPopovers();
     const t = window.t || ((k) => k);
     const cta = `
-      <div class="modal-cta-wrap" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
-        <button onclick="window.closeDukeModal(); window.openEventInquiryModal();" class="btn-card-gold modal-cta-btn" style="min-width: 220px;">
+      <div class="modal-cta-wrap">
+        <button onclick="window.closeDukeModal(); window.openEventInquiryModal();" class="btn-card-gold modal-cta-btn">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 6px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           <span>${t('screen4_btn_inquiry') || 'Запит на розрахунок події'}</span>
         </button>
-        <a href="docs/duke_conference_opportunities.pdf" download="Ribas_Duke_Conference_Opportunities.pdf" class="btn-card-glass modal-cta-btn" style="min-width: 180px;">
+        <a href="docs/duke_conference_opportunities.pdf" download="Ribas_Duke_Conference_Opportunities.pdf" class="btn-card-glass modal-cta-btn">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           <span>Завантажити PDF</span>
         </a>
@@ -718,12 +711,12 @@
           <div class="inquiry-modal-footer">
             <span class="inquiry-footer-note" data-i18n="inquiry_or_contact">Або зв'яжіться з нами напряму:</span>
             <div class="modal-cta-duo">
-              <a href="tel:+380487053775" class="btn-card-gold modal-cta-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <span>МЕНЕДЖЕР (101)</span>
+              <a href="tel:+380931982139" class="btn-card-gold modal-cta-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>МЕНЕДЖЕР</span>
               </a>
-              <a href="https://t.me/ribashotels" target="_blank" rel="noopener" class="btn-card-glass modal-cta-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+              <a href="https://t.me/ribashotels" target="_blank" rel="noopener noreferrer" class="btn-card-glass modal-cta-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
                 <span>TELEGRAM</span>
               </a>
             </div>
@@ -757,12 +750,13 @@
     if (activeModal === overlay) activeModal = null;
   };
 
-  window.submitEventInquiry = function (e) {
+  window.submitEventInquiry = async function (e) {
     e.preventDefault();
     const form = e.target;
     const firstName = form.first_name ? form.first_name.value.trim() : '';
     const lastName = form.last_name ? form.last_name.value.trim() : '';
     const phone = form.phone ? form.phone.value.trim() : '';
+    const eventType = form.event_type ? form.event_type.value.trim() : 'Конференція / Семінар';
 
     if (!firstName || !lastName || !phone) return;
 
@@ -772,25 +766,34 @@
       submitBtn.innerHTML = `<span>⏳ Надсилання...</span>`;
     }
 
-    setTimeout(() => {
-      form.style.display = 'none';
-      const successView = document.getElementById('inquiry-success-view');
-      const successDesc = document.getElementById('inquiry-success-desc');
-      if (successDesc) {
-        successDesc.textContent = `${firstName}, дякуємо! Наш менеджер подій зв'яжеться з вами за номером ${phone} найближчим часом.`;
-      }
-      if (successView) {
-        successView.style.display = 'flex';
-      }
-      form.reset();
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = `
-          <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-          <span data-i18n="inquiry_submit_btn">НАДІСЛАТИ ЗАПИТ МЕНЕДЖЕРУ</span>
-        `;
-      }
-    }, 600);
+    // Send instant notification to Telegram reception group
+    try {
+      await window.sendTelegramNotification('НОВИЙ ЗАПИТ НА ПОДІЮ / КОНФЕРЕНЦІЮ — Ribas Duke', {
+        'Гість': `${firstName} ${lastName}`,
+        'Телефон': phone,
+        'Формат події': eventType
+      });
+    } catch (err) {
+      console.warn('Telegram event inquiry send failed:', err);
+    }
+
+    form.style.display = 'none';
+    const successView = document.getElementById('inquiry-success-view');
+    const successDesc = document.getElementById('inquiry-success-desc');
+    if (successDesc) {
+      successDesc.textContent = `${firstName}, дякуємо! Наш менеджер подій зв'яжеться з вами за номером ${phone} найближчим часом.`;
+    }
+    if (successView) {
+      successView.style.display = 'flex';
+    }
+    form.reset();
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `
+        <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        <span data-i18n="inquiry_submit_btn">НАДІСЛАТИ ЗАПИТ МЕНЕДЖЕРУ</span>
+      `;
+    }
   };
 
   // 7. Odesa Walking Tour GPSMyCity -> Opens GPSMyCity walking tour directly in a new tab
@@ -798,9 +801,13 @@
     window.open('https://www.gpsmycity.com/tours/odessa-introduction-walking-tour-4553.html', '_blank', 'noopener,noreferrer');
   };
 
-  // 8. Tickets & Excursions Action -> Opens today.od.ua directly in a new tab
-  window.openConciergeTourModal = window.openTodayEventsModal = function () {
-    window.open('http://today.od.ua/', '_blank', 'noopener,noreferrer');
+  // 8. Tickets & Excursions Action -> Opens Karabas Odesa events directly in fullscreen modal pop-up
+  window.openOdesaEventsModal = window.openTodayEventsModal = window.openConciergeTourModal = function () {
+    window.closeAllPopovers();
+    const ticketIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--duke-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 8px;"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>`;
+    const t = window.t || ((k) => k);
+    const title = t('screen5_events_modal_title') || 'Афіша подій Одеси — Karabas';
+    window.openWebMenuModal('https://odesa.karabas.com/', title, ticketIcon, 'https://odesa.karabas.com/');
   };
 
   // 9. Transfer Booking Lead Form Modal
@@ -854,7 +861,6 @@
               <div class="inquiry-input-group">
                 <label for="transfer-route" class="inquiry-label" data-i18n="transfer_route_label">Маршрут трансферу</label>
                 <select id="transfer-route" name="route" class="inquiry-select">
-                  <option value="Аеропорт Одеса (ODS)" data-i18n="transfer_opt_airport">Аеропорт Одеса (ODS)</option>
                   <option value="Головний Залізничний вокзал" data-i18n="transfer_opt_station">Головний Залізничний вокзал</option>
                   <option value="Поїздка по місту / Узбережжя" data-i18n="transfer_opt_city">Поїздка по місту / Узбережжя</option>
                   <option value="Міжміський трансфер" data-i18n="transfer_opt_intercity">Міжміський трансфер</option>
@@ -888,12 +894,12 @@
           <div class="inquiry-modal-footer">
             <span class="inquiry-footer-note" data-i18n="inquiry_or_contact">Або зв'яжіться з нами напряму:</span>
             <div class="modal-cta-duo">
-              <a href="tel:+380487053775" class="btn-card-gold modal-cta-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <span>КОНСЬЄРЖ (101)</span>
+              <a href="tel:+380931982139" class="btn-card-gold modal-cta-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>КОНСЬЄРЖ</span>
               </a>
-              <a href="https://t.me/ribashotels" target="_blank" rel="noopener" class="btn-card-glass modal-cta-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+              <a href="https://t.me/ribashotels" target="_blank" rel="noopener noreferrer" class="btn-card-glass modal-cta-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
                 <span>TELEGRAM</span>
               </a>
             </div>
@@ -927,12 +933,50 @@
     if (activeModal === overlay) activeModal = null;
   };
 
-  window.submitTransferInquiry = function (e) {
+  // ==========================================================================
+  // Telegram Bot Notifications Service
+  // ==========================================================================
+  const TELEGRAM_CONFIG = {
+    botToken: '8889152050:AAHU17dtRL1A8xaUIwDgljsXIjIMmEt473M',
+    chatId: '-5503626495'
+  };
+
+  window.sendTelegramNotification = async function (title, fields) {
+    if (!TELEGRAM_CONFIG.botToken || !TELEGRAM_CONFIG.chatId) return false;
+    
+    let text = `👑 <b>${title}</b>\n━━━━━━━━━━━━━━━━━━━━\n`;
+    for (const [key, value] of Object.entries(fields)) {
+      if (value) {
+        text += `• <b>${key}:</b> ${value}\n`;
+      }
+    }
+    const timeStr = new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kyiv' });
+    text += `━━━━━━━━━━━━━━━━━━━━\n🕒 <i>${timeStr}</i>`;
+
+    try {
+      const resp = await fetch(`https://api.telegram.org/bot${TELEGRAM_CONFIG.botToken}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CONFIG.chatId,
+          text: text,
+          parse_mode: 'HTML'
+        })
+      });
+      return resp.ok;
+    } catch (err) {
+      console.warn('Telegram notification network error:', err);
+      return false;
+    }
+  };
+
+  window.submitTransferInquiry = async function (e) {
     e.preventDefault();
     const form = e.target;
     const firstName = form.first_name ? form.first_name.value.trim() : '';
     const lastName = form.last_name ? form.last_name.value.trim() : '';
     const phone = form.phone ? form.phone.value.trim() : '';
+    const route = form.route ? form.route.value.trim() : 'Головний Залізничний вокзал';
 
     if (!firstName || !lastName || !phone) return;
 
@@ -942,49 +986,116 @@
       submitBtn.innerHTML = `<span>⏳ Надсилання...</span>`;
     }
 
-    setTimeout(() => {
-      form.style.display = 'none';
-      const successView = document.getElementById('transfer-success-view');
-      const successDesc = document.getElementById('transfer-success-desc');
-      if (successDesc) {
-        successDesc.textContent = `${firstName}, дякуємо! Заявку на трансфер прийнято. Консьєрж зв'яжеться з вами за номером ${phone} для підтвердження.`;
-      }
-      if (successView) {
-        successView.style.display = 'flex';
-      }
-      form.reset();
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = `
-          <svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 3c-.1.2-.1.5-.1.8v5.3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
-          <span data-i18n="transfer_submit_btn">ЗАМОВИТИ ТРАНСФЕР</span>
-        `;
-      }
-    }, 600);
+    // Send instant notification to Telegram reception group
+    try {
+      await window.sendTelegramNotification('НОВА ЗАЯВКА НА ТРАНСФЕР — Ribas Duke', {
+        'Гість': `${firstName} ${lastName}`,
+        'Телефон': phone,
+        'Маршрут': route
+      });
+    } catch (err) {
+      console.warn('Telegram send failed:', err);
+    }
+
+    form.style.display = 'none';
+    const successView = document.getElementById('transfer-success-view');
+    const successDesc = document.getElementById('transfer-success-desc');
+    if (successDesc) {
+      successDesc.textContent = `${firstName}, дякуємо! Заявку на трансфер прийнято. Консьєрж зв'яжеться з вами за номером ${phone} для підтвердження.`;
+    }
+    if (successView) {
+      successView.style.display = 'flex';
+    }
+    form.reset();
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `
+        <svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 3c-.1.2-.1.5-.1.8v5.3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+        <span data-i18n="transfer_submit_btn">ЗАМОВИТИ ТРАНСФЕР</span>
+      `;
+    }
   };
 
   // 10. Safe Instructions Modal
   window.openSafeInstructionsPdfModal = function () {
     window.closeAllPopovers();
-    const cta = `
-      <div class="modal-cta-wrap">
-        <a href="tel:+380487053775" class="btn-card-gold modal-cta-btn">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span>ДОПОМОГА РЕЦЕПЦІЇ (101)</span>
-        </a>
-      </div>
-    `;
-    window.openDukePdfModal(
-      "Інструкція до електронного сейфа",
-      "Покроковий посібник зі встановлення особистого цифрового коду та блокування:",
-      'docs/duke_safe_instructions.pdf',
-      cta
-    );
+    const t = window.t || ((k) => k);
+    let overlay = document.getElementById('duke-safe-modal');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'duke-safe-modal';
+      overlay.className = 'duke-modal-overlay';
+      overlay.innerHTML = `
+        <div class="duke-safe-modal-box">
+          <div class="safe-modal-header">
+            <div class="safe-title-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--duke-gold)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <h3 data-i18n="safe_modal_title">${t('safe_modal_title') || 'Інструкція до електронного сейфа'}</h3>
+            </div>
+            <button class="safe-modal-close" onclick="window.closeSafeModal()" aria-label="Закрити">✕</button>
+          </div>
+          
+          <div class="safe-modal-body">
+            <!-- Step 1: Lock -->
+            <div class="safe-step-card">
+              <div class="safe-step-num">1</div>
+              <div class="safe-step-content">
+                <h4 data-i18n="safe_step1_title">${t('safe_step1_title') || 'Як закрити сейф (Блокування)'}</h4>
+                <p data-i18n="safe_step1_desc">${t('safe_step1_desc') || 'Покладіть цінні речі, щільно притисніть дверцята, наберіть свій <b>4-значний код</b> і натисніть кнопку <b>#</b> (або <b>LOCK</b>). На екрані з\'явиться <code>CLOSED</code>.'}</p>
+              </div>
+            </div>
+
+            <!-- Step 2: Unlock -->
+            <div class="safe-step-card">
+              <div class="safe-step-num">2</div>
+              <div class="safe-step-content">
+                <h4 data-i18n="safe_step2_title">${t('safe_step2_title') || 'Як відкрити сейф (Розблокування)'}</h4>
+                <p data-i18n="safe_step2_desc">${t('safe_step2_desc') || 'Введіть ваш <b>4-значний код</b>, який ви встановили під час закриття. На екрані з\'явиться <code>OPENED</code>, після чого дверцята відчиняться.'}</p>
+              </div>
+            </div>
+
+            <!-- Step 3: Support -->
+            <div class="safe-step-card highlight">
+              <div class="safe-step-num">⚠️</div>
+              <div class="safe-step-content">
+                <h4 data-i18n="safe_step3_title">${t('safe_step3_title') || 'Забули код чи сейф заблоковано?'}</h4>
+                <p data-i18n="safe_step3_desc">${t('safe_step3_desc') || 'Не хвилюйтеся! Зверніться на рецепцію готелю — черговий адміністратор оперативно допоможе відкрити сейф службовим майстер-ключем.'}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="safe-modal-footer">
+            <a href="tel:+380931982139" class="btn-card-gold modal-cta-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" style="margin-right: 8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span data-i18n="safe_modal_btn">${t('safe_modal_btn') || 'ДОПОМОГА РЕЦЕПЦІЇ'}</span>
+            </a>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) window.closeSafeModal();
+      });
+    }
+
+    if (window.applyCurrentTranslations) {
+      window.applyCurrentTranslations(overlay);
+    }
+
+    overlay.classList.add('active');
+    activeModal = overlay;
+  };
+
+  window.closeSafeModal = function () {
+    const overlay = document.getElementById('duke-safe-modal');
+    if (overlay) overlay.classList.remove('active');
+    if (activeModal === overlay) activeModal = null;
   };
 
   // 11. Luggage & Reception Call Action
   window.openLuggageServiceModal = function () {
-    window.location.href = "tel:+380487053775";
+    window.location.href = "tel:+380931982139";
   };
 
   // 12. Fullscreen Interactive Map Pop-up Modal
@@ -1114,7 +1225,7 @@
 
   // Restaurant Featured Photo Showcase Controller (Single Slide)
   let currentRestaurantSlide = 0;
-  const totalRestaurantSlides = 4;
+  const totalRestaurantSlides = 5;
   let restaurantSliderTimer = null;
 
   window.setRestaurantSlide = function (index) {

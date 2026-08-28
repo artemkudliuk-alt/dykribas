@@ -117,12 +117,19 @@
     document.head.appendChild(linkHero);
 
     // 2. Transition videos (1-2 and 2-3)
-    const t12Src = mob ? 'Photo_screens/mob_video/1-2.mp4' : 'Photo_screens/1 - 2.mp4';
+    const t12Src = mob ? 'Photo_screens/mob_video/1-2.mp4?v=60' : 'Photo_screens/1-2.mp4?v=60';
     const linkT12 = document.createElement('link');
     linkT12.rel = 'preload';
     linkT12.as = 'video';
     linkT12.href = t12Src;
     document.head.appendChild(linkT12);
+
+    const t23Src = mob ? 'Photo_screens/mob_video/2-3.mp4?v=60' : 'Photo_screens/2-3.mp4?v=60';
+    const linkT23 = document.createElement('link');
+    linkT23.rel = 'preload';
+    linkT23.as = 'video';
+    linkT23.href = t23Src;
+    document.head.appendChild(linkT23);
 
     // 3. Screen 2 background image
     const img2 = new Image();

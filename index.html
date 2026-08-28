@@ -6,8 +6,8 @@
   <title>Ribas Duke Boutique Hotel — Digital Guest Guide</title>
   <meta name="description" content="Інтерактивний цифровий гід для гостей 5-зіркового бутик-готелю Ribas Duke в Одесі.">
   <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Commissioner:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=El+Messiri:wght@400;500;600;700&family=Forum&family=Golos+Text:wght@400;500;600&family=Jost:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&family=Mulish:wght@300;400;500;600&family=Onest:wght@300;400;500;600&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Prata&family=Raleway:wght@300;400;500;600&family=Spectral:ital,wght@0,300;0,400;0,500;1,300&family=Tenor+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=55">
-  <link rel="stylesheet" href="css/design-system.css?v=55">
+  <link rel="stylesheet" href="css/style.css?v=56">
+  <link rel="stylesheet" href="css/design-system.css?v=56">
 </head>
 <body>
 
@@ -89,7 +89,7 @@
   <!-- Right Vertical Progress Indicators (Clean Minimalist Dashes with 1-Word Labels) -->
   <aside class="sidebar-indicator" aria-label="Прогрес навігації">
     <button class="indicator-item active" data-screen="1" onclick="window.fadeToScreenEngine ? window.fadeToScreenEngine(1) : window.goToScreenEngine(1)" aria-label="Екран 1">
-      <span class="indicator-label" data-i18n="ind_screen_1">Фасад</span>
+      <span class="indicator-label" data-i18n="ind_screen_1">Головна</span>
       <span class="indicator-line"></span>
     </button>
     <button class="indicator-item" data-screen="2" onclick="window.fadeToScreenEngine ? window.fadeToScreenEngine(2) : window.goToScreenEngine(2)" aria-label="Екран 2">
@@ -97,15 +97,15 @@
       <span class="indicator-line"></span>
     </button>
     <button class="indicator-item" data-screen="3" onclick="window.fadeToScreenEngine ? window.fadeToScreenEngine(3) : window.goToScreenEngine(3)" aria-label="Екран 3">
-      <span class="indicator-label" data-i18n="ind_screen_3">SPA</span>
+      <span class="indicator-label" data-i18n="ind_screen_3">СПА</span>
       <span class="indicator-line"></span>
     </button>
     <button class="indicator-item" data-screen="4" onclick="window.fadeToScreenEngine ? window.fadeToScreenEngine(4) : window.goToScreenEngine(4)" aria-label="Екран 4">
-      <span class="indicator-label" data-i18n="ind_screen_4">Банкет</span>
+      <span class="indicator-label" data-i18n="ind_screen_4">Конференції</span>
       <span class="indicator-line"></span>
     </button>
     <button class="indicator-item" data-screen="5" onclick="window.fadeToScreenEngine ? window.fadeToScreenEngine(5) : window.goToScreenEngine(5)" aria-label="Екран 5">
-      <span class="indicator-label" data-i18n="ind_screen_5">Балкон</span>
+      <span class="indicator-label" data-i18n="ind_screen_5">Одеса</span>
       <span class="indicator-line"></span>
     </button>
     <button class="indicator-item" data-screen="6" onclick="window.fadeToScreenEngine ? window.fadeToScreenEngine(6) : window.goToScreenEngine(6)" aria-label="Екран 6">
@@ -228,7 +228,7 @@
                   <span class="schedule-ico"><svg viewBox="0 0 24 24"><path d="M2 4v16h20V4H2zm18 14H4V6h16v12z"/></svg></span>
                   <div class="schedule-text">
                     <span class="sched-name" data-i18n="screen2_roomservice_title">Room Service (в номер)</span>
-                    <span class="sched-time" data-i18n="screen2_roomservice_time">08:00–23:00</span>
+                    <span class="sched-time" data-i18n="screen2_roomservice_time">08:00–21:00</span>
                   </div>
                 </div>
               </div>
@@ -262,20 +262,24 @@
             <div class="services-slider-frame" id="restaurant-showcase" onmouseenter="window.pauseRestaurantSlider()" onmouseleave="window.resumeRestaurantSlider()">
               <div class="showcase-viewport">
                 <div class="showcase-slide active" data-index="0">
-                  <img src="images/restaurant/1_signature_dishes.png" alt="Качине філе на ніжному пюре" loading="lazy">
-                  <div class="showcase-tag-badge" data-i18n="slider_signature">Качине філе на ніжному пюре</div>
+                  <img src="images/restaurant/dish_duck_fillet.webp?v=56" alt="Філе качки з трюфельним пюре" loading="lazy">
+                  <div class="showcase-tag-badge" data-i18n="slider_dish_1">Філе качки з трюфельним пюре · 680 ₴</div>
                 </div>
                 <div class="showcase-slide" data-index="1">
-                  <img src="images/restaurant/2_breakfasts.png" alt="Салат із тигровими креветками" loading="lazy">
-                  <div class="showcase-tag-badge" data-i18n="slider_breakfast">Салат із тигровими креветками</div>
+                  <img src="images/restaurant/dish_ossobuco.webp?v=56" alt="Особуко з шафрановим різотто" loading="lazy">
+                  <div class="showcase-tag-badge" data-i18n="slider_dish_2">Особуко з шафрановим різотто · 840 ₴</div>
                 </div>
                 <div class="showcase-slide" data-index="2">
-                  <img src="images/restaurant/3_restaurant_interior.png" alt="Особуко на шафрановому різото" loading="lazy">
-                  <div class="showcase-tag-badge" data-i18n="slider_interior">Особуко на шафрановому різото</div>
+                  <img src="images/restaurant/dish_seafood_pasta.webp?v=56" alt="Паста з морепродуктами" loading="lazy">
+                  <div class="showcase-tag-badge" data-i18n="slider_dish_3">Паста з морепродуктами · 705 ₴</div>
                 </div>
                 <div class="showcase-slide" data-index="3">
-                  <img src="images/restaurant/4_lobby_bar.png" alt="Освіжаючий цитрусовий коктейль" loading="lazy">
-                  <div class="showcase-tag-badge" data-i18n="slider_bar">Освіжаючий цитрусовий коктейль</div>
+                  <img src="images/restaurant/dish_caesar_salad.webp?v=56" alt="Салат «Цезар» з куркою" loading="lazy">
+                  <div class="showcase-tag-badge" data-i18n="slider_dish_4">Салат «Цезар» з куркою · 410 ₴</div>
+                </div>
+                <div class="showcase-slide" data-index="4">
+                  <img src="images/restaurant/dish_parmesan_shrimp.webp?v=56" alt="Креветки в паніровці з пармезану" loading="lazy">
+                  <div class="showcase-tag-badge" data-i18n="slider_dish_5">Креветки в паніровці з пармезану · 670 ₴</div>
                 </div>
               </div>
 
@@ -292,6 +296,7 @@
                 <span class="showcase-dot" onclick="window.setRestaurantSlide(1)"></span>
                 <span class="showcase-dot" onclick="window.setRestaurantSlide(2)"></span>
                 <span class="showcase-dot" onclick="window.setRestaurantSlide(3)"></span>
+                <span class="showcase-dot" onclick="window.setRestaurantSlide(4)"></span>
               </div>
             </div>
 
@@ -308,12 +313,12 @@
               </div>
 
               <!-- Tier 2: Full width Order to room button -->
-              <a href="tel:+380487053775" class="btn-service-row">
+              <a href="tel:+380931982139" class="btn-service-row">
                 <span data-i18n="screen2_btn_roomservice_short">ЗАМОВИТИ В НОМЕР</span>
               </a>
 
               <!-- Tier 3: Full width Reserve table button -->
-              <a href="tel:+380487053775" class="btn-service-row">
+              <a href="tel:+380931982139" class="btn-service-row">
                 <span data-i18n="screen2_btn_reserve_short">ЗАБРОНЮВАТИ СТОЛИК</span>
               </a>
             </div>
@@ -358,7 +363,7 @@
                 <span class="schedule-ico"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><polygon points="12 6 13.5 9.5 17 10 14.5 12.5 15 16 12 14 9 16 9.5 12.5 7 10 10.5 9.5 12 6"/></svg></span>
                 <div class="schedule-text">
                   <span class="sched-name" data-i18n="screen3_massage_title">Масажні кабінети та сауна</span>
-                  <span class="sched-time" data-i18n="screen3_massage_desc">Індивідуальні години за попереднім записом на рецепції (101)</span>
+                  <span class="sched-time" data-i18n="screen3_massage_desc">Індивідуальні години за попереднім записом на рецепції (+380 93 198 21 39)</span>
                 </div>
               </div>
             </div>
@@ -368,8 +373,8 @@
               <button onclick="window.openSpaPdfModal()" class="btn-card-gold">
                 <span data-i18n="screen3_btn_menu">Переглянути SPA-меню та вартість процедур</span>
               </button>
-              <a href="tel:+380487053775" class="btn-card-glass">
-                <span data-i18n="screen3_btn_book">Записатися на СПА (101)</span>
+              <a href="tel:+380931982139" class="btn-card-glass">
+                <span data-i18n="screen3_btn_book">Записатися на СПА</span>
               </a>
             </div>
           </div>
@@ -390,7 +395,7 @@
             <!-- Main Narrative Description -->
             <div class="conference-desc-clean">
               <p data-i18n="screen4_desc_p1">Готель Ribas Duke запрошує провести ваші найважливіші події на найвищому рівні.</p>
-              <p data-i18n="screen4_desc_p2">До ваших послуг — вишуканий банкетний зал для масштабних конференцій та сучасні кімнати для переговорів, оснащені преміальним мультимедійним обладнанням.</p>
+              <p data-i18n="screen4_desc_p2">До ваших послуг — вишуканий банкетний зал для масштабних конференцій та сучасні зали для переговорів, оснащені преміальним мультимедійним обладнанням.</p>
               <p data-i18n="screen4_desc_p3">Створюйте бездоганне враження під час презентацій, ділових зустрічей чи закритих урочистостей у самому серці Одеси.</p>
             </div>
 
@@ -413,7 +418,7 @@
                 </span>
                 <h4 class="conf-card-title" data-i18n="screen4_conf_title">Конференц-зали</h4>
                 <p class="conf-card-desc" data-i18n="screen4_conf_desc">
-                  Гнучка розсадка (до 50–80 осіб), професійний звук та проекційне обладнання.
+                  Гнучка розсадка (50–80 осіб), професійний звук та проекційне обладнання.
                 </p>
               </div>
 
@@ -521,10 +526,10 @@
                 <svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
                 <span data-i18n="screen5_btn_map">Туристична карта-маршрут</span>
               </a>
-              <a href="http://today.od.ua/" target="_blank" rel="noopener" class="btn-card-glass">
+              <button onclick="window.openOdesaEventsModal()" class="btn-card-glass">
                 <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-                <span data-i18n="screen5_btn_tickets">Квитки та екскурсії</span>
-              </a>
+                <span data-i18n="screen5_btn_tickets">Афіша подій Одеси</span>
+              </button>
               <button onclick="window.openTransferModal()" class="btn-card-glass">
                 <svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 3c-.1.2-.1.5-.1.8v5.3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
                 <span data-i18n="screen5_btn_transfer">Замовити трансфер</span>
@@ -604,9 +609,9 @@
                 <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 <span data-i18n="screen6_btn_safe">Інструкція до сейфа</span>
               </button>
-              <a href="tel:+380487053775" class="btn-card-glass">
+              <a href="tel:+380931982139" class="btn-card-glass">
                 <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <span data-i18n="screen6_btn_reception">Викликати рецепцію (101)</span>
+                <span data-i18n="screen6_btn_reception">Викликати рецепцію</span>
               </a>
             </div>
 
@@ -644,7 +649,7 @@
               </span>
               <div class="schedule-text">
                 <span class="sched-name" data-i18n="screen7_phone_label">Телефони</span>
-                <span class="sched-time" data-i18n="screen7_phone_val">+38 (048) 705-37-75 • +38 (048) 705-37-73</span>
+                <span class="sched-time" data-i18n="screen7_phone_val">+38 (093) 198-21-39 • +38 (048) 705-37-75</span>
               </div>
             </div>
           </div>
@@ -667,7 +672,7 @@
 
           <!-- Footer Actions Row (Call + Interactive Map Pop-up) -->
           <div class="restaurant-actions-clean" style="justify-content: center;">
-            <a href="tel:+380487053775" class="btn-card-gold">
+            <a href="tel:+380931982139" class="btn-card-gold">
               <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <span data-i18n="screen7_btn_call">Зателефонувати в готель</span>
             </a>
@@ -716,23 +721,23 @@
           </div>
         </button>
 
-        <a href="tel:+380487053777" class="mob-quick-tile">
+        <a href="tel:+380931982139" class="mob-quick-tile">
           <div class="mob-tile-icon">
             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
           <div class="mob-tile-info">
             <span class="mob-tile-label" data-i18n="nav_reception">Рецепція</span>
-            <span class="mob-tile-val">100 / 101</span>
+            <span class="mob-tile-val">+38 093 198 21 39</span>
           </div>
         </a>
 
-        <a href="https://t.me/ribashotels" target="_blank" rel="noopener" class="mob-quick-tile">
+        <a href="https://t.me/ribashotels" target="_blank" rel="noopener noreferrer" class="mob-quick-tile">
           <div class="mob-tile-icon telegram">
             <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
           <div class="mob-tile-info">
             <span class="mob-tile-label" data-i18n="nav_chat">Чат готелю</span>
-            <span class="mob-tile-val">Telegram / WA</span>
+            <span class="mob-tile-val">Telegram</span>
           </div>
         </a>
 
@@ -751,7 +756,7 @@
       <nav class="mobile-menu-screens-nav" aria-label="Розділи готелю">
         <button class="mob-screen-nav-item" onclick="window.navMobileScreen(1)">
           <span class="mob-nav-num">01</span>
-          <span class="mob-nav-title" data-i18n="mob_screen_1">Фасад • Головна</span>
+          <span class="mob-nav-title" data-i18n="mob_screen_1">Готель • Головна</span>
           <span class="mob-nav-arrow">→</span>
         </button>
         <button class="mob-screen-nav-item" onclick="window.navMobileScreen(2)">
@@ -766,12 +771,12 @@
         </button>
         <button class="mob-screen-nav-item" onclick="window.navMobileScreen(4)">
           <span class="mob-nav-num">04</span>
-          <span class="mob-nav-title" data-i18n="mob_screen_4">Конференц-зал</span>
+          <span class="mob-nav-title" data-i18n="mob_screen_4">Конференції & Події</span>
           <span class="mob-nav-arrow">→</span>
         </button>
         <button class="mob-screen-nav-item" onclick="window.navMobileScreen(5)">
           <span class="mob-nav-num">05</span>
-          <span class="mob-nav-title" data-i18n="mob_screen_5">Балкон & Одеса</span>
+          <span class="mob-nav-title" data-i18n="mob_screen_5">Гід по Одесі & Дозвілля</span>
           <span class="mob-nav-arrow">→</span>
         </button>
         <button class="mob-screen-nav-item" onclick="window.navMobileScreen(6)">
@@ -788,11 +793,11 @@
 
       <!-- Bottom Area: 2 Lines (Double Phone Line + Brand Socials) -->
       <div class="mobile-menu-bottom-box">
-        <a href="tel:+380487053775" class="mob-menu-btn-call-double">
+        <a href="tel:+380931982139" class="mob-menu-btn-call-double">
           <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <div class="mob-call-text-col">
+            <span class="mob-phone-line">+38 (093) 198-21-39</span>
             <span class="mob-phone-line">+38 (048) 705-37-75</span>
-            <span class="mob-phone-line">+38 (048) 705-37-73</span>
           </div>
         </a>
         
@@ -812,9 +817,9 @@
     </div>
   </div>
 
-  <script src="js/i18n.js?v=55"></script>
-  <script src="js/preloader.js?v=55"></script>
-  <script src="js/screen-manager.js?v=55"></script>
-  <script src="js/engine.js?v=55"></script>
+  <script src="js/i18n.js?v=56"></script>
+  <script src="js/preloader.js?v=56"></script>
+  <script src="js/screen-manager.js?v=56"></script>
+  <script src="js/engine.js?v=56"></script>
 </body>
 </html>

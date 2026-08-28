@@ -5,8 +5,30 @@ upscale_tools/
 .idea/
 .vscode/
 
-# Temp files
+# Temp and scratch files
 *.tmp
 *.log
 Thumbs.db
 .DS_Store
+crop*.png
+test_*.png
+preview_*.png
+wall_*.png
+edits_pages/
+extracted_edits*.txt
+menu_*.json
+menu_dishes_summary.txt
+sliders_data.json
+all_*.json
+combined_all_items.json
+parse_dishes.py
+run_gallery_view.html
+server.py
+server.js
+dev_server.js
+server.py
+Правки*.pdf
+Photo_screens/290c6b3f4fa442439dadcd0f5be7b728-3x-RIFE-RIFE4.0-72fps.mp4
+Photo_screens/99139648e5094b76bc619b4e2ee48223-3x-RIFE-RIFE4.0-72fps.mp4
+Photo_screens/ChatGPT*
+images/restaurant/*_raw.jpeg
