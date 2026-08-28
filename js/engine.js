@@ -43,9 +43,9 @@
 
   function getTransitionVideoSrc(from, to) {
     if (isMobileViewport()) {
-      return `Photo_screens/mob_video/${from}-${to}.mp4?v=77`;
+      return `Photo_screens/mob_video/${from}-${to}.mp4?v=110`;
     }
-    return `Photo_screens/${from}-${to}.mp4?v=77`;
+    return `Photo_screens/${from}-${to}.mp4?v=110`;
   }
 
   function getHeroVideoSrc() {
