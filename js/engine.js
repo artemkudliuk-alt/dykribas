@@ -9,13 +9,13 @@
   // --- Configuration ---
   const TOTAL_SCREENS = 7;
   const SCREENS_CONFIG = {
-    1: { name: 'Фасад', image: 'Photo_screens/1 - Hero.webp', isHero: true },
-    2: { name: 'Ресторан LenMar', image: 'Photo_screens/2 - Restaurant_new.webp?v=110' },
-    3: { name: 'SPA & Басейн', image: 'Photo_screens/3 - Spa.webp?v=110' },
-    4: { name: 'Конференц-зал', image: 'Photo_screens/4 - Hall.webp' },
-    5: { name: 'Балкон & Одеса', image: 'Photo_screens/5 - Balcony.webp' },
-    6: { name: 'Рецепція & Лоббі', image: 'Photo_screens/6 - Lobby.webp' },
-    7: { name: 'Вечірній Дюк', image: 'Photo_screens/7 - Footer.webp' }
+    1: { name: 'Фасад', image: 'Photo_screens/1 - Hero.webp?v=PROD_20260829_FINAL', isHero: true },
+    2: { name: 'Ресторан LenMar', image: 'Photo_screens/2 - Restaurant_new.webp?v=PROD_20260829_FINAL' },
+    3: { name: 'SPA & Басейн', image: 'Photo_screens/3 - Spa.webp?v=PROD_20260829_FINAL' },
+    4: { name: 'Конференц-зал', image: 'Photo_screens/4 - Hall.webp?v=PROD_20260829_FINAL' },
+    5: { name: 'Балкон & Одеса', image: 'Photo_screens/5 - Balcony.webp?v=PROD_20260829_FINAL' },
+    6: { name: 'Рецепція & Лоббі', image: 'Photo_screens/6 - Lobby.webp?v=PROD_20260829_FINAL' },
+    7: { name: 'Вечірній Дюк', image: 'Photo_screens/7 - Footer.webp?v=PROD_20260829_FINAL' }
   };
 
   // --- DOM Elements ---
@@ -43,9 +43,9 @@
 
   function getTransitionVideoSrc(from, to) {
     if (isMobileViewport()) {
-      return `Photo_screens/mob_video/${from}-${to}.mp4?v=110`;
+      return `Photo_screens/mob_video/${from}-${to}.mp4?v=PROD_20260829_FINAL`;
     }
-    return `Photo_screens/${from}-${to}.mp4?v=110`;
+    return `Photo_screens/${from}-${to}.mp4?v=PROD_20260829_FINAL`;
   }
 
   function getHeroVideoSrc() {

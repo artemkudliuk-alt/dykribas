@@ -117,14 +117,14 @@
     document.head.appendChild(linkHero);
 
     // 2. Transition videos (1-2 and 2-3)
-    const t12Src = mob ? 'Photo_screens/mob_video/1-2.mp4?v=110' : 'Photo_screens/1-2.mp4?v=110';
+    const t12Src = mob ? 'Photo_screens/mob_video/1-2.mp4?v=PROD_20260829_FINAL' : 'Photo_screens/1-2.mp4?v=PROD_20260829_FINAL';
     const linkT12 = document.createElement('link');
     linkT12.rel = 'preload';
     linkT12.as = 'video';
     linkT12.href = t12Src;
     document.head.appendChild(linkT12);
 
-    const t23Src = mob ? 'Photo_screens/mob_video/2-3.mp4?v=110' : 'Photo_screens/2-3.mp4?v=110';
+    const t23Src = mob ? 'Photo_screens/mob_video/2-3.mp4?v=PROD_20260829_FINAL' : 'Photo_screens/2-3.mp4?v=PROD_20260829_FINAL';
     const linkT23 = document.createElement('link');
     linkT23.rel = 'preload';
     linkT23.as = 'video';
@@ -133,7 +133,7 @@
 
     // 3. Screen 2 background image
     const img2 = new Image();
-    img2.src = mob ? 'Photo_screens/mob_video/screen2.png?v=54' : 'Photo_screens/2 - Restaurant_new.webp?v=54';
+    img2.src = mob ? 'Photo_screens/mob_video/screen2.png?v=PROD_20260829_FINAL' : 'Photo_screens/2 - Restaurant_new.webp?v=PROD_20260829_FINAL';
 
     // 4. Prime the Dual Hero Players in engine if already in DOM
     const hv1 = document.getElementById('hero-video-1');
