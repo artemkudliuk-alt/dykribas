@@ -546,12 +546,12 @@
     window.addEventListener('touchend', onTouchEnd, { passive: true });
     window.addEventListener('keydown', onKeyDown);
 
-    // Sidebar Dot/Bar Navigation Click — Now switches directly via FADE instead of video flight!
+    // Sidebar Dot/Bar Navigation Click — Triggers smooth video flights!
     navDots.forEach((dot) => {
       dot.addEventListener('click', (e) => {
         e.preventDefault();
         const targetScreen = parseInt(dot.getAttribute('data-screen'), 10);
-        fadeToScreen(targetScreen);
+        goToScreen(targetScreen);
       });
     });
   }
@@ -559,9 +559,9 @@
   // --- Initialize App ---
   function init() {
     window.goToScreenEngine = goToScreen;
-    window.fadeToScreenEngine = fadeToScreen;
+    window.fadeToScreenEngine = goToScreen;
     window.scrollToMainScreen = function () {
-      fadeToScreen(1);
+      goToScreen(1);
     };
     window.startHeroFromPreloader = playHeroLoop;
     preloadTransitions();

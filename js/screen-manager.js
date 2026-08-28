@@ -1331,9 +1331,7 @@
 
   window.navMobileScreen = function (screenIndex) {
     window.closeMobileMenu();
-    if (window.fadeToScreenEngine) {
-      window.fadeToScreenEngine(screenIndex);
-    } else if (window.goToScreenEngine) {
+    if (window.goToScreenEngine) {
       window.goToScreenEngine(screenIndex);
     }
   };
