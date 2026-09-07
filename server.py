@@ -5,7 +5,7 @@ import sys
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 PORT = 3000
-DIRECTORY = "e:/ribas_Dyk"
+DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 
 class CustomHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
