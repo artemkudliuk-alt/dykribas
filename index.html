@@ -6,8 +6,8 @@
   <title>Ribas Duke Boutique Hotel — Digital Guest Guide</title>
   <meta name="description" content="Інтерактивний цифровий гід для гостей 5-зіркового бутик-готелю Ribas Duke в Одесі.">
   <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Commissioner:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=El+Messiri:wght@400;500;600;700&family=Forum&family=Golos+Text:wght@400;500;600&family=Jost:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&family=Mulish:wght@300;400;500;600&family=Onest:wght@300;400;500;600&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Prata&family=Raleway:wght@300;400;500;600&family=Spectral:ital,wght@0,300;0,400;0,500;1,300&family=Tenor+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=PROD_20260910_v1">
-  <link rel="stylesheet" href="css/design-system.css?v=PROD_20260910_v1">
+  <link rel="stylesheet" href="css/style.css?v=PROD_20260917_v2">
+  <link rel="stylesheet" href="css/design-system.css?v=PROD_20260917_v2">
 </head>
 <body>
 
@@ -118,11 +118,15 @@
     </button>
   </aside>
 
-  <!-- Left Floating Pillow Menu Widget (Karpaty Style) -->
+  <!-- Left Floating Menu Widgets (Karpaty Style) -->
   <div class="floating-right-widget">
     <button class="btn-floating-pillow" onclick="window.openPillowModal()" aria-label="Меню подушок">
       <svg viewBox="0 0 24 24"><path d="M2 4v16h20V4H2zm18 14H4V6h16v12z"/></svg>
       <span class="pillow-btn-text" data-i18n="pillow_widget">Меню подушок</span>
+    </button>
+    <button class="btn-floating-books" onclick="window.openBooksModal()" aria-label="Меню книжок">
+      <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      <span class="pillow-btn-text" data-i18n="books_widget">Меню книжок</span>
     </button>
   </div>
 
@@ -214,14 +218,14 @@
                   <span class="schedule-ico"><svg viewBox="0 0 24 24"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg></span>
                   <div class="schedule-text">
                     <span class="sched-name" data-i18n="screen2_restaurant_title">Ресторан à la carte</span>
-                    <span class="sched-time" data-i18n="screen2_restaurant_time">12:00–23:00</span>
+                    <span class="sched-time" data-i18n="screen2_restaurant_time">12:00–21:00</span>
                   </div>
                 </div>
                 <div class="schedule-item-minimal">
                   <span class="schedule-ico"><svg viewBox="0 0 24 24"><path d="M8 22h8m-4-7v7m-7-15l7 8 7-8H4z"/></svg></span>
                   <div class="schedule-text">
                     <span class="sched-name" data-i18n="screen2_bar_title">Лобі-бар</span>
-                    <span class="sched-time" data-i18n="screen2_bar_time">Цілодобово</span>
+                    <span class="sched-time" data-i18n="screen2_bar_time">08:00–21:00</span>
                   </div>
                 </div>
                 <div class="schedule-item-minimal">
@@ -348,8 +352,8 @@
               <div class="schedule-item-minimal">
                 <span class="schedule-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
                 <div class="schedule-text">
-                  <span class="sched-name" data-i18n="screen3_pool_title">СПА-центр та басейн</span>
-                  <span class="sched-time" data-i18n="screen3_pool_time">Працюють цілодобово 24/7</span>
+                  <span class="sched-name" data-i18n="screen3_pool_title">СПА-комплекс, басейн та хамам</span>
+                  <span class="sched-time" data-i18n="screen3_pool_time">07:00–00:00</span>
                 </div>
               </div>
               <div class="schedule-item-minimal">
@@ -609,6 +613,10 @@
                 <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 <span data-i18n="screen6_btn_safe">Інструкція до сейфа</span>
               </button>
+              <button onclick="window.openBooksModal()" class="btn-card-glass">
+                <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                <span data-i18n="screen6_btn_books">Меню книжок</span>
+              </button>
               <a href="tel:+380931982139" class="btn-card-glass">
                 <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 <span data-i18n="screen6_btn_reception">Викликати рецепцію</span>
@@ -664,7 +672,7 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
               <span>Facebook</span>
             </a>
-            <a href="https://t.me/+380931982139" target="_blank" rel="noopener noreferrer" class="footer-social-link telegram">
+            <a href="https://t.me/ribasdukehotel" target="_blank" rel="noopener noreferrer" class="footer-social-link telegram">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
               <span>Telegram</span>
             </a>
@@ -731,7 +739,7 @@
           </div>
         </a>
 
-        <a href="https://t.me/+380931982139" target="_blank" rel="noopener noreferrer" class="mob-quick-tile">
+        <a href="https://t.me/ribasdukehotel" target="_blank" rel="noopener noreferrer" class="mob-quick-tile">
           <div class="mob-tile-icon telegram">
             <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
@@ -748,6 +756,16 @@
           <div class="mob-tile-info">
             <span class="mob-tile-label" data-i18n="pillow_widget">Меню подушок</span>
             <span class="mob-tile-val">6 видів</span>
+          </div>
+        </button>
+
+        <button class="mob-quick-tile" onclick="window.closeMobileMenu(); window.openBooksModal();">
+          <div class="mob-tile-icon book">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          </div>
+          <div class="mob-tile-info">
+            <span class="mob-tile-label" data-i18n="books_widget">Меню книжок</span>
+            <span class="mob-tile-val" data-i18n="books_widget_val">Бібліотека</span>
           </div>
         </button>
       </div>
@@ -808,7 +826,7 @@
           <a href="https://www.facebook.com/Ribas.Duke" target="_blank" rel="noopener noreferrer" class="mob-social-btn facebook" aria-label="Facebook">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
-          <a href="https://t.me/+380931982139" target="_blank" rel="noopener noreferrer" class="mob-social-btn telegram" aria-label="Telegram">
+          <a href="https://t.me/ribasdukehotel" target="_blank" rel="noopener noreferrer" class="mob-social-btn telegram" aria-label="Telegram">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
           </a>
         </div>
@@ -817,9 +835,9 @@
     </div>
   </div>
 
-  <script src="js/i18n.js?v=PROD_20260910_v1"></script>
-  <script src="js/preloader.js?v=PROD_20260910_v1"></script>
-  <script src="js/screen-manager.js?v=PROD_20260910_v1"></script>
-  <script src="js/engine.js?v=PROD_20260910_v1"></script>
+  <script src="js/i18n.js?v=PROD_20260917_v2"></script>
+  <script src="js/preloader.js?v=PROD_20260917_v2"></script>
+  <script src="js/screen-manager.js?v=PROD_20260917_v2"></script>
+  <script src="js/engine.js?v=PROD_20260917_v2"></script>
 </body>
 </html>

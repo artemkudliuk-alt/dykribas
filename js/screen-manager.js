@@ -196,7 +196,7 @@
           </div>
           <p class="popover-desc">${t('chat_desc')}</p>
           <div class="popover-chat-btns">
-            <a href="https://t.me/+380931982139" target="_blank" rel="noopener noreferrer" class="btn-popover-messenger tg">
+            <a href="https://t.me/ribasdukehotel" target="_blank" rel="noopener noreferrer" class="btn-popover-messenger tg">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 4px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
               Telegram
             </a>
@@ -354,6 +354,8 @@
   // ==========================================================================
   const PDF_PAGE_MAP = {
     'pillow_menu': ['docs/pillow_page_1.webp', 'docs/pillow_page_2.webp'],
+    'books_menu': ['docs/books_page_1.webp', 'docs/books_page_2.webp'],
+    'books': ['docs/books_page_1.webp', 'docs/books_page_2.webp'],
     'duke_hotel_info': ['docs/hotel_info_page_1.webp'],
     'hotel_info': ['docs/hotel_info_page_1.webp'],
     'duke_safe_instructions': ['docs/safe_clean_page_1.webp', 'docs/safe_clean_page_2.webp', 'docs/safe_clean_page_3.webp', 'docs/safe_clean_page_4.webp'],
@@ -447,6 +449,30 @@
       t('pillow_modal_title') || 'Меню Подушок — Ribas Duke',
       t('pillow_modal_desc') || 'Ідеальний сон — мистецтво відпочинку. Оберіть подушку та замовте на рецепції.',
       'docs/pillow_menu.pdf',
+      cta
+    );
+  };
+
+  // 1.5. Books Menu Modal (Read with Ribas)
+  window.openBooksModal = function () {
+    window.closeAllPopovers();
+    const t = window.t || ((k) => k);
+    const cta = `
+      <div class="modal-cta-duo">
+        <a href="tel:+380931982139" class="btn-card-gold modal-cta-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>${t('books_order_btn') || 'ЗАМОВИТИ В НОМЕР (+380 93 198 21 39)'}</span>
+        </a>
+        <a href="https://knigoland.com.ua" target="_blank" rel="noopener noreferrer" class="btn-card-glass modal-cta-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-right: 6px;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          <span>${t('books_knigoland_btn') || 'KNIGOLAND (-15%)'}</span>
+        </a>
+      </div>
+    `;
+    window.openDukePdfModal(
+      t('books_modal_title') || 'Меню Книжок — Ribas Duke & KnigoLand',
+      t('books_modal_desc') || 'Актуальна підбірка 2025: бізнес-література, бестселери та психологія. Замовляйте на рецепції або купуйте зі знижкою 15% за промокодом RIBASREAD.',
+      'docs/books_menu.pdf',
       cta
     );
   };
@@ -567,7 +593,7 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 <span>РЕЦЕПЦІЯ</span>
               </a>
-              <a href="https://t.me/+380931982139" target="_blank" rel="noopener noreferrer" class="btn-card-glass modal-cta-btn tg" onclick="event.stopPropagation();">
+              <a href="https://t.me/ribasdukehotel" target="_blank" rel="noopener noreferrer" class="btn-card-glass modal-cta-btn tg" onclick="event.stopPropagation();">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
                 <span>TELEGRAM</span>
               </a>
@@ -715,7 +741,7 @@
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 <span>МЕНЕДЖЕР</span>
               </a>
-              <a href="https://t.me/+380931982139" target="_blank" rel="noopener noreferrer" class="btn-card-glass modal-cta-btn tg" onclick="event.stopPropagation();">
+              <a href="https://t.me/ribasdukehotel" target="_blank" rel="noopener noreferrer" class="btn-card-glass modal-cta-btn tg" onclick="event.stopPropagation();">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
                 <span>TELEGRAM</span>
               </a>
@@ -898,7 +924,7 @@
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 <span>КОНСЬЄРЖ</span>
               </a>
-              <a href="https://t.me/+380931982139" target="_blank" rel="noopener noreferrer" class="btn-card-glass modal-cta-btn tg" onclick="event.stopPropagation();">
+              <a href="https://t.me/ribasdukehotel" target="_blank" rel="noopener noreferrer" class="btn-card-glass modal-cta-btn tg" onclick="event.stopPropagation();">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
                 <span>TELEGRAM</span>
               </a>

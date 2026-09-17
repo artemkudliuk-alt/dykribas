@@ -286,16 +286,20 @@ body.is-transitioning .cinematic-screen-overlay {
   transform: translateY(-50%);
   z-index: 50;
   pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.btn-floating-pillow {
+.btn-floating-pillow,
+.btn-floating-books {
   background: rgba(14, 15, 18, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--duke-glass-border);
   border-left: none;
   border-radius: 0 16px 16px 0;
-  padding: 16px 14px;
+  padding: 14px 13px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -305,24 +309,27 @@ body.is-transitioning .cinematic-screen-overlay {
   box-shadow: 8px 8px 30px rgba(0, 0, 0, 0.5);
 }
 
-.btn-floating-pillow:hover {
+.btn-floating-pillow:hover,
+.btn-floating-books:hover {
   background: rgba(24, 25, 32, 0.9);
   border-color: var(--duke-gold);
   transform: translateX(4px);
   box-shadow: 12px 12px 36px rgba(0, 0, 0, 0.6), 0 0 20px var(--duke-gold-glow);
 }
 
-.btn-floating-pillow svg {
-  width: 22px;
-  height: 22px;
+.btn-floating-pillow svg,
+.btn-floating-books svg {
+  width: 20px;
+  height: 20px;
   stroke: var(--duke-gold-light);
   fill: none;
   stroke-width: 1.8;
 }
 
-.btn-floating-pillow .pillow-btn-text {
+.btn-floating-pillow .pillow-btn-text,
+.btn-floating-books .pillow-btn-text {
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -2321,7 +2328,7 @@ body.is-transitioning .font-switcher-bar {
   align-items: center;
   gap: 14px;
   width: 100%;
-  max-width: 480px;
+  max-width: 520px;
   margin: 6px auto 0;
 }
 
@@ -2332,10 +2339,10 @@ body.is-transitioning .font-switcher-bar {
   font-family: var(--font-sans) !important;
   font-size: 12px !important;
   font-weight: 600 !important;
-  letter-spacing: 0.05em !important;
+  letter-spacing: 0.04em !important;
   text-transform: uppercase !important;
   text-decoration: none !important;
-  padding: 12px 22px !important;
+  padding: 12px 18px !important;
   min-height: 46px !important;
   border-radius: 12px !important;
   white-space: nowrap !important;
@@ -2356,7 +2363,7 @@ body.is-transitioning .font-switcher-bar {
   margin-right: 8px !important;
 }
 
-/* Telegram in Popups / Modals — Styled with Duke Gold (Hotel Logo Color) */
+/* Telegram & Glass in Popups / Modals — Styled with Duke Gold (Hotel Logo Color) */
 .btn-modal-telegram,
 .modal-cta-btn.tg,
 .modal-cta-duo .btn-card-glass {
@@ -2367,12 +2374,17 @@ body.is-transitioning .font-switcher-bar {
 }
 
 .btn-modal-telegram svg,
-.modal-cta-btn.tg svg,
-.modal-cta-duo .btn-card-glass svg {
+.modal-cta-btn.tg svg {
   fill: var(--duke-gold, #c5a86a) !important;
   color: var(--duke-gold, #c5a86a) !important;
   stroke: none !important;
   filter: drop-shadow(0 0 4px rgba(197, 168, 106, 0.5));
+}
+
+.modal-cta-duo .btn-card-glass:not(.tg) svg {
+  stroke: var(--duke-gold, #c5a86a) !important;
+  fill: none !important;
+  filter: drop-shadow(0 0 4px rgba(197, 168, 106, 0.4));
 }
 
 .btn-modal-telegram:hover,
@@ -2386,10 +2398,14 @@ body.is-transitioning .font-switcher-bar {
 }
 
 .btn-modal-telegram:hover svg,
-.modal-cta-btn.tg:hover svg,
-.modal-cta-duo .btn-card-glass:hover svg {
+.modal-cta-btn.tg:hover svg {
   fill: #0a0b0e !important;
   color: #0a0b0e !important;
+}
+
+.modal-cta-duo .btn-card-glass:not(.tg):hover svg {
+  stroke: #0a0b0e !important;
+  fill: none !important;
 }
 
 /* ==========================================================================
@@ -3906,6 +3922,11 @@ body.is-transitioning .font-switcher-bar {
   gap: 8px;
   width: 100%;
   margin: 4px 0;
+}
+
+.mobile-menu-quick-grid .mob-quick-tile:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-content: center;
 }
 
 .mob-quick-tile {
