@@ -453,6 +453,30 @@
     );
   };
 
+  // 1.5. Books Menu Modal (Read with Ribas)
+  window.openBooksModal = function () {
+    window.closeAllPopovers();
+    const t = window.t || ((k) => k);
+    const cta = `
+      <div class="modal-cta-duo">
+        <a href="tel:+380931982139" class="btn-card-gold modal-cta-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>${t('books_order_btn') || 'ЗАМОВИТИ В НОМЕР (+380 93 198 21 39)'}</span>
+        </a>
+        <a href="https://knigoland.com.ua" target="_blank" rel="noopener noreferrer" class="btn-card-glass modal-cta-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-right: 6px;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          <span>${t('books_knigoland_btn') || 'KNIGOLAND (-15%)'}</span>
+        </a>
+      </div>
+    `;
+    window.openDukePdfModal(
+      t('books_modal_title') || 'Меню Книжок — Ribas Duke & KnigoLand',
+      t('books_modal_desc') || 'Актуальна підбірка 2025: бізнес-література, бестселери та психологія. Замовляйте на рецепції або купуйте зі знижкою 15% за промокодом RIBASREAD.',
+      'docs/books_menu.pdf',
+      cta
+    );
+  };
+
   // 2. Restaurant Menu
   window.openRestaurantPdfModal = function () {
     window.openRestaurantWebMenuModal();

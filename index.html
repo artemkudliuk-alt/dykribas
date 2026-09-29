@@ -6,8 +6,8 @@
   <title>Ribas Duke Boutique Hotel — Digital Guest Guide</title>
   <meta name="description" content="Інтерактивний цифровий гід для гостей 5-зіркового бутик-готелю Ribas Duke в Одесі.">
   <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Commissioner:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=El+Messiri:wght@400;500;600;700&family=Forum&family=Golos+Text:wght@400;500;600&family=Jost:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&family=Mulish:wght@300;400;500;600&family=Onest:wght@300;400;500;600&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Prata&family=Raleway:wght@300;400;500;600&family=Spectral:ital,wght@0,300;0,400;0,500;1,300&family=Tenor+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=PROD_20260929_amen2">
-  <link rel="stylesheet" href="css/design-system.css?v=PROD_20260929_amen2">
+  <link rel="stylesheet" href="css/style.css?v=PROD_20260929_amen3">
+  <link rel="stylesheet" href="css/design-system.css?v=PROD_20260929_amen3">
 </head>
 <body>
 
@@ -123,6 +123,10 @@
     <button class="btn-floating-pillow" onclick="window.openPillowModal()" aria-label="Меню подушок">
       <svg viewBox="0 0 24 24"><path d="M2 4v16h20V4H2zm18 14H4V6h16v12z"/></svg>
       <span class="pillow-btn-text" data-i18n="pillow_widget">Меню подушок</span>
+    </button>
+    <button class="btn-floating-books" onclick="window.openBooksModal()" aria-label="Меню книжок">
+      <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      <span class="pillow-btn-text" data-i18n="books_widget">Меню книжок</span>
     </button>  </div>
 
   <!-- Bottom Scroll Indicator -->
@@ -752,6 +756,16 @@
             <span class="mob-tile-label" data-i18n="pillow_widget">Меню подушок</span>
             <span class="mob-tile-val">6 видів</span>
           </div>
+        </button>
+
+        <button class="mob-quick-tile" onclick="window.closeMobileMenu(); window.openBooksModal();">
+          <div class="mob-tile-icon book">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          </div>
+          <div class="mob-tile-info">
+            <span class="mob-tile-label" data-i18n="books_widget">Меню книжок</span>
+            <span class="mob-tile-val" data-i18n="books_widget_val">Бібліотека</span>
+          </div>
         </button>      </div>
 
       <!-- Navigation Links to 7 Screens (compact layout) -->
@@ -819,9 +833,9 @@
     </div>
   </div>
 
-  <script src="js/i18n.js?v=PROD_20260929_amen2"></script>
-  <script src="js/preloader.js?v=PROD_20260929_amen2"></script>
-  <script src="js/screen-manager.js?v=PROD_20260929_amen2"></script>
-  <script src="js/engine.js?v=PROD_20260929_amen2"></script>
+  <script src="js/i18n.js?v=PROD_20260929_amen3"></script>
+  <script src="js/preloader.js?v=PROD_20260929_amen3"></script>
+  <script src="js/screen-manager.js?v=PROD_20260929_amen3"></script>
+  <script src="js/engine.js?v=PROD_20260929_amen3"></script>
 </body>
 </html>

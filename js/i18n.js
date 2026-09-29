@@ -231,6 +231,14 @@
       pillow_modal_desc: "Ідеальний сон — мистецтво відпочинку. Оберіть подушку та замовте на рецепції.",
       pillow_order_btn: "ЗАМОВИТИ НА РЕЦЕПЦІЇ",
       
+      // Books Modal
+      books_widget: "Меню книжок",
+      books_widget_val: "Бібліотека",
+      books_modal_title: "Меню Книжок — Ribas Duke & KnigoLand",
+      books_modal_desc: "Актуальна підбірка 2025: бізнес-література, бестселери та психологія. Замовляйте на рецепції або купуйте зі знижкою 15% за промокодом RIBASREAD.",
+      books_order_btn: "ЗАМОВИТИ В НОМЕР",
+      books_knigoland_btn: "KNIGOLAND (-15%)",
+
       // Amenities Modal
       amenities_widget: "Щось потрібно?",
       amenities_modal_title: "Щось потрібно?",
@@ -510,6 +518,14 @@
       pillow_modal_desc: "Perfect sleep is the art of relaxation. Choose your pillow and order at reception.",
       pillow_order_btn: "ORDER AT RECEPTION",
       
+      // Books Modal
+      books_widget: "Books Menu",
+      books_widget_val: "Library",
+      books_modal_title: "Books Menu — Ribas Duke & KnigoLand",
+      books_modal_desc: "Selected 2025 reads: business, bestsellers and psychology. Order to your room via reception or purchase with a 15% discount using promo code RIBASREAD.",
+      books_order_btn: "ORDER TO ROOM",
+      books_knigoland_btn: "KNIGOLAND (-15%)",
+
       // Amenities Modal
       amenities_widget: "Need anything?",
       amenities_modal_title: "Need anything?",
@@ -789,6 +805,14 @@
       pillow_modal_desc: "Идеальный сон — искусство отдыха. Выберите подушку и закажите на рецепции.",
       pillow_order_btn: "ЗАКАЗАТЬ НА РЕЦЕПЦИИ",
       
+      // Books Modal
+      books_widget: "Меню книг",
+      books_widget_val: "Библиотека",
+      books_modal_title: "Меню Книг — Ribas Duke & KnigoLand",
+      books_modal_desc: "Актуальная подборка 2025: бизнес-литература, бестселлеры и психология. Заказывайте на рецепции или покупайте со скидкой 15% по промокоду RIBASREAD.",
+      books_order_btn: "ЗАКАЗАТЬ В НОМЕР",
+      books_knigoland_btn: "KNIGOLAND (-15%)",
+
       // Amenities Modal
       amenities_widget: "Что-то нужно?",
       amenities_modal_title: "Что-то нужно?",
