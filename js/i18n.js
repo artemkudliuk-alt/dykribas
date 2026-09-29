@@ -233,7 +233,6 @@
       
       // Amenities Modal
       amenities_widget: "Щось потрібно?",
-      amenities_widget_val: "Чайник, праска…",
       amenities_modal_title: "Щось потрібно?",
       amenities_modal_lead: "У нас є все для вашого безтурботного відпочинку",
       amenities_kettle: "Чайник",
@@ -513,7 +512,6 @@
       
       // Amenities Modal
       amenities_widget: "Need anything?",
-      amenities_widget_val: "Kettle, iron…",
       amenities_modal_title: "Need anything?",
       amenities_modal_lead: "We have everything for your carefree stay",
       amenities_kettle: "Kettle",
@@ -793,7 +791,6 @@
       
       // Amenities Modal
       amenities_widget: "Что-то нужно?",
-      amenities_widget_val: "Чайник, утюг…",
       amenities_modal_title: "Что-то нужно?",
       amenities_modal_lead: "У нас есть всё для вашего беззаботного отдыха",
       amenities_kettle: "Чайник",
