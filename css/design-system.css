@@ -3648,6 +3648,33 @@ body.is-transitioning .font-switcher-bar {
   font-weight: 700;
 }
 
+.amenities-lead {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 4px;
+  text-align: left;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.amenity-card {
+  align-items: center;
+}
+
+.amenity-card .safe-step-content h4 {
+  margin: 0;
+}
+
+#duke-amenities-modal b {
+  white-space: nowrap;
+}
+
 .safe-modal-footer {
   display: flex;
   justify-content: center;

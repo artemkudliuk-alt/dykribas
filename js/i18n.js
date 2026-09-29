@@ -231,14 +231,17 @@
       pillow_modal_desc: "Ідеальний сон — мистецтво відпочинку. Оберіть подушку та замовте на рецепції.",
       pillow_order_btn: "ЗАМОВИТИ НА РЕЦЕПЦІЇ",
       
-      // Books Modal
-      books_widget: "Меню книжок",
-      books_widget_val: "Бібліотека",
-      books_modal_title: "Меню Книжок — Ribas Duke & KnigoLand",
-      books_modal_desc: "Актуальна підбірка 2025: бізнес-література, бестселери та психологія. Замовляйте на рецепції або купуйте зі знижкою 15% за промокодом RIBASREAD.",
-      books_order_btn: "ЗАМОВИТИ В НОМЕР",
-      books_knigoland_btn: "KNIGOLAND (-15%)",
-      screen6_btn_books: "Меню книжок",
+      // Amenities Modal
+      amenities_widget: "Щось потрібно?",
+      amenities_widget_val: "Чайник, праска…",
+      amenities_modal_title: "Щось потрібно?",
+      amenities_modal_lead: "У нас є все для вашого безтурботного відпочинку",
+      amenities_kettle: "Чайник",
+      amenities_iron: "Праска",
+      amenities_steamer: "Відпарювач",
+      amenities_fumigator: "Фумігатор",
+      amenities_modal_note: "Просто зателефонуйте на рецепцію: <b>+380 93 198 21 39</b>",
+      amenities_modal_btn: "ЗАТЕЛЕФОНУВАТИ НА РЕЦЕПЦІЮ",
       
       // SPA Complex Modal
       spa_modal_title: "SPA & Wellness Комплекс — Ribas Duke",
@@ -508,14 +511,17 @@
       pillow_modal_desc: "Perfect sleep is the art of relaxation. Choose your pillow and order at reception.",
       pillow_order_btn: "ORDER AT RECEPTION",
       
-      // Books Modal
-      books_widget: "Books Menu",
-      books_widget_val: "Library",
-      books_modal_title: "Books Menu — Ribas Duke & KnigoLand",
-      books_modal_desc: "Selected 2025 reads: business, bestsellers and psychology. Order to your room via reception or purchase with a 15% discount using promo code RIBASREAD.",
-      books_order_btn: "ORDER TO ROOM",
-      books_knigoland_btn: "KNIGOLAND (-15%)",
-      screen6_btn_books: "Books Menu",
+      // Amenities Modal
+      amenities_widget: "Need anything?",
+      amenities_widget_val: "Kettle, iron…",
+      amenities_modal_title: "Need anything?",
+      amenities_modal_lead: "We have everything for your carefree stay",
+      amenities_kettle: "Kettle",
+      amenities_iron: "Iron",
+      amenities_steamer: "Garment steamer",
+      amenities_fumigator: "Mosquito fumigator",
+      amenities_modal_note: "Just call the reception: <b>+380 93 198 21 39</b>",
+      amenities_modal_btn: "CALL RECEPTION",
       
       // SPA Complex Modal
       spa_modal_title: "SPA & Wellness Complex — Ribas Duke",
@@ -785,14 +791,17 @@
       pillow_modal_desc: "Идеальный сон — искусство отдыха. Выберите подушку и закажите на рецепции.",
       pillow_order_btn: "ЗАКАЗАТЬ НА РЕЦЕПЦИИ",
       
-      // Books Modal
-      books_widget: "Меню книг",
-      books_widget_val: "Библиотека",
-      books_modal_title: "Меню Книг — Ribas Duke & KnigoLand",
-      books_modal_desc: "Актуальная подборка 2025: бизнес-литература, бестселлеры и психология. Заказывайте на рецепции или покупайте со скидкой 15% по промокоду RIBASREAD.",
-      books_order_btn: "ЗАКАЗАТЬ В НОМЕР",
-      books_knigoland_btn: "KNIGOLAND (-15%)",
-      screen6_btn_books: "Меню книг",
+      // Amenities Modal
+      amenities_widget: "Что-то нужно?",
+      amenities_widget_val: "Чайник, утюг…",
+      amenities_modal_title: "Что-то нужно?",
+      amenities_modal_lead: "У нас есть всё для вашего беззаботного отдыха",
+      amenities_kettle: "Чайник",
+      amenities_iron: "Утюг",
+      amenities_steamer: "Отпариватель",
+      amenities_fumigator: "Фумигатор",
+      amenities_modal_note: "Просто позвоните на рецепцию: <b>+380 93 198 21 39</b>",
+      amenities_modal_btn: "ПОЗВОНИТЬ НА РЕЦЕПЦИЮ",
       
       // SPA Complex Modal
       spa_modal_title: "SPA & Wellness Комплекс — Ribas Duke",

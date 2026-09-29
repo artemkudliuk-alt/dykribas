@@ -453,30 +453,6 @@
     );
   };
 
-  // 1.5. Books Menu Modal (Read with Ribas)
-  window.openBooksModal = function () {
-    window.closeAllPopovers();
-    const t = window.t || ((k) => k);
-    const cta = `
-      <div class="modal-cta-duo">
-        <a href="tel:+380931982139" class="btn-card-gold modal-cta-btn">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" style="margin-right: 6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span>${t('books_order_btn') || 'ЗАМОВИТИ В НОМЕР (+380 93 198 21 39)'}</span>
-        </a>
-        <a href="https://knigoland.com.ua" target="_blank" rel="noopener noreferrer" class="btn-card-glass modal-cta-btn">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-right: 6px;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-          <span>${t('books_knigoland_btn') || 'KNIGOLAND (-15%)'}</span>
-        </a>
-      </div>
-    `;
-    window.openDukePdfModal(
-      t('books_modal_title') || 'Меню Книжок — Ribas Duke & KnigoLand',
-      t('books_modal_desc') || 'Актуальна підбірка 2025: бізнес-література, бестселери та психологія. Замовляйте на рецепції або купуйте зі знижкою 15% за промокодом RIBASREAD.',
-      'docs/books_menu.pdf',
-      cta
-    );
-  };
-
   // 2. Restaurant Menu
   window.openRestaurantPdfModal = function () {
     window.openRestaurantWebMenuModal();
@@ -1111,6 +1087,77 @@
 
     overlay.classList.add('active');
     activeModal = overlay;
+  };
+
+  // 10.5. Amenities Modal ("Щось потрібно?")
+  window.openAmenitiesModal = function () {
+    window.closeAllPopovers();
+    const t = window.t || ((k) => k);
+    let overlay = document.getElementById('duke-amenities-modal');
+    if (!overlay) {
+      const items = [
+        ['amenities_kettle', 'Чайник', '<path d="M5 9h11v9a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z"/><path d="M16 11h2a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-2"/><path d="M7 9V6a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3v3"/>'],
+        ['amenities_iron', 'Праска', '<path d="M3 18h17V14a6 6 0 0 0-6-6H8"/><path d="M3 18a7 7 0 0 1 7-7h10"/><path d="M8 8V5"/>'],
+        ['amenities_steamer', 'Відпарювач', '<rect x="6" y="9" width="8" height="12" rx="2"/><path d="M10 9V6h6l2 2"/><path d="M19 3c1 1 1 2 0 3M21 2c1.5 1.5 1.5 4 0 5.5"/>'],
+        ['amenities_fumigator', 'Фумігатор', '<rect x="7" y="7" width="10" height="14" rx="2"/><path d="M10 3v4M14 3v4"/><path d="M10 12h4M10 16h4"/>']
+      ];
+      overlay = document.createElement('div');
+      overlay.id = 'duke-amenities-modal';
+      overlay.className = 'duke-modal-overlay';
+      overlay.innerHTML = `
+        <div class="duke-safe-modal-box">
+          <div class="safe-modal-header">
+            <div class="safe-title-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--duke-gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+              <h3 data-i18n="amenities_modal_title">${t('amenities_modal_title') || 'Щось потрібно?'}</h3>
+            </div>
+            <button class="safe-modal-close" onclick="window.closeAmenitiesModal()" aria-label="Закрити">✕</button>
+          </div>
+
+          <div class="safe-modal-body">
+            <p class="amenities-lead" data-i18n="amenities_modal_lead">${t('amenities_modal_lead') || 'У нас є все для вашого безтурботного відпочинку'}</p>
+            <div class="amenities-grid">
+              ${items.map(([key, fallback, path]) => `
+                <div class="safe-step-card amenity-card">
+                  <div class="safe-step-num"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${path}</svg></div>
+                  <div class="safe-step-content"><h4 data-i18n="${key}">${t(key) || fallback}</h4></div>
+                </div>
+              `).join('')}
+            </div>
+            <div class="safe-step-card highlight">
+              <div class="safe-step-content">
+                <p data-i18n="amenities_modal_note">${t('amenities_modal_note') || 'Просто зателефонуйте на рецепцію: <b>+380 93 198 21 39</b>'}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="safe-modal-footer">
+            <a href="tel:+380931982139" class="btn-card-gold modal-cta-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" style="margin-right: 8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span data-i18n="amenities_modal_btn">${t('amenities_modal_btn') || 'ЗАТЕЛЕФОНУВАТИ НА РЕЦЕПЦІЮ'}</span>
+            </a>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) window.closeAmenitiesModal();
+      });
+    }
+
+    if (window.applyCurrentTranslations) {
+      window.applyCurrentTranslations(overlay);
+    }
+
+    overlay.classList.add('active');
+    activeModal = overlay;
+  };
+
+  window.closeAmenitiesModal = function () {
+    const overlay = document.getElementById('duke-amenities-modal');
+    if (overlay) overlay.classList.remove('active');
+    if (activeModal === overlay) activeModal = null;
   };
 
   window.closeSafeModal = function () {
